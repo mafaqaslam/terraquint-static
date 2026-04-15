@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Watch petroleum engineering tutorials, webinars, and case studies. Expert insights on reservoir simulation, production optimization, flow assurance, and economic forecasting. Subscribe for updates.">
+  <link rel="canonical" href="https://www.terraquint.com/videos.html">
+  
+  <title>Petroleum Engineering Videos | Tutorials & Webinars | TerraQuint</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Page-specific styles (only for videos.html) -->
+  <style>
+    /* Center the page header content */
+    .page-header {
+      text-align: center;
+    }
+
+    .page-header h1 {
+      text-align: center;
+    }
+
+    .page-header p {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Category Filter Buttons - Horizontal Scroll on Mobile, One Line on Desktop */
+    .filter-section {
+      margin-bottom: 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    /* Scroll indicators (shadows) for mobile */
+    .filter-section::before,
+    .filter-section::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 30px;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .filter-section::before {
+      left: 0;
+      background: linear-gradient(to right, rgba(255,255,255,0.95), transparent);
+    }
+
+    .filter-section::after {
+      right: 0;
+      background: linear-gradient(to left, rgba(255,255,255,0.95), transparent);
+    }
+
+    /* Show left shadow when scrolled */
+    .filter-section.scroll-start::before {
+      opacity: 0;
+    }
+
+    .filter-section:not(.scroll-start)::before {
+      opacity: 1;
+    }
+
+    /* Show right shadow when not at end */
+    .filter-section.scroll-end::after {
+      opacity: 0;
+    }
+
+    .filter-section:not(.scroll-end)::after {
+      opacity: 1;
+    }
+
+    .filter-buttons {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      gap: 0.75rem;
+      margin-top: 1rem;
+      overflow-x: auto;
+      overflow-y: visible;
+      padding-bottom: 0.75rem;
+      padding-left: 0.25rem;
+      padding-right: 0.25rem;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+
+    /* Hide scrollbar on desktop but keep functionality */
+    .filter-buttons::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .filter-buttons::-webkit-scrollbar-track {
+      background: var(--gray-200);
+      border-radius: 4px;
+    }
+
+    .filter-buttons::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 4px;
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--gray-200);
+      padding: 0.5rem 1.25rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--gray-700);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Inter', sans-serif;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .filter-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+    }
+
+    /* Video Grid */
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    /* Video Card */
+    .video-card {
+      background: var(--white);
+      border-radius: 20px;
+      border: 1px solid var(--gray-200);
+      overflow: hidden;
+      transition: all 0.25s ease;
+      text-decoration: none;
+      display: block;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    .video-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      border-color: var(--accent);
+    }
+
+    /* Thumbnail Container */
+    .thumbnail-container {
+      position: relative;
+      overflow: hidden;
+      background: var(--black);
+    }
+
+    .video-thumbnail {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .video-card:hover .video-thumbnail {
+      transform: scale(1.05);
+    }
+
+    /* Duration Badge */
+    .duration-badge {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.75);
+      color: white;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      font-family: monospace;
+      backdrop-filter: blur(4px);
+    }
+
+    /* Play Icon Overlay */
+    .play-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      background: rgba(0, 119, 182, 0.85);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      backdrop-filter: blur(4px);
+    }
+
+    .video-card:hover .play-overlay {
+      opacity: 1;
+    }
+
+    .play-overlay svg {
+      width: 28px;
+      height: 28px;
+      fill: white;
+      margin-left: 4px;
+    }
+
+    /* Card Content */
+    .card-content {
+      padding: 1.5rem;
+    }
+
+    .card-category {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      background: rgba(0, 119, 182, 0.1);
+      border-radius: 20px;
+    }
+
+    .video-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--black);
+      line-height: 1.4;
+    }
+
+    /* Description - Shows up to 5 lines */
+    .card-description {
+      font-size: 0.85rem;
+      color: var(--gray-700);
+      line-height: 1.5;
+      margin-bottom: 1rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.7rem;
+      color: var(--gray-500);
+      border-top: 1px solid var(--gray-200);
+      padding-top: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .card-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    /* No Videos Message */
+    .no-videos {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: var(--gray-100);
+      border-radius: 20px;
+      color: var(--gray-500);
+    }
+
+    /* YouTube Subscribe CTA */
+    .youtube-cta {
+      text-align: center;
+      padding: 3rem;
+      background: linear-gradient(135deg, #FF0000 0%, #CC0000 100%);
+      color: white;
+      border-radius: 24px;
+      margin-top: 2rem;
+    }
+
+    .youtube-cta h3 {
+      color: white;
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+    }
+
+    .youtube-cta p {
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 1.5rem;
+    }
+
+    .youtube-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: white;
+      color: #FF0000;
+      padding: 0.8rem 2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .youtube-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Loading Spinner */
+    .loading-spinner {
+      text-align: center;
+      padding: 3rem;
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 3px solid var(--gray-200);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1rem;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Responsive */
+    @media (max-width: 800px) {
+      .videos-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .filter-btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.75rem;
+      }
+      .youtube-cta {
+        padding: 2rem;
+      }
+      .youtube-cta h3 {
+        font-size: 1.2rem;
+      }
+      .play-overlay {
+        width: 45px;
+        height: 45px;
+      }
+      .play-overlay svg {
+        width: 20px;
+        height: 20px;
+      }
+      /* Mobile: Show 4 lines for better fit */
+      .card-description {
+        -webkit-line-clamp: 4;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card-content {
+        padding: 1rem;
+      }
+      .video-card h3 {
+        font-size: 1rem;
+      }
+      .card-description {
+        font-size: 0.8rem;
+        -webkit-line-clamp: 4;
+      }
+    }
+
+    /* Desktop: allow natural growth but prevent excessive wrapping */
+    @media (min-width: 1200px) {
+      .filter-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .filter-section::before,
+      .filter-section::after {
+        display: none;
+      }
+    }
+
+    /* Tablet: allow some wrapping but maintain readability */
+    @media (min-width: 901px) and (max-width: 1199px) {
+      .filter-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .filter-section::before,
+      .filter-section::after {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar will be injected here by components.js -->
+<div id="navbar-placeholder"></div>
+
+<!-- Page Header -->
+<section class="page-header">
+  <div class="container">
+    <div class="section-subhead" style="color:#aaa;">VIDEO LIBRARY</div>
+    <h1>Technical Insights & Tutorials</h1>
+    <p>Watch our petroleum engineering experts explain complex concepts, share case studies, and demonstrate best practices.</p>
+  </div>
+</section>
+
+<!-- Main Videos Section -->
+<section class="services-section" style="padding-top: 2rem;">
+  <div class="container">
+    
+    <!-- Category Filters -->
+    <div class="filter-section" id="filterSection">
+      <div class="filter-buttons" id="filterButtons">
+        <!-- Filter buttons will be dynamically generated from categories -->
+      </div>
+    </div>
+
+    <!-- Videos Grid -->
+    <div class="videos-grid" id="videosGrid">
+      <div class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Loading videos...</p>
+      </div>
+    </div>
+
+    <!-- YouTube Subscribe CTA -->
+    <div class="youtube-cta">
+      <h3>🎬 Subscribe to Our YouTube Channel</h3>
+      <p>Get notified when we release new technical videos, case studies, and tutorials.</p>
+      <a href="https://www.youtube.com/@afaqaslammm" class="youtube-btn" id="youtubeSubscribeBtn" target="_blank" rel="noopener noreferrer">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+        </svg>
+        Subscribe on YouTube
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer placeholder -->
+<div id="footer-placeholder"></div>
+
+<!-- Back to Top Button placeholder -->
+<div id="back-to-top-placeholder"></div>
+
+<!-- Video Data JavaScript -->
+<script src="videos-data.js"></script>
+
+<!-- Main Videos JavaScript -->
+<script>
+  // YouTube channel URL (for reference)
+  const YOUTUBE_CHANNEL_URL = 'https://www.youtube.com/@afaqaslammm';
+  
+  // DOM Elements
+  const videosGrid = document.getElementById('videosGrid');
+  const filterButtonsContainer = document.getElementById('filterButtons');
+  const filterSection = document.getElementById('filterSection');
+  
+  // Current active filter
+  let activeFilter = 'all';
+  
+  // Define custom category order (prioritize technical, OTHERS last)
+  const categoryOrder = [
+    "RESERVOIR ENGINEERING",
+    "PRODUCTION OPTIMIZATION",
+    "PRODUCTION FORECASTING",
+    "EOR & CCS",
+    "FLOW ASSURANCE",
+    "ECONOMICS",
+    "PODCASTS",
+    "OTHERS"
+  ];
+  
+  // Function to format view count (if available)
+  function formatViewCount(views) {
+    if (!views) return '';
+    if (views >= 1000000) return (views / 1000000).toFixed(1) + 'M';
+    if (views >= 1000) return (views / 1000).toFixed(1) + 'K';
+    return views.toString();
+  }
+  
+  // Function to get YouTube thumbnail URL with fallbacks
+  function getYouTubeThumbnail(youtubeId) {
+    if (!youtubeId) return '';
+    return `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`;
+  }
+  
+  // Function to handle thumbnail loading errors
+  function handleThumbnailError(img) {
+    const youtubeId = img.getAttribute('data-youtube-id');
+    if (youtubeId) {
+      img.src = `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`;
+    }
+  }
+  
+  // Function to sort categories by custom order
+  function sortCategoriesByOrder(categories) {
+    return categories.sort((a, b) => {
+      const indexA = categoryOrder.indexOf(a);
+      const indexB = categoryOrder.indexOf(b);
+      
+      // If both are in the order array, sort by their position
+      if (indexA !== -1 && indexB !== -1) {
+        return indexA - indexB;
+      }
+      // If only A is in the order array, A comes first
+      if (indexA !== -1) return -1;
+      // If only B is in the order array, B comes first
+      if (indexB !== -1) return 1;
+      // If neither is in the order array, sort alphabetically
+      return a.localeCompare(b);
+    });
+  }
+  
+  // Function to render videos
+  function renderVideos() {
+    if (!videosGrid) return;
+    
+    // Filter videos based on active category
+    let filteredVideos = videosData;
+    if (activeFilter !== 'all') {
+      filteredVideos = videosData.filter(video => video.category === activeFilter);
+    }
+    
+    // Show no videos message if empty
+    if (filteredVideos.length === 0) {
+      videosGrid.innerHTML = `
+        <div class="no-videos">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="M10 9l5 3-5 3V9z"/>
+          </svg>
+          <h3 style="margin-top: 1rem;">Coming Soon</h3>
+          <p>We're currently creating technical videos, case studies, and tutorials. Check back soon for new content!</p>
+        </div>
+      `;
+      return;
+    }
+    
+    // Generate video cards HTML
+    videosGrid.innerHTML = filteredVideos.map(video => `
+      <a href="https://www.youtube.com/watch?v=${video.youtubeId}" class="video-card" target="_blank" rel="noopener noreferrer">
+        <div class="thumbnail-container">
+          <img 
+            class="video-thumbnail" 
+            src="${getYouTubeThumbnail(video.youtubeId)}" 
+            alt="${video.title}"
+            data-youtube-id="${video.youtubeId}"
+            onerror="handleThumbnailError(this)"
+            loading="lazy"
+          >
+          <div class="duration-badge">🎬 ${video.duration}</div>
+          <div class="play-overlay">
+            <svg viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="card-content">
+          <span class="card-category">${video.category}</span>
+          <h3>${video.title}</h3>
+          <div class="card-description">${video.description}</div>
+          <div class="card-meta">
+            <span>📅 ${video.date}</span>
+            <span>👁️ ${formatViewCount(video.views)} views</span>
+          </div>
+        </div>
+      </a>
+    `).join('');
+  }
+  
+  // Function to update scroll indicators
+  function updateScrollIndicators() {
+    if (!filterButtonsContainer || !filterSection) return;
+    
+    const isScrollable = filterButtonsContainer.scrollWidth > filterButtonsContainer.clientWidth;
+    
+    if (!isScrollable) {
+      filterSection.classList.add('scroll-start');
+      filterSection.classList.add('scroll-end');
+      return;
+    }
+    
+    const scrollLeft = filterButtonsContainer.scrollLeft;
+    const maxScrollLeft = filterButtonsContainer.scrollWidth - filterButtonsContainer.clientWidth;
+    
+    if (scrollLeft <= 5) {
+      filterSection.classList.add('scroll-start');
+    } else {
+      filterSection.classList.remove('scroll-start');
+    }
+    
+    if (scrollLeft >= maxScrollLeft - 5) {
+      filterSection.classList.add('scroll-end');
+    } else {
+      filterSection.classList.remove('scroll-end');
+    }
+  }
+  
+  // Function to build filter buttons from categories with custom order
+  function buildFilterButtons() {
+    if (!filterButtonsContainer) return;
+    
+    // Extract unique categories from videosData
+    const categoriesSet = new Set();
+    videosData.forEach(video => {
+      if (video.category) {
+        categoriesSet.add(video.category);
+      }
+    });
+    
+    // Convert to array and sort by custom order
+    let uniqueCategories = Array.from(categoriesSet);
+    uniqueCategories = sortCategoriesByOrder(uniqueCategories);
+    
+    // Create filter buttons HTML
+    const buttonsHTML = `
+      <button class="filter-btn ${activeFilter === 'all' ? 'active' : ''}" data-category="all">All Videos</button>
+      ${uniqueCategories.map(category => `
+        <button class="filter-btn ${activeFilter === category ? 'active' : ''}" data-category="${category}">${category}</button>
+      `).join('')}
+    `;
+    
+    filterButtonsContainer.innerHTML = buttonsHTML;
+    
+    // Add click event listeners to filter buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update active filter
+        activeFilter = btn.getAttribute('data-category');
+        
+        // Update active class on buttons
+        document.querySelectorAll('.filter-btn').forEach(b => {
+          b.classList.remove('active');
+        });
+        btn.classList.add('active');
+        
+        // Re-render videos
+        renderVideos();
+      });
+    });
+    
+    // Add scroll event listener for indicators
+    filterButtonsContainer.addEventListener('scroll', updateScrollIndicators);
+    window.addEventListener('resize', updateScrollIndicators);
+    
+    // Initial update of scroll indicators
+    setTimeout(updateScrollIndicators, 100);
+  }
+  
+  // Make thumbnail error handler globally available
+  window.handleThumbnailError = handleThumbnailError;
+  
+  // Initialize page when videosData is loaded
+  function initVideoPage() {
+    if (typeof videosData !== 'undefined' && videosData.length > 0) {
+      buildFilterButtons();
+      renderVideos();
+    } else {
+      if (videosGrid) {
+        videosGrid.innerHTML = `
+          <div class="no-videos">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            <h3 style="margin-top: 1rem;">Data Loading Issue</h3>
+            <p>Please ensure videos-data.js is properly loaded.</p>
+          </div>
+        `;
+      }
+    }
+  }
+  
+  // Wait for DOM to be ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initVideoPage);
+  } else {
+    initVideoPage();
+  }
+</script>
+
+<!-- Components.js - Centralized navbar and back-to-top button -->
+<script src="components.js"></script>
+
+</body>
+</html>

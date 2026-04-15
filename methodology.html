@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Learn TerraQuint's data-driven methodology: from raw data analysis to actionable intelligence. Physics-based modeling, validated by production data, optimized for economic return.">
+  <link rel="canonical" href="https://www.terraquint.com/methodology.html">
+  
+  <title>Petroleum Engineering Methodology | Data-Driven Approach | TerraQuint</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Page-specific styles (only for methodology.html) -->
+  <style>
+    /* Center the page header content */
+    .page-header {
+      text-align: center;
+    }
+
+    .page-header h1 {
+      text-align: center;
+    }
+
+    .page-header p {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Methodology Section */
+    .methodology-section {
+      padding: 5rem 0;
+      background: var(--white);
+    }
+
+    /* Workflow Steps */
+    .workflow-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin: 3rem 0 4rem 0;
+    }
+
+    .workflow-step {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--gray-100);
+      border-radius: 16px;
+      border: 1px solid var(--gray-200);
+      transition: transform 0.2s;
+    }
+
+    .workflow-step:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0 auto 1rem auto;
+    }
+
+    .workflow-step h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .workflow-step p {
+      font-size: 0.85rem;
+      color: var(--gray-700);
+      line-height: 1.5;
+    }
+
+    /* Technical Pillars - Expanded Categories */
+    .pillars-section {
+      background-color: var(--gray-100);
+      padding: 5rem 0;
+    }
+
+    /* Category Group styling */
+    .pillar-category-group {
+      margin-bottom: 3rem;
+    }
+
+    .pillar-category-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .pillar-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 1.75rem;
+      border: 1px solid var(--gray-200);
+      transition: all 0.25s;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pillar-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      transform: translateY(-2px);
+    }
+
+    /* Center the icon */
+    .pillar-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      display: block;
+    }
+
+    /* Center the heading */
+    .pillar-card h3 {
+      color: var(--black);
+      margin-bottom: 0.75rem;
+      font-size: 1.15rem;
+      text-align: center;
+    }
+
+    /* Center the description paragraph */
+    .pillar-card p {
+      color: var(--gray-700);
+      font-size: 0.85rem;
+      line-height: 1.5;
+      margin-bottom: 1.25rem;
+      text-align: center;
+    }
+
+    /* Bullet points - left aligned within the card */
+    .pillar-list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0.5rem;
+      text-align: left;
+    }
+
+    .pillar-list li {
+      font-size: 0.75rem;
+      color: var(--gray-500);
+      padding: 0.3rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .pillar-list li::before {
+      content: "▹";
+      color: var(--accent);
+      font-size: 0.7rem;
+      flex-shrink: 0;
+    }
+
+    /* Tools & Software */
+    .tools-section {
+      padding: 5rem 0;
+      background: var(--white);
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .tool-card {
+      background: var(--gray-100);
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-align: center;
+      border: 1px solid var(--gray-200);
+      transition: all 0.2s;
+    }
+
+    .tool-card:hover {
+      border-color: var(--accent);
+      background: var(--white);
+    }
+
+    .tool-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--black);
+      margin-bottom: 0.25rem;
+    }
+
+    .tool-category {
+      font-size: 0.7rem;
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    /* Data-Driven Approach Section */
+    .data-section {
+      background-color: var(--black);
+      color: var(--white);
+      padding: 5rem 0;
+    }
+
+    .data-section .section-subhead {
+      color: var(--gray-500);
+    }
+
+    .data-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .data-stat {
+      text-align: center;
+      padding: 2rem;
+      border-left: 2px solid var(--accent);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .data-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .data-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gray-500);
+    }
+
+    /* ============================================
+       QUALITY ASSURANCE SECTIONS (Options 1-10)
+       Alternating left/right layout
+       ============================================ */
+    
+    /* Base styles for all QA sections */
+    .qa-section {
+      padding: 4rem 0;
+      background-color: var(--white);
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .qa-section:nth-child(even) {
+      background-color: var(--gray-100);
+    }
+
+    .qa-section:last-child {
+      border-bottom: none;
+    }
+
+    .qa-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .qa-text {
+      flex: 1;
+    }
+
+    .qa-visual {
+      flex: 1;
+    }
+
+    .qa-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 1.75rem;
+      border: 1px solid var(--gray-200);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      transition: all 0.2s ease;
+      height: 100%;
+    }
+
+    .qa-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .qa-card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--black);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.5rem;
+    }
+
+    .progress-bar-simple {
+      background-color: var(--gray-200);
+      border-radius: 10px;
+      height: 8px;
+      overflow: hidden;
+      margin: 0.5rem 0;
+    }
+
+    .progress-fill-simple {
+      background: var(--accent);
+      border-radius: 10px;
+      height: 100%;
+    }
+
+    .metric-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      font-size: 0.75rem;
+    }
+
+    .metric-label {
+      color: var(--gray-500);
+    }
+
+    .metric-value {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.75rem;
+      color: var(--gray-700);
+    }
+
+    .checklist-item.checked::before {
+      content: "✓";
+      color: #2E8B57;
+      font-weight: 700;
+    }
+
+    .checklist-item::before {
+      content: "○";
+      color: var(--gray-500);
+    }
+
+    .badge {
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      padding: 0.2rem 0.6rem;
+      border-radius: 30px;
+      font-size: 0.65rem;
+      font-family: monospace;
+      color: var(--accent);
+      display: inline-block;
+    }
+
+    .risk-matrix {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.25rem;
+      margin: 1rem 0;
+    }
+
+    .risk-cell {
+      text-align: center;
+      padding: 0.5rem;
+      border-radius: 8px;
+      font-size: 0.65rem;
+    }
+
+    .risk-high {
+      background: rgba(220, 53, 69, 0.1);
+      border: 1px solid #dc3545;
+    }
+
+    .risk-med {
+      background: rgba(255, 193, 7, 0.1);
+      border: 1px solid #ffc107;
+    }
+
+    .risk-low {
+      background: rgba(40, 167, 69, 0.1);
+      border: 1px solid #28a745;
+    }
+
+    .flowchart-step {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0.75rem 0;
+    }
+
+    .step-circle {
+      width: 32px;
+      height: 32px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .step-line {
+      flex: 1;
+      height: 2px;
+      background: var(--gray-200);
+      margin: 0 0.5rem;
+    }
+
+    .step-text {
+      font-size: 0.7rem;
+      color: var(--gray-700);
+      flex: 2;
+    }
+
+    /* Responsive for QA sections */
+    @media (max-width: 900px) {
+      .qa-flex {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .qa-text, .qa-visual {
+        width: 100%;
+        flex: none;
+      }
+      .qa-section {
+        padding: 2.5rem 0;
+      }
+    }
+
+    /* Responsive breakpoints for methodology-specific elements */
+    @media (max-width: 1000px) {
+      .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 900px) {
+      .workflow-grid { grid-template-columns: repeat(2, 1fr); }
+      .data-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 700px) {
+      .pillars-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 550px) {
+      .workflow-grid { grid-template-columns: 1fr; }
+      .tools-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar will be injected here by components.js -->
+<div id="navbar-placeholder"></div>
+
+<!-- Page Header -->
+<section class="page-header">
+  <div class="container">
+    <div class="section-subhead" style="color:#aaa;">OUR APPROACH</div>
+    <h1>Methodology: Data-Driven Engineering</h1>
+    <p>TerraQuint combines rigorous analytical methods with practical field experience. Every recommendation is grounded in physics-based modeling, validated by production data, and optimized for economic return.</p>
+  </div>
+</section>
+
+<!-- Workflow Steps -->
+<section class="methodology-section">
+  <div class="container">
+    <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
+      <div class="section-subhead">HOW WE WORK</div>
+      <h2>From Raw Data to Actionable Intelligence</h2>
+      <p style="max-width: 680px; margin: 0 auto; color: #4a4a4a;">Our four-phase methodology ensures technical rigor at every stage.</p>
+    </div>
+    
+    <div class="workflow-grid">
+      <div class="workflow-step">
+        <div class="step-number">1</div>
+        <h3>Data Acquisition & QA/QC</h3>
+        <p>Gather production data, well tests, PVT, core data, and pressure histories. Rigorous quality control and data validation before any analysis.</p>
+      </div>
+      <div class="workflow-step">
+        <div class="step-number">2</div>
+        <h3>Diagnostic & Analytical Modeling</h3>
+        <p>Rate-transient analysis, decline curve methods, material balance, and pressure transient analysis to characterize reservoir behavior.</p>
+      </div>
+      <div class="workflow-step">
+        <div class="step-number">3</div>
+        <h3>Integrated Simulation</h3>
+        <p>Full-field reservoir simulation, nodal analysis, and facilities modeling to predict performance under various development scenarios.</p>
+      </div>
+      <div class="workflow-step">
+        <div class="step-number">4</div>
+        <h3>Economic Optimization</h3>
+        <p>Monte Carlo simulation, NPV/IRR analysis, and portfolio optimization to recommend the highest-value development path.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Technical Pillars - Expanded to cover all 9 services -->
+<section class="pillars-section" id="technical-pillars">
+  <div class="container">
+    <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
+      <div class="section-subhead">CORE CAPABILITIES</div>
+      <h2>Our Technical Pillars</h2>
+      <p style="max-width: 680px; margin: 0 auto; color: #4a4a4a;">Nine integrated disciplines form the foundation of every TerraQuint engagement.</p>
+    </div>
+    
+    <!-- Category 1: Reservoir & Production -->
+    <div class="pillar-category-group">
+      <div class="pillar-category-title">RESERVOIR & PRODUCTION</div>
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon">🗻</div>
+          <h3>Reservoir Engineering & Simulation</h3>
+          <p>Full-field dynamic reservoir modeling, history matching, and uncertainty quantification for conventional and unconventional assets.</p>
+          <ul class="pillar-list">
+            <li>Finite-difference & streamline simulation</li>
+            <li>History matching & forecasting</li>
+            <li>Volumetrics & OGIP/PIIP estimation</li>
+          </ul>
+        </div>
+        
+        <div class="pillar-card">
+          <div class="pillar-icon">⚙️</div>
+          <h3>Production Engineering & Field Optimization</h3>
+          <p>Nodal analysis, artificial lift design, and integrated production system modeling from sandface to sales.</p>
+          <ul class="pillar-list">
+            <li>ESP / Gas lift / Rod pump design</li>
+            <li>Well performance analysis</li>
+            <li>Production forecasting</li>
+          </ul>
+        </div>
+        
+        <div class="pillar-card">
+          <div class="pillar-icon">💧</div>
+          <h3>Enhanced Oil Recovery (EOR)</h3>
+          <p>Design and evaluation of waterflood, CO₂ injection, thermal recovery, and chemical flooding programs.</p>
+          <ul class="pillar-list">
+            <li>CO₂ flood design & evaluation</li>
+            <li>Waterflood & pattern optimization</li>
+            <li>SAGD / thermal recovery</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Category 2: Analysis & Diagnostics -->
+    <div class="pillar-category-group">
+      <div class="pillar-category-title">ANALYSIS & DIAGNOSTICS</div>
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon">📉</div>
+          <h3>Decline Curve Analysis</h3>
+          <p>Advanced production forecasting with probabilistic EUR assessment and rate-transient analysis integration.</p>
+          <ul class="pillar-list">
+            <li>Arps / Duong / SEPD methods</li>
+            <li>Probabilistic EUR (P10/P50/P90)</li>
+            <li>Type curve development</li>
+          </ul>
+        </div>
+        
+        <div class="pillar-card">
+          <div class="pillar-icon">🏭</div>
+          <h3>Facilities Bottleneck Diagnostics</h3>
+          <p>Production system optimization and debottlenecking across separators, compressors, pumps, and flowlines.</p>
+          <ul class="pillar-list">
+            <li>Integrated network modeling</li>
+            <li>Constraint analysis</li>
+            <li>Process simulation</li>
+          </ul>
+        </div>
+        
+        <div class="pillar-card">
+          <div class="pillar-icon">💰</div>
+          <h3>Economic Forecasting</h3>
+          <p>NPV, IRR, sensitivity analysis, and Monte Carlo simulation for upstream investment decisions.</p>
+          <ul class="pillar-list">
+            <li>Risk-adjusted valuation</li>
+            <li>Portfolio optimization</li>
+            <li>Full-cycle economics</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Category 3: Operations & Testing -->
+    <div class="pillar-category-group">
+      <div class="pillar-category-title">OPERATIONS & TESTING</div>
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon">🌊</div>
+          <h3>Flow Assurance</h3>
+          <p>Hydrate management, wax and asphaltene deposition modeling, thermal-hydraulic analysis, and subsea integrity.</p>
+          <ul class="pillar-list">
+            <li>Hydrate prevention strategies</li>
+            <li>Wax / asphaltene modeling</li>
+            <li>Subsea flowline design</li>
+          </ul>
+        </div>
+        
+        <div class="pillar-card">
+          <div class="pillar-icon">🔬</div>
+          <h3>Well Testing</h3>
+          <p>Pressure transient analysis, deliverability testing, skin and permeability determination, and fracture characterization.</p>
+          <ul class="pillar-list">
+            <li>Pressure transient analysis (PTA)</li>
+            <li>Deliverability testing</li>
+            <li>Fracture characterization</li>
+          </ul>
+        </div>
+        
+        <div class="pillar-card">
+          <div class="pillar-icon">📐</div>
+          <h3>Equipment Design</h3>
+          <p>3D CAD modeling, FEA structural analysis, thermal simulation, and pressure vessel design for oil & gas facilities.</p>
+          <ul class="pillar-list">
+            <li>Siemens NX / Solidworks</li>
+            <li>Finite Element Analysis (FEA)</li>
+            <li>Pressure vessel design</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tools & Software -->
+<section class="tools-section">
+  <div class="container">
+    <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
+      <div class="section-subhead">TECHNOLOGY STACK</div>
+      <h2>Industry-Standard & Specialized Tools</h2>
+      <p style="max-width: 680px; margin: 0 auto; color: #4a4a4a;">We leverage the most trusted software platforms, augmented by proprietary workflows.</p>
+    </div>
+    
+    <div class="tools-grid">
+      <div class="tool-card"><div class="tool-name">ECLIPSE</div><div class="tool-category">Reservoir Simulation</div></div>
+      <div class="tool-card"><div class="tool-name">CMG</div><div class="tool-category">Reservoir / EOR</div></div>
+      <div class="tool-card"><div class="tool-name">Petroleum Experts IPM</div><div class="tool-category">Integrated Production</div></div>
+      <div class="tool-card"><div class="tool-name">PIPESIM</div><div class="tool-category">Flow Assurance</div></div>
+      <div class="tool-card"><div class="tool-name">WellFlo</div><div class="tool-category">Nodal Analysis</div></div>
+      <div class="tool-card"><div class="tool-name">COMSOL</div><div class="tool-category">Multiphysics</div></div>
+      <div class="tool-card"><div class="tool-name">Aspen</div><div class="tool-category">Process Simulation</div></div>
+      <div class="tool-card"><div class="tool-name">PHDWIN</div><div class="tool-category">PTA / RTA</div></div>
+      <div class="tool-card"><div class="tool-name">Ecrin</div><div class="tool-category">Well Test Analysis</div></div>
+      <div class="tool-card"><div class="tool-name">Matlab / Python</div><div class="tool-category">Data Analytics</div></div>
+      <div class="tool-card"><div class="tool-name">Siemens NX</div><div class="tool-category">Equipment Design</div></div>
+      <div class="tool-card"><div class="tool-name">Solidworks</div><div class="tool-category">3D CAD / FEA</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Data-Driven Approach Section -->
+<section class="data-section">
+  <div class="container">
+    <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
+      <div class="section-subhead">EVIDENCE-BASED ENGINEERING</div>
+      <h2 style="color: white;">Quantifiable Results</h2>
+      <p style="max-width: 680px; margin: 0 auto; color: #aaa;">Our methodology consistently delivers measurable improvements across asset portfolios.</p>
+    </div>
+    
+    <div class="data-grid">
+      <div class="data-stat">
+        <div class="data-number">±8%</div>
+        <div class="data-label">EUR Uncertainty Reduction</div>
+        <p style="font-size: 0.7rem; margin-top: 0.5rem; color: #888;">Through probabilistic integration of DCA + RTA + Material Balance</p>
+      </div>
+      <div class="data-stat">
+        <div class="data-number">23%</div>
+        <div class="data-label">Production Uptime Improvement</div>
+        <p style="font-size: 0.7rem; margin-top: 0.5rem; color: #888;">Flow assurance & facilities optimization</p>
+      </div>
+      <div class="data-stat">
+        <div class="data-number">15-30%</div>
+        <div class="data-label">CAPEX Reduction</div>
+        <p style="font-size: 0.7rem; margin-top: 0.5rem; color: #888;">Through integrated field development planning</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- QUALITY ASSURANCE SECTIONS (OPTIONS 1-10)   -->
+<!-- ============================================ -->
+
+<!-- OPTION 1: Validation & Calibration Framework (Text LEFT, Card RIGHT) -->
+<section class="qa-section">
+  <div class="container">
+    <div class="qa-flex">
+      <div class="qa-text">
+        <div class="section-subhead">QUALITY ASSURANCE</div>
+        <h2>Validation & Calibration Framework</h2>
+        <p style="color: var(--gray-700); line-height: 1.6; margin-bottom: 1rem;">Every reservoir model we build is rigorously validated against historical production data before any forecast is generated. Our blind test protocols ensure predictions are truly predictive, not just curve-fit.</p>
+        <p style="color: var(--gray-700); line-height: 1.6;">We document match quality metrics including R², RMSE, and normalized RMS error for pressure, rate, and water cut. Acceptance criteria: Pressure match within 5%, rate match within 10%, water cut trend correct.</p>
+        <div style="margin-top: 1.5rem;">
+          <a href="services.html" class="btn-secondary">↗ Explore our services</a>
+        </div>
+      </div>
+      <div class="qa-visual">
+        <div class="qa-card">
+          <div class="qa-card-title">📊 VALIDATION METRICS</div>
+          <div class="metric-row">
+            <span class="metric-label">History Match Quality</span>
+            <span class="metric-value">92%</span>
+          </div>
+          <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 92%;"></div></div>
+          <div class="metric-row">
+            <span class="metric-label">Pressure Match Error</span>
+            <span class="metric-value">3.8%</span>
+          </div>
+          <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 96%; background-color: #2E8B57;"></div></div>
+          <div class="metric-row">
+            <span class="metric-label">Rate Match Error</span>
+            <span class="metric-value">6.2%</span>
+          </div>
+          <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 94%; background-color: #2E8B57;"></div></div>
+          <div class="metric-row">
+            <span class="metric-label">Water Cut Trend</span>
+            <span class="metric-value">✓ Validated</span>
+          </div>
+          <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--gray-200);">
+            <div class="metric-row"><span>ACCEPTANCE CRITERIA</span></div>
+            <div class="checklist-item checked">Pressure: &lt;5% error — PASS</div>
+            <div class="checklist-item checked">Rate: &lt;10% error — PASS</div>
+            <div class="checklist-item checked">Water cut: trend match — PASS</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPTION 2: Uncertainty Workflow Diagram (Card LEFT, Text RIGHT) -->
+<section class="qa-section">
+  <div class="container">
+    <div class="qa-flex" style="flex-direction: row-reverse;">
+      <div class="qa-text">
+        <div class="section-subhead">QUALITY ASSURANCE</div>
+        <h2>Uncertainty Quantification Workflow</h2>
+        <p style="color: var(--gray-700); line-height: 1.6; margin-bottom: 1rem;">We quantify uncertainty at every stage — from input data to model assumptions to development scenarios. Our workflow integrates Monte Carlo simulation, Latin Hypercube sampling, and tornado chart sensitivity ranking.</p>
+        <p style="color: var(--gray-700); line-height: 1.6;">Results are always presented with P10/P50/P90 confidence intervals. This probabilistic approach enables risk-adjusted investment decisions rather than single-point forecasts.</p>
+        <div style="margin-top: 1.5rem;">
+          <a href="services.html" class="btn-secondary">↗ Explore our services</a>
+        </div>
+      </div>
+      <div class="qa-visual">
+        <div class="qa-card">
+          <div class="qa-card-title">🔄 UNCERTAINTY WORKFLOW</div>
+          <div class="flowchart-step">
+            <div class="step-circle">1</div>
+            <div class="step-line"></div>
+            <div class="step-text">INPUT ±15%</div>
+          </div>
+          <div style="padding-left: 2rem; margin-bottom: 0.5rem;">
+            <span class="badge">PVT</span> <span class="badge">Permeability</span> <span class="badge">Pressure</span>
+          </div>
+          <div class="flowchart-step">
+            <div class="step-circle">2</div>
+            <div class="step-line"></div>
+            <div class="step-text">MODEL ±10%</div>
+          </div>
+          <div style="padding-left: 2rem; margin-bottom: 0.5rem;">
+            <span class="badge">Gridding</span> <span class="badge">Rel Perm</span> <span class="badge">Aquifer</span>
+          </div>
+          <div class="flowchart-step">
+            <div class="step-circle">3</div>
+            <div class="step-line"></div>
+            <div class="step-text">SCENARIO ±20%</div>
+          </div>
+          <div style="padding-left: 2rem; margin-bottom: 1rem;">
+            <span class="badge">Well Count</span> <span class="badge">Timing</span> <span class="badge">Facilities</span>
+          </div>
+          <div style="background: var(--gray-100); border-radius: 12px; padding: 0.75rem; text-align: center;">
+            <div style="font-weight: 700; font-size: 0.7rem;">TOTAL UNCERTAINTY</div>
+            <div class="metric-row"><span>P90</span><span>85 MMbbl</span></div>
+            <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 70%;"></div></div>
+            <div class="metric-row"><span>P50</span><span>100 MMbbl</span></div>
+            <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 85%;"></div></div>
+            <div class="metric-row"><span>P10</span><span>120 MMbbl</span></div>
+            <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 100%;"></div></div>
+          </div>
+          <div class="tech-badge" style="margin-top: 0.75rem;">Monte Carlo · Latin Hypercube · Tornado Charts</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPTION 3: Quality Gates & Peer Review Process (Text LEFT, Card RIGHT) -->
+<section class="qa-section">
+  <div class="container">
+    <div class="qa-flex">
+      <div class="qa-text">
+        <div class="section-subhead">QUALITY ASSURANCE</div>
+        <h2>5-Gate Quality Control Process</h2>
+        <p style="color: var(--gray-700); line-height: 1.6; margin-bottom: 1rem;">Every TerraQuint deliverable passes through five rigorous quality gates before reaching the client. Each gate requires sign-off by a senior technical reviewer.</p>
+        <p style="color: var(--gray-700); line-height: 1.6;">No deliverable is released without passing all five gates. Our peer review process includes cross-discipline review when projects span multiple technical domains.</p>
+        <div style="margin-top: 1.5rem;">
+          <a href="services.html" class="btn-secondary">↗ Explore our services</a>
+        </div>
+      </div>
+      <div class="qa-visual">
+        <div class="qa-card">
+          <div class="qa-card-title">🚦 5-GATE QUALITY PROCESS</div>
+          <div class="checklist-item checked" style="justify-content: space-between;">
+            <span>GATE 1: Data Validation</span>
+            <span class="badge">✓ COMPLETE</span>
+          </div>
+          <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 100%;"></div></div>
+          <div class="checklist-item checked" style="justify-content: space-between; margin-top: 0.75rem;">
+            <span>GATE 2: Assumptions Review</span>
+            <span class="badge">✓ COMPLETE</span>
+          </div>
+          <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 100%;"></div></div>
+          <div class="checklist-item checked" style="justify-content: space-between; margin-top: 0.75rem;">
+            <span>GATE 3: Peer Review</span>
+            <span class="badge">✓ COMPLETE</span>
+          </div>
+          <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 100%;"></div></div>
+          <div class="checklist-item checked" style="justify-content: space-between; margin-top: 0.75rem;">
+            <span>GATE 4: Management Review</span>
+            <span class="badge">✓ COMPLETE</span>
+          </div>
+          <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 100%;"></div></div>
+          <div class="checklist-item" style="justify-content: space-between; margin-top: 0.75rem;">
+            <span>GATE 5: Final Sign-off</span>
+            <span class="badge">⟳ IN PROGRESS</span>
+          </div>
+          <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 80%; background-color: #E8A735;"></div></div>
+          <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--gray-200); text-align: center;">
+            <div class="metric-row"><span>Senior Reviewers:</span><span>3 PE engineers</span></div>
+            <div class="metric-row"><span>Avg review time:</span><span>2-5 business days</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPTION 4: Software Validation & Compliance (Card LEFT, Text RIGHT) -->
+<section class="qa-section">
+  <div class="container">
+    <div class="qa-flex" style="flex-direction: row-reverse;">
+      <div class="qa-text">
+        <div class="section-subhead">QUALITY ASSURANCE</div>
+        <h2>Software Validation & Standards Compliance</h2>
+        <p style="color: var(--gray-700); line-height: 1.6; margin-bottom: 1rem;">All TerraQuint workflows are built on validated, industry-standard software platforms. We maintain ISO 9001:2015 certified processes for quality management.</p>
+        <p style="color: var(--gray-700); line-height: 1.6;">Our reserves reports comply with SPE PRMS, SEC, and COGEH standards. Every software output is cross-checked with independent calculations or alternative software.</p>
+        <div style="margin-top: 1.5rem;">
+          <a href="services.html" class="btn-secondary">↗ Explore our services</a>
+        </div>
+      </div>
+      <div class="qa-visual">
+        <div class="qa-card">
+          <div class="qa-card-title">💻 CERTIFIED SOFTWARE STACK</div>
+          <div style="margin-bottom: 1rem;">
+            <div style="font-weight: 600; font-size: 0.75rem; margin-bottom: 0.5rem;">RESERVOIR SIMULATION</div>
+            <div class="checklist-item checked">ECLIPSE (validated)</div>
+            <div class="checklist-item checked">CMG (validated)</div>
+            <div class="checklist-item checked">Cross-check protocol active</div>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <div style="font-weight: 600; font-size: 0.75rem; margin-bottom: 0.5rem;">COMPLIANCE STANDARDS</div>
+            <div class="checklist-item checked">SPE PRMS</div>
+            <div class="checklist-item checked">SEC (full compliance)</div>
+            <div class="checklist-item checked">COGEH (Canada)</div>
+          </div>
+          <div>
+            <div style="font-weight: 600; font-size: 0.75rem; margin-bottom: 0.5rem;">QUALITY MANAGEMENT</div>
+            <div class="checklist-item checked">ISO 9001:2015 certified</div>
+            <div class="checklist-item checked">Version control (Git)</div>
+            <div class="checklist-item checked">Audit trail for all changes</div>
+          </div>
+          <div class="tech-badge" style="margin-top: 1rem;">Last Audit: Q1 2026 | Next Audit: Q1 2027</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPTION 5: Benchmarking & Best Practices (Text LEFT, Card RIGHT) -->
+<section class="qa-section">
+  <div class="container">
+    <div class="qa-flex">
+      <div class="qa-text">
+        <div class="section-subhead">QUALITY ASSURANCE</div>
+        <h2>Industry Benchmarking & Best Practices</h2>
+        <p style="color: var(--gray-700); line-height: 1.6; margin-bottom: 1rem;">We benchmark every study against SPE Petroleum Resources Management System (PRMS) guidelines and basin-specific type curves. Our EUR estimates are validated against public domain analogs and peer-reviewed publications.</p>
+        <p style="color: var(--gray-700); line-height: 1.6;">Where gaps exist, we clearly document deviations and provide justification. This transparency ensures clients understand exactly how our estimates compare to industry norms.</p>
+        <div style="margin-top: 1.5rem;">
+          <a href="services.html" class="btn-secondary">↗ Explore our services</a>
+        </div>
+      </div>
+      <div class="qa-visual">
+        <div class="qa-card">
+          <div class="qa-card-title">📈 BENCHMARK COMPARISON</div>
+          <div style="margin-bottom: 1rem;">
+            <div style="font-weight: 600; font-size: 0.75rem; margin-bottom: 0.5rem;">RECOVERY FACTOR vs BASIN AVG</div>
+            <div class="metric-row"><span>Our Estimate</span><span>42%</span></div>
+            <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 87%;"></div></div>
+            <div class="metric-row"><span>Basin Avg</span><span>35%</span></div>
+            <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 73%; background-color: #888;"></div></div>
+            <div class="metric-row"><span>Top Quartile</span><span>48%</span></div>
+            <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 100%; background-color: #2E8B57;"></div></div>
+          </div>
+          <div>
+            <div style="font-weight: 600; font-size: 0.75rem; margin-bottom: 0.5rem;">EUR COMPARISON (MMbbl)</div>
+            <div class="metric-row"><span>Our P50</span><span>100</span></div>
+            <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 87%;"></div></div>
+            <div class="metric-row"><span>Analog 1</span><span>85</span></div>
+            <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 74%; background-color: #888;"></div></div>
+            <div class="metric-row"><span>Analog 2</span><span>115</span></div>
+            <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 100%; background-color: #888;"></div></div>
+          </div>
+          <div class="tech-badge" style="margin-top: 1rem;">25+ benchmarked reservoirs | 3 major basins | 12+ SPE references</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPTION 6: Risk Matrix & Mitigation Strategies (Card LEFT, Text RIGHT) -->
+<section class="qa-section">
+  <div class="container">
+    <div class="qa-flex" style="flex-direction: row-reverse;">
+      <div class="qa-text">
+        <div class="section-subhead">QUALITY ASSURANCE</div>
+        <h2>Risk Assessment & Mitigation</h2>
+        <p style="color: var(--gray-700); line-height: 1.6; margin-bottom: 1rem;">Every project includes a formal risk register with probability-impact scoring. We identify, quantify, and propose mitigation strategies for all material risks.</p>
+        <p style="color: var(--gray-700); line-height: 1.6;">Risks are categorized as geological, operational, or economic. Each receives a P10/P50/P90 range and a recommended mitigation path.</p>
+        <div style="margin-top: 1.5rem;">
+          <a href="services.html" class="btn-secondary">↗ Explore our services</a>
+        </div>
+      </div>
+      <div class="qa-visual">
+        <div class="qa-card">
+          <div class="qa-card-title">⚠️ RISK MATRIX</div>
+          <div class="risk-matrix">
+            <div></div><div class="risk-cell" style="font-weight: 700;">Low</div><div class="risk-cell" style="font-weight: 700;">Med</div><div class="risk-cell" style="font-weight: 700;">High</div>
+            <div class="risk-cell" style="font-weight: 700;">High</div><div class="risk-cell risk-low"></div><div class="risk-cell risk-med"></div><div class="risk-cell risk-high">GEO</div>
+            <div class="risk-cell" style="font-weight: 700;">Med</div><div class="risk-cell risk-low"></div><div class="risk-cell risk-med">ECO</div><div class="risk-cell risk-med"></div>
+            <div class="risk-cell" style="font-weight: 700;">Low</div><div class="risk-cell risk-low">OP</div><div class="risk-cell risk-low"></div><div class="risk-cell risk-low"></div>
+          </div>
+          <div style="margin-top: 1rem;">
+            <div style="font-weight: 600; font-size: 0.7rem; margin-bottom: 0.5rem;">TOP 3 RISKS & MITIGATION</div>
+            <div class="checklist-item">🔸 Compartmentalization — Med/High: Seismic reprocessing + interference test</div>
+            <div class="checklist-item">🔸 CAPEX Overrun — Med/Med: 30% contingency + phased development</div>
+            <div class="checklist-item">🔸 Oil Price Volatility — High/Med: Hedging strategy + breakeven analysis</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPTION 7: Data Management & Integrity (Text LEFT, Card RIGHT) -->
+<section class="qa-section">
+  <div class="container">
+    <div class="qa-flex">
+      <div class="qa-text">
+        <div class="section-subhead">QUALITY ASSURANCE</div>
+        <h2>Data Management & Integrity</h2>
+        <p style="color: var(--gray-700); line-height: 1.6; margin-bottom: 1rem;">We treat client data with the highest security standards. All data is encrypted at rest and in transit. Our version control system maintains a complete audit trail of every change to models, assumptions, and results.</p>
+        <p style="color: var(--gray-700); line-height: 1.6;">Data retention follows industry best practices with automated backups and disaster recovery protocols.</p>
+        <div style="margin-top: 1.5rem;">
+          <a href="services.html" class="btn-secondary">↗ Explore our services</a>
+        </div>
+      </div>
+      <div class="qa-visual">
+        <div class="qa-card">
+          <div class="qa-card-title">🔒 DATA INTEGRITY PROTOCOLS</div>
+          <div style="margin-bottom: 1rem;">
+            <div style="font-weight: 600; font-size: 0.75rem; margin-bottom: 0.5rem;">SECURITY</div>
+            <div class="checklist-item checked">AES-256 encryption at rest</div>
+            <div class="checklist-item checked">TLS 1.3 in transit</div>
+            <div class="checklist-item checked">MFA for all access</div>
+            <div class="checklist-item checked">SOC 2 Type II compliant</div>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <div style="font-weight: 600; font-size: 0.75rem; margin-bottom: 0.5rem;">VERSION CONTROL</div>
+            <div class="checklist-item checked">Git-based model management</div>
+            <div class="checklist-item checked">Full audit trail</div>
+            <div class="checklist-item checked">Timestamped backups</div>
+            <div class="checklist-item checked">30-day retention</div>
+          </div>
+          <div>
+            <div style="font-weight: 600; font-size: 0.75rem; margin-bottom: 0.5rem;">CONFIDENTIALITY</div>
+            <div class="checklist-item checked">NDA required before discussions</div>
+            <div class="checklist-item checked">Client data never shared</div>
+            <div class="checklist-item checked">Secure deletion upon request</div>
+          </div>
+          <div class="tech-badge" style="margin-top: 1rem;">Last Security Audit: Feb 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPTION 8: Technical Competency Framework (Card LEFT, Text RIGHT) -->
+<section class="qa-section">
+  <div class="container">
+    <div class="qa-flex" style="flex-direction: row-reverse;">
+      <div class="qa-text">
+        <div class="section-subhead">QUALITY ASSURANCE</div>
+        <h2>Technical Competency & Continuous Learning</h2>
+        <p style="color: var(--gray-700); line-height: 1.6; margin-bottom: 1rem;">TerraQuint engineers average 12+ years of industry experience, with expertise spanning conventional, unconventional, and deepwater assets. All technical staff maintain active SPE membership and pursue annual continuing education.</p>
+        <p style="color: var(--gray-700); line-height: 1.6;">Our competency framework ensures the right expert is assigned to every project, with peer review from additional subject matter experts when needed.</p>
+        <div style="margin-top: 1.5rem;">
+          <a href="services.html" class="btn-secondary">↗ Explore our services</a>
+        </div>
+      </div>
+      <div class="qa-visual">
+        <div class="qa-card">
+          <div class="qa-card-title">👥 TEAM QUALIFICATIONS</div>
+          <div style="margin-bottom: 1rem;">
+            <div style="font-weight: 600; font-size: 0.75rem; margin-bottom: 0.5rem;">EXPERIENCE BREAKDOWN</div>
+            <div class="metric-row"><span>15+ years</span><span>4 engineers</span></div>
+            <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 80%;"></div></div>
+            <div class="metric-row"><span>10-15 years</span><span>5 engineers</span></div>
+            <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 100%;"></div></div>
+            <div class="metric-row"><span>5-10 years</span><span>2 engineers</span></div>
+            <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 40%;"></div></div>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <div style="font-weight: 600; font-size: 0.75rem; margin-bottom: 0.5rem;">CERTIFICATIONS</div>
+            <div class="checklist-item checked">Professional Engineer (PE): 8</div>
+            <div class="checklist-item checked">SPE Certified: 11</div>
+            <div class="checklist-item checked">PMP: 3</div>
+          </div>
+          <div>
+            <div style="font-weight: 600; font-size: 0.75rem; margin-bottom: 0.5rem;">SUBJECT MATTER EXPERTS</div>
+            <div class="metric-row"><span>Reservoir</span><span>5 SMEs</span></div>
+            <div class="metric-row"><span>Production</span><span>4 SMEs</span></div>
+            <div class="metric-row"><span>EOR</span><span>3 SMEs</span></div>
+            <div class="metric-row"><span>CCS</span><span>2 SMEs</span></div>
+            <div class="metric-row"><span>Flow Assurance</span><span>3 SMEs</span></div>
+          </div>
+          <div class="tech-badge" style="margin-top: 1rem;">40 hrs/year min CE | SPE ATCE attendance | Software certification</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPTION 9: Deliverable Quality Standards (Text LEFT, Card RIGHT) -->
+<section class="qa-section">
+  <div class="container">
+    <div class="qa-flex">
+      <div class="qa-text">
+        <div class="section-subhead">QUALITY ASSURANCE</div>
+        <h2>Deliverable Quality Standards</h2>
+        <p style="color: var(--gray-700); line-height: 1.6; margin-bottom: 1rem;">Every client engagement includes a standardized deliverable package: technical report, model files, raw data, interactive dashboard, and presentation deck. All documents follow our corporate style guide and include complete metadata.</p>
+        <p style="color: var(--gray-700); line-height: 1.6;">Model files are fully documented with comments, assumptions tables, and sensitivity cases. Clients receive everything needed to reproduce or extend our work.</p>
+        <div style="margin-top: 1.5rem;">
+          <a href="services.html" class="btn-secondary">↗ Explore our services</a>
+        </div>
+      </div>
+      <div class="qa-visual">
+        <div class="qa-card">
+          <div class="qa-card-title">📦 DELIVERABLE PACKAGE</div>
+          <div class="checklist-item checked" style="justify-content: space-between;">
+            <span>✓ TECHNICAL REPORT</span>
+            <span class="badge">Standard</span>
+          </div>
+          <div style="padding-left: 1.5rem; margin-bottom: 0.75rem; font-size: 0.7rem; color: var(--gray-500);">
+            Executive summary · Methodology · Results · Appendices
+          </div>
+          <div class="checklist-item checked" style="justify-content: space-between;">
+            <span>✓ MODEL FILES</span>
+            <span class="badge">Standard</span>
+          </div>
+          <div style="padding-left: 1.5rem; margin-bottom: 0.75rem; font-size: 0.7rem; color: var(--gray-500);">
+            Native format · Commented · Assumptions documented · Sensitivity cases
+          </div>
+          <div class="checklist-item checked" style="justify-content: space-between;">
+            <span>✓ INTERACTIVE DASHBOARD</span>
+            <span class="badge">Standard</span>
+          </div>
+          <div style="padding-left: 1.5rem; margin-bottom: 0.75rem; font-size: 0.7rem; color: var(--gray-500);">
+            Power BI / Spotfire · Production plots · Forecast scenarios · Economics
+          </div>
+          <div class="checklist-item checked" style="justify-content: space-between;">
+            <span>✓ PRESENTATION DECK</span>
+            <span class="badge">Standard</span>
+          </div>
+          <div style="padding-left: 1.5rem; margin-bottom: 0.75rem; font-size: 0.7rem; color: var(--gray-500);">
+            15-20 slides · Executive ready · Editable format
+          </div>
+          <div class="tech-badge" style="margin-top: 0.5rem;">Delivery: Secure portal | Retention: 7 years minimum</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPTION 10: Post-Engagement Support (Card LEFT, Text RIGHT) -->
+<section class="qa-section">
+  <div class="container">
+    <div class="qa-flex" style="flex-direction: row-reverse;">
+      <div class="qa-text">
+        <div class="section-subhead">QUALITY ASSURANCE</div>
+        <h2>Post-Engagement Support</h2>
+        <p style="color: var(--gray-700); line-height: 1.6; margin-bottom: 1rem;">Our commitment doesn't end at delivery. Every project includes a 30-day warranty period for questions, clarifications, and minor adjustments. We provide knowledge transfer sessions and optional model handover training.</p>
+        <p style="color: var(--gray-700); line-height: 1.6;">For clients needing ongoing support, we offer retainer agreements for model maintenance, updates, and ad-hoc technical questions.</p>
+        <div style="margin-top: 1.5rem;">
+          <a href="services.html" class="btn-secondary">↗ Explore our services</a>
+        </div>
+      </div>
+      <div class="qa-visual">
+        <div class="qa-card">
+          <div class="qa-card-title">🤝 POST-ENGAGEMENT SUPPORT</div>
+          <div style="margin-bottom: 1rem;">
+            <div style="font-weight: 600; font-size: 0.75rem; margin-bottom: 0.5rem; color: #2E8B57;">✓ STANDARD (INCLUDED)</div>
+            <div class="checklist-item checked">30-day warranty — questions & clarifications</div>
+            <div class="checklist-item checked">Minor model adjustments & bug fixes</div>
+            <div class="checklist-item checked">2-hour knowledge transfer session</div>
+            <div class="checklist-item checked">Model walkthrough & Q&A with your team</div>
+            <div class="checklist-item checked">User guide & assumptions dictionary</div>
+          </div>
+          <div>
+            <div style="font-weight: 600; font-size: 0.75rem; margin-bottom: 0.5rem; color: var(--accent);">⟳ RETAINER (OPTIONAL)</div>
+            <div class="checklist-item">Monthly model updates</div>
+            <div class="checklist-item">Ad-hoc technical support</div>
+            <div class="checklist-item">Quarterly reviews</div>
+            <div class="checklist-item">Priority response (&lt;24hrs)</div>
+          </div>
+          <div style="margin-top: 1rem; text-align: center;">
+            <a href="contact.html" class="btn-secondary" style="padding: 0.4rem 1rem; font-size: 0.7rem;">Contact us for retainer pricing →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer placeholder (dynamic footer will be injected here) -->
+<div id="footer-placeholder"></div>
+
+<!-- Back to Top Button placeholder -->
+<div id="back-to-top-placeholder"></div>
+
+<!-- Components.js - Centralized navbar and back-to-top button -->
+<script src="components.js"></script>
+
+</body>
+</html>

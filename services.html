@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Explore TerraQuint's full range of petroleum engineering services: reservoir simulation, production optimization, EOR, decline curve analysis, flow assurance, and economic forecasting. Trusted by E&P operators globally.">
+  <link rel="canonical" href="https://www.terraquint.com/services.html">
+  
+  <title>Petroleum Engineering Services | Reservoir Simulation & EOR | TerraQuint</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Page-specific styles (only for services.html) -->
+  <style>
+    /* Services page specific hero content - clean and simple */
+    .hero-services {
+      background-color: var(--black);
+      color: var(--white);
+      padding: 5rem 0 4rem 0;
+      border-bottom: 1px solid #222;
+      text-align: center;
+    }
+
+    .hero-services h1 {
+      margin-bottom: 1rem;
+    }
+
+    .hero-services p {
+      color: #cccccc;
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+
+    /* Ensure drawer styles work properly */
+    .drawer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out;
+      background-color: var(--gray-100);
+      border-top: none;
+    }
+
+    .drawer.active {
+      max-height: 500px;
+      border-top: 1px solid var(--gray-200);
+    }
+
+    .drawer-content {
+      padding: 1.5rem;
+      text-align: left;
+    }
+
+    .full-desc {
+      color: var(--gray-700);
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+
+    /* Scroll margin for anchor targets (accounts for sticky navbar) */
+    [id] {
+      scroll-margin-top: 80px;
+    }
+
+    /* Service Detail Sections (S1-S20) */
+    .service-detail-section {
+      padding: 4rem 0;
+      background-color: var(--white);
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .service-detail-section:last-child {
+      border-bottom: none;
+    }
+
+    .service-detail-section:nth-child(even) {
+      background-color: var(--gray-100);
+    }
+
+    .service-card-detail {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 1.75rem;
+      border: 1px solid var(--gray-200);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      transition: all 0.2s ease;
+      height: 100%;
+    }
+
+    .service-card-detail:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .service-card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .service-card-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: var(--black);
+    }
+
+    .service-metric-box {
+      background: var(--gray-100);
+      border-radius: 16px;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+
+    .service-metric-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    .service-metric-label {
+      color: var(--gray-500);
+    }
+
+    .service-metric-value {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .service-feature-list {
+      list-style: none;
+      margin: 1rem 0;
+    }
+
+    .service-feature-list li {
+      margin-bottom: 0.5rem;
+      padding-left: 1.2rem;
+      position: relative;
+      font-size: 0.8rem;
+      color: var(--gray-700);
+    }
+
+    .service-feature-list li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .service-softwares {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+
+    .service-softwares span {
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      padding: 0.2rem 0.7rem;
+      border-radius: 30px;
+      font-size: 0.65rem;
+      font-family: monospace;
+      color: var(--accent);
+    }
+
+    .service-card-btn {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      background: transparent;
+      border: 1.5px solid var(--accent);
+      color: var(--accent);
+      padding: 0.6rem 1rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      margin-top: 1rem;
+    }
+
+    .service-card-btn:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    .progress-bar-simple {
+      background-color: var(--gray-200);
+      border-radius: 10px;
+      height: 8px;
+      overflow: hidden;
+      margin: 0.5rem 0;
+    }
+
+    .progress-fill-simple {
+      background: var(--accent);
+      border-radius: 10px;
+      height: 100%;
+    }
+
+    /* Tornado chart styles */
+    .tornado-item {
+      margin-bottom: 0.5rem;
+    }
+    .tornado-bar {
+      background-color: var(--accent);
+      height: 8px;
+      border-radius: 4px;
+    }
+    .tornado-label {
+      font-size: 0.7rem;
+      margin-bottom: 0.2rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 800px) {
+      .hero-services {
+        padding: 3rem 0;
+      }
+      .hero-services h1 {
+        font-size: 2rem;
+      }
+      .hero-services p {
+        font-size: 1rem;
+        padding: 0 1rem;
+      }
+      .service-card-detail {
+        margin-top: 1rem;
+      }
+    }
+
+    /* ============================================
+       MOBILE RESPONSIVENESS FIX FOR SERVICE SECTIONS (S1-S20)
+       Solution #1: Force Stack on Mobile
+       ============================================ */
+    
+    /* Tablets and below (900px) - Force stacking */
+    @media (max-width: 900px) {
+        /* Force all split-layout sections to stack vertically */
+        .service-detail-section .split-layout {
+            flex-direction: column !important;
+            gap: 1.5rem;
+        }
+        
+        /* Make both text and visual full width */
+        .service-detail-section .split-text,
+        .service-detail-section .split-visual {
+            flex: none;
+            width: 100%;
+            max-width: 100%;
+        }
+        
+        /* Adjust text section padding */
+        .service-detail-section .split-text {
+            padding-right: 0;
+            text-align: left;
+        }
+        
+        /* Adjust visual section (cards) */
+        .service-detail-section .split-visual {
+            margin-top: 0;
+        }
+        
+        /* Make cards full width on mobile */
+        .service-card-detail {
+            width: 100%;
+            margin: 0;
+        }
+        
+        /* Adjust heading sizes for mobile */
+        .service-detail-section h2 {
+            font-size: 1.6rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        /* Adjust section subhead */
+        .service-detail-section .section-subhead {
+            font-size: 0.7rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Adjust paragraph text */
+        .service-detail-section .split-text p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        /* Adjust insight stats for mobile */
+        .service-detail-section .insight-stats {
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .service-detail-section .insight-item {
+            flex: 1;
+            min-width: 100px;
+        }
+        
+        .service-detail-section .insight-number {
+            font-size: 1.2rem;
+        }
+        
+        /* Adjust service card detail padding */
+        .service-card-detail {
+            padding: 1.25rem;
+        }
+        
+        .service-card-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .service-card-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        /* Adjust metric box */
+        .service-metric-box {
+            padding: 0.75rem;
+        }
+        
+        .service-metric-row {
+            font-size: 0.7rem;
+        }
+        
+        /* Adjust feature list */
+        .service-feature-list li {
+            font-size: 0.75rem;
+            margin-bottom: 0.4rem;
+        }
+        
+        /* Adjust software badges */
+        .service-softwares span {
+            font-size: 0.6rem;
+            padding: 0.15rem 0.6rem;
+        }
+        
+        /* Adjust button */
+        .service-card-btn {
+            padding: 0.5rem 0.8rem;
+            font-size: 0.75rem;
+        }
+        
+        /* Adjust progress bars */
+        .progress-bar-simple {
+            height: 6px;
+        }
+        
+        /* Adjust tornado chart labels */
+        .tornado-label {
+            font-size: 0.65rem;
+        }
+    }
+    
+    /* Small phones (480px and below) - Extra adjustments */
+    @media (max-width: 480px) {
+        /* Reduce section padding */
+        .service-detail-section {
+            padding: 2.5rem 0;
+        }
+        
+        /* Smaller headings */
+        .service-detail-section h2 {
+            font-size: 1.3rem;
+        }
+        
+        /* Smaller text */
+        .service-detail-section .split-text p {
+            font-size: 0.85rem;
+        }
+        
+        /* Stack insight stats vertically if needed */
+        .service-detail-section .insight-stats {
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .service-detail-section .insight-item {
+            min-width: auto;
+        }
+        
+        /* Smaller card padding */
+        .service-card-detail {
+            padding: 1rem;
+        }
+        
+        .service-card-title {
+            font-size: 1rem;
+        }
+        
+        .service-card-icon {
+            font-size: 1.8rem;
+        }
+        
+        /* Adjust metric box rows */
+        .service-metric-row {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.25rem;
+        }
+        
+        /* Smaller software badges */
+        .service-softwares {
+            gap: 0.35rem;
+        }
+        
+        .service-softwares span {
+            font-size: 0.55rem;
+            padding: 0.1rem 0.5rem;
+        }
+        
+        /* Adjust button */
+        .service-card-btn {
+            padding: 0.45rem 0.7rem;
+            font-size: 0.7rem;
+        }
+        
+        /* Reduce gap between sections */
+        .service-detail-section .split-layout {
+            gap: 1rem;
+        }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar will be injected here by components.js -->
+<div id="navbar-placeholder"></div>
+
+<!-- Simplified Hero Section (no globe, clean like methodology page) -->
+<section class="hero-services">
+  <div class="container">
+    <div class="section-subhead" style="color:#aaa;">CORE COMPETENCIES</div>
+    <h1>Engineering That Drives Recovery</h1>
+    <p>TerraQuint delivers boutique consulting for E&P operators, asset teams, and energy investors — from reservoir to sales.</p>
+  </div>
+</section>
+
+<!-- Core competencies section (kept as anchor for buttons) -->
+<section class="services-section" id="servicesSection">
+  <div class="container">
+    <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
+      <div class="section-subhead">Our Expertise</div>
+      <h2>What We Deliver</h2>
+      <p style="max-width: 680px; margin: 0 auto; color: #4a4a4a;">Explore our full range of petroleum engineering services below.</p>
+    </div>
+    <div class="cards-grid" id="cardsGrid"></div>
+  </div>
+</section>
+
+<!-- ========= S1: RESERVOIR SIMULATION (Card on RIGHT) ========= -->
+<section class="service-detail-section">
+  <div class="container split-layout">
+    <div class="split-text">
+      <div class="section-subhead">RESERVOIR CHARACTERIZATION</div>
+      <h2>Reservoir Simulation & Dynamic Modeling</h2>
+      <p>We build high-fidelity reservoir models integrating geology, petrophysics, and fluid properties. Our simulation workflows optimize field development, evaluate infill drilling, and maximize hydrocarbon recovery through rigorous history matching and uncertainty quantification.</p>
+      <div class="insight-stats">
+        <div class="insight-item"><div class="insight-number">±8%</div><div style="font-size:0.75rem;">UNCERTAINTY REDUCTION</div></div>
+        <div class="insight-item"><div class="insight-number">92%</div><div style="font-size:0.75rem;">HISTORY MATCH QUALITY</div></div>
+      </div>
+      <a href="methodology.html#technical-pillars" class="btn-secondary" style="margin-top: 1rem; display: inline-block;">Explore methodology →</a>
+    </div>
+    <div class="split-visual">
+      <div class="service-card-detail">
+        <div class="service-card-icon">🗻</div>
+        <div class="service-card-title">Reservoir Simulation</div>
+        <div class="service-metric-box">
+          <div class="service-metric-row"><span class="service-metric-label">Grid Cells</span><span class="service-metric-value">500K - 5M</span></div>
+          <div class="service-metric-row"><span class="service-metric-label">History Match Quality</span><span class="service-metric-value">92%</span></div>
+          <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 92%;"></div></div>
+        </div>
+        <ul class="service-feature-list">
+          <li>Full-field finite-difference & streamline simulation</li>
+          <li>History matching (manual & assisted)</li>
+          <li>Field development planning & scenario ranking</li>
+          <li>EOR/IOR feasibility screening</li>
+        </ul>
+        <div class="service-softwares">
+          <span>ECLIPSE</span><span>CMG</span><span>COMSOL</span><span>The Kingdom Software</span>
+        </div>
+        <a href="contact.html" class="service-card-btn">Discuss your reservoir →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= S2: PRODUCTION ENGINEERING (Card on LEFT) ========= -->
+<section class="service-detail-section">
+  <div class="container split-layout" style="flex-direction: row-reverse;">
+    <div class="split-text">
+      <div class="section-subhead">WELL & FIELD PERFORMANCE</div>
+      <h2>Production Engineering & Optimization</h2>
+      <p>From sandface to sales meter, we optimize every component of your production system. Our integrated approach identifies bottlenecks, reduces lifting costs, and increases asset value through nodal analysis and artificial lift design.</p>
+      <div class="insight-stats">
+        <div class="insight-item"><div class="insight-number">+23%</div><div style="font-size:0.75rem;">UPTIME IMPROVEMENT</div></div>
+        <div class="insight-item"><div class="insight-number">15-25%</div><div style="font-size:0.75rem;">OPEX REDUCTION</div></div>
+      </div>
+      <a href="methodology.html#technical-pillars" class="btn-secondary" style="margin-top: 1rem; display: inline-block;">Explore methodology →</a>
+    </div>
+    <div class="split-visual">
+      <div class="service-card-detail">
+        <div class="service-card-icon">⚙️</div>
+        <div class="service-card-title">Production Engineering</div>
+        <ul class="service-feature-list">
+          <li>Nodal analysis (IPR vs. TPC)</li>
+          <li>ESP / Gas lift / Rod pump design</li>
+          <li>Production forecasting & well flowback strategies</li>
+          <li>Integrated field development planning</li>
+        </ul>
+        <div class="service-softwares">
+          <span>Petroleum Experts IPM</span><span>WellFlo</span>
+        </div>
+        <a href="contact.html" class="service-card-btn">Optimize your production →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= S3: ENHANCED OIL RECOVERY (Card on RIGHT) - Added ID for EOR link ========= -->
+<section class="service-detail-section" id="eor">
+  <div class="container split-layout">
+    <div class="split-text">
+      <div class="section-subhead">ENHANCED RECOVERY</div>
+      <h2>EOR Feasibility & Design</h2>
+      <p>We design and evaluate enhanced oil recovery programs tailored to your reservoir. From waterflood optimization to CO₂ injection, thermal recovery, and chemical flooding — our simulation-driven approach maximizes ultimate recovery while minimizing risk.</p>
+      <div class="insight-stats">
+        <div class="insight-item"><div class="insight-number">+8-18%</div><div style="font-size:0.75rem;">CO₂ FLOOD UPSIDE</div></div>
+        <div class="insight-item"><div class="insight-number">+15-25%</div><div style="font-size:0.75rem;">THERMAL RECOVERY</div></div>
+      </div>
+      <a href="methodology.html#technical-pillars" class="btn-secondary" style="margin-top: 1rem; display: inline-block;">Explore methodology →</a>
+    </div>
+    <div class="split-visual">
+      <div class="service-card-detail">
+        <div class="service-card-icon">💧</div>
+        <div class="service-card-title">Enhanced Oil Recovery</div>
+        <ul class="service-feature-list">
+          <li>Waterflood & pattern optimization (+8-12%)</li>
+          <li>CO₂ miscible / immiscible flooding (+10-18%)</li>
+          <li>Steam injection & SAGD (+15-25%)</li>
+          <li>Polymer / surfactant / alkaline flooding</li>
+        </ul>
+        <div class="service-softwares">
+          <span>CMG</span><span>ECLIPSE</span><span>Aspen</span><span>COMSOL</span>
+        </div>
+        <a href="contact.html" class="service-card-btn">Unlock your EOR potential →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= S4: DECLINE CURVE ANALYSIS (Card on LEFT) ========= -->
+<section class="service-detail-section">
+  <div class="container split-layout" style="flex-direction: row-reverse;">
+    <div class="split-text">
+      <div class="section-subhead">PRODUCTION FORECASTING</div>
+      <h2>Decline Curve Analysis & RTA</h2>
+      <p>Rigorous production decline analysis and rate-transient analysis for reserves certification, EUR estimation, and type well generation. We support SEC, PRMS, and internal reporting standards with probabilistic assessments.</p>
+      <div class="insight-stats">
+        <div class="insight-item"><div class="insight-number">P10/P50/P90</div><div style="font-size:0.75rem;">PROBABILISTIC EUR</div></div>
+        <div class="insight-item"><div class="insight-number">±15%</div><div style="font-size:0.75rem;">UNCERTAINTY RANGE</div></div>
+      </div>
+      <a href="methodology.html#technical-pillars" class="btn-secondary" style="margin-top: 1rem; display: inline-block;">Explore methodology →</a>
+    </div>
+    <div class="split-visual">
+      <div class="service-card-detail">
+        <div class="service-card-icon">📉</div>
+        <div class="service-card-title">Decline Curve Analysis</div>
+        <div class="service-metric-box">
+          <div class="service-metric-row"><span class="service-metric-label">P90</span><span class="service-metric-value">85 MMbbl</span></div>
+          <div class="service-metric-row"><span class="service-metric-label">P50</span><span class="service-metric-value">100 MMbbl</span></div>
+          <div class="service-metric-row"><span class="service-metric-label">P10</span><span class="service-metric-value">120 MMbbl</span></div>
+        </div>
+        <ul class="service-feature-list">
+          <li>Arps (exponential, hyperbolic, harmonic)</li>
+          <li>Duong model for unconventional</li>
+          <li>Stretched Exponential (SEPD)</li>
+          <li>Rate-transient analysis (RTA)</li>
+        </ul>
+        <div class="service-softwares">
+          <span>IPM</span><span>Petra</span><span>Surfer</span><span>PHDWIN</span>
+        </div>
+        <a href="contact.html" class="service-card-btn">Certify your reserves →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= S5: FACILITIES BOTTLENECK (Card on RIGHT) ========= -->
+<section class="service-detail-section">
+  <div class="container split-layout">
+    <div class="split-text">
+      <div class="section-subhead">PRODUCTION SYSTEM OPTIMIZATION</div>
+      <h2>Facilities Bottleneck Diagnostics</h2>
+      <p>We identify and eliminate production constraints across your entire surface facility network. Our integrated modeling approach pinpoints the exact bottleneck — separator, compressor, pump, or flowline — and quantifies the production gain from debottlenecking.</p>
+      <div class="insight-stats">
+        <div class="insight-item"><div class="insight-number">+15-25%</div><div style="font-size:0.75rem;">CAPACITY GAIN</div></div>
+        <div class="insight-item"><div class="insight-number">30%</div><div style="font-size:0.75rem;">PRESSURE DROP REDUCTION</div></div>
+      </div>
+      <a href="methodology.html#technical-pillars" class="btn-secondary" style="margin-top: 1rem; display: inline-block;">Explore methodology →</a>
+    </div>
+    <div class="split-visual">
+      <div class="service-card-detail">
+        <div class="service-card-icon">🏭</div>
+        <div class="service-card-title">Bottleneck Diagnostics</div>
+        <ul class="service-feature-list">
+          <li>Integrated network modeling</li>
+          <li>Constraint analysis & ranking</li>
+          <li>Pressure drop profiling</li>
+          <li>Capacity expansion planning</li>
+        </ul>
+        <div class="service-softwares">
+          <span>IPM</span><span>Aspen</span><span>DWSIM</span><span>COMSOL</span>
+        </div>
+        <a href="contact.html" class="service-card-btn">Debottleneck your facility →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= S6: ECONOMIC FORECASTING (Card on LEFT) ========= -->
+<section class="service-detail-section">
+  <div class="container split-layout" style="flex-direction: row-reverse;">
+    <div class="split-text">
+      <div class="section-subhead">INVESTMENT DECISION SUPPORT</div>
+      <h2>Economic Forecasting & Valuation</h2>
+      <p>We provide rigorous economic analysis for upstream investment decisions. Our models integrate reservoir, production, and cost data to deliver NPV, IRR, and risk-adjusted valuations that withstand investment committee scrutiny.</p>
+      <div class="insight-stats">
+        <div class="insight-item"><div class="insight-number">NPV</div><div style="font-size:0.75rem;">BASE CASE $120M</div></div>
+        <div class="insight-item"><div class="insight-number">IRR</div><div style="font-size:0.75rem;">18%</div></div>
+      </div>
+      <a href="methodology.html#technical-pillars" class="btn-secondary" style="margin-top: 1rem; display: inline-block;">Explore methodology →</a>
+    </div>
+    <div class="split-visual">
+      <div class="service-card-detail">
+        <div class="service-card-icon">💰</div>
+        <div class="service-card-title">Economic Forecasting</div>
+        <div class="tornado-item">
+          <div class="tornado-label"><span>Oil Price</span><span>±$35M</span></div>
+          <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 100%;"></div></div>
+        </div>
+        <div class="tornado-item">
+          <div class="tornado-label"><span>Capex</span><span>±$20M</span></div>
+          <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 60%;"></div></div>
+        </div>
+        <div class="tornado-item">
+          <div class="tornado-label"><span>Production</span><span>±$15M</span></div>
+          <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 45%;"></div></div>
+        </div>
+        <ul class="service-feature-list">
+          <li>NPV & IRR analysis</li>
+          <li>Monte Carlo simulation (P10/P50/P90)</li>
+          <li>Sensitivity & scenario analysis</li>
+          <li>Portfolio optimization</li>
+        </ul>
+        <div class="service-softwares">
+          <span>Wolfram Mathematica</span><span>Matlab</span><span>IPM</span><span>PHDWIN</span>
+        </div>
+        <a href="contact.html" class="service-card-btn">Value your investment →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= S7: FLOW ASSURANCE (Card on RIGHT) ========= -->
+<section class="service-detail-section">
+  <div class="container split-layout">
+    <div class="split-text">
+      <div class="section-subhead">PRODUCTION INTEGRITY</div>
+      <h2>Flow Assurance Management</h2>
+      <p>We ensure safe and reliable hydrocarbon transport from wellhead to processing facilities. Our flow assurance studies prevent costly flow restrictions, production deferments, and integrity failures in onshore, deepwater, and unconventional environments.</p>
+      <div class="insight-stats">
+        <div class="insight-item"><div class="insight-number">16°F</div><div style="font-size:0.75rem;">HYDRATE MARGIN</div></div>
+        <div class="insight-item"><div class="insight-number">14 days</div><div style="font-size:0.75rem;">PIGGING FREQUENCY</div></div>
+      </div>
+      <a href="methodology.html#technical-pillars" class="btn-secondary" style="margin-top: 1rem; display: inline-block;">Explore methodology →</a>
+    </div>
+    <div class="split-visual">
+      <div class="service-card-detail">
+        <div class="service-card-icon">🌊</div>
+        <div class="service-card-title">Flow Assurance</div>
+        <div class="service-metric-box">
+          <div class="service-metric-row"><span class="service-metric-label">Hydrate Risk</span><span class="service-metric-value">LOW (16°F margin)</span></div>
+          <div class="service-metric-row"><span class="service-metric-label">Corrosion Rate</span><span class="service-metric-value">0.8 mm/yr</span></div>
+        </div>
+        <ul class="service-feature-list">
+          <li>Hydrate prevention (thermodynamic/kinetic)</li>
+          <li>Wax & asphaltene deposition modeling</li>
+          <li>Thermal-hydraulic analysis</li>
+          <li>Slugging control & subsea design</li>
+        </ul>
+        <div class="service-softwares">
+          <span>PIPESIM</span><span>COMSOL</span><span>Aspen</span>
+        </div>
+        <a href="contact.html" class="service-card-btn">Ensure flow integrity →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= S8: WELL TESTING (Card on LEFT) ========= -->
+<section class="service-detail-section">
+  <div class="container split-layout" style="flex-direction: row-reverse;">
+    <div class="split-text">
+      <div class="section-subhead">RESERVOIR CHARACTERIZATION</div>
+      <h2>Pressure Transient Analysis & Well Testing</h2>
+      <p>We analyze well test data to characterize reservoir properties, near-wellbore conditions, and boundary effects. Our interpretations provide critical inputs for reservoir modeling and production forecasting.</p>
+      <div class="insight-stats">
+        <div class="insight-item"><div class="insight-number">kh</div><div style="font-size:0.75rem;">PERMEABILITY THICKNESS</div></div>
+        <div class="insight-item"><div class="insight-number">Skin</div><div style="font-size:0.75rem;">FORMATION DAMAGE</div></div>
+      </div>
+      <a href="methodology.html#technical-pillars" class="btn-secondary" style="margin-top: 1rem; display: inline-block;">Explore methodology →</a>
+    </div>
+    <div class="split-visual">
+      <div class="service-card-detail">
+        <div class="service-card-icon">🔬</div>
+        <div class="service-card-title">Well Testing</div>
+        <ul class="service-feature-list">
+          <li>Permeability (kh) & skin factor determination</li>
+          <li>Radius of investigation</li>
+          <li>Fracture half-length characterization</li>
+          <li>Reservoir pressure & boundary detection</li>
+        </ul>
+        <div class="service-softwares">
+          <span>Ecrin</span><span>PHDWIN</span><span>IPM</span><span>WellFlo</span>
+        </div>
+        <a href="contact.html" class="service-card-btn">Characterize your reservoir →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= S9: EQUIPMENT DESIGN (Card on RIGHT) ========= -->
+<section class="service-detail-section">
+  <div class="container split-layout">
+    <div class="split-text">
+      <div class="section-subhead">FACILITIES ENGINEERING</div>
+      <h2>Equipment Design & Sizing</h2>
+      <p>We design and specify oil & gas facilities equipment from concept to fabrication. Our engineering ensures ASME, API, and other industry standards compliance while optimizing for cost, weight, and operability.</p>
+      <div class="insight-stats">
+        <div class="insight-item"><div class="insight-number">ASME VIII</div><div style="font-size:0.75rem;">CODE COMPLIANT</div></div>
+        <div class="insight-item"><div class="insight-number">FEA</div><div style="font-size:0.75rem;">STRUCTURAL ANALYSIS</div></div>
+      </div>
+      <a href="methodology.html#technical-pillars" class="btn-secondary" style="margin-top: 1rem; display: inline-block;">Explore methodology →</a>
+    </div>
+    <div class="split-visual">
+      <div class="service-card-detail">
+        <div class="service-card-icon">📐</div>
+        <div class="service-card-title">Equipment Design</div>
+        <div class="service-metric-box">
+          <div class="service-metric-row"><span class="service-metric-label">Separator</span><span class="service-metric-value">48" x 15'</span></div>
+          <div class="service-metric-row"><span class="service-metric-label">Design Pressure</span><span class="service-metric-value">1,200 psi</span></div>
+          <div class="service-metric-row"><span class="service-metric-label">Material</span><span class="service-metric-value">CS (1/8" CA)</span></div>
+        </div>
+        <ul class="service-feature-list">
+          <li>Pressure vessels & separators</li>
+          <li>Heat exchangers & pumps</li>
+          <li>Piping systems & process skids</li>
+          <li>Finite Element Analysis (FEA)</li>
+        </ul>
+        <div class="service-softwares">
+          <span>Siemens NX</span><span>Solidworks</span><span>COMSOL</span><span>Femap</span>
+        </div>
+        <a href="contact.html" class="service-card-btn">Design your equipment →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= S10: MATERIAL BALANCE (Card on LEFT) ========= -->
+<section class="service-detail-section">
+  <div class="container split-layout" style="flex-direction: row-reverse;">
+    <div class="split-text">
+      <div class="section-subhead">DYNAMIC CHARACTERIZATION</div>
+      <h2>Material Balance Analysis</h2>
+      <p>We apply material balance to characterize connected hydrocarbon volume, aquifer support, and drive mechanisms — without building full-field simulation models. This rapid, physics-based approach validates static models and quantifies uncertainty.</p>
+      <div class="insight-stats">
+        <div class="insight-item"><div class="insight-number">±8%</div><div style="font-size:0.75rem;">OGIP UNCERTAINTY</div></div>
+        <div class="insight-item"><div class="insight-number">55%</div><div style="font-size:0.75rem;">WATER DRIVE INDEX</div></div>
+      </div>
+      <a href="methodology.html#technical-pillars" class="btn-secondary" style="margin-top: 1rem; display: inline-block;">Explore methodology →</a>
+    </div>
+    <div class="split-visual">
+      <div class="service-card-detail">
+        <div class="service-card-icon">⚖️</div>
+        <div class="service-card-title">Material Balance</div>
+        <div class="service-metric-box">
+          <div class="service-metric-row"><span class="service-metric-label">OGIP</span><span class="service-metric-value">125 Bcf</span></div>
+          <div class="service-metric-row"><span class="service-metric-label">Drive: Water/Gas/Oil</span><span class="service-metric-value">55/25/20%</span></div>
+          <div class="service-metric-row"><span class="service-metric-label">Aquifer</span><span class="service-metric-value">Infinite (Strong)</span></div>
+        </div>
+        <ul class="service-feature-list">
+          <li>OGIP/OOIP estimation</li>
+          <li>Drive mechanism identification</li>
+          <li>Aquifer strength quantification</li>
+          <li>Compartmentalization detection</li>
+        </ul>
+        <div class="service-softwares">
+          <span>IPM</span><span>PHDWIN</span>
+        </div>
+        <a href="contact.html" class="service-card-btn">Validate your model →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= S11: RESERVOIR QUALITY SCORECARD (Card on RIGHT) ========= -->
+<section class="service-detail-section">
+  <div class="container split-layout">
+    <div class="split-text">
+      <div class="section-subhead">RESERVOIR QUALITY ASSESSMENT</div>
+      <h2>Reservoir Quality Scorecard</h2>
+      <p>We benchmark your reservoir against industry standards across six key parameters. Each metric scored 1-5, with actionable recommendations for improvement.</p>
+      <div class="insight-stats">
+        <div class="insight-item"><div class="insight-number">3.7/5</div><div style="font-size:0.75rem;">OVERALL SCORE</div></div>
+        <div class="insight-item"><div class="insight-number">+12MMbbl</div><div style="font-size:0.75rem;">UPSIDE POTENTIAL</div></div>
+      </div>
+      <a href="methodology.html#technical-pillars" class="btn-secondary" style="margin-top: 1rem; display: inline-block;">Explore methodology →</a>
+    </div>
+    <div class="split-visual">
+      <div class="service-card-detail">
+        <div class="service-card-icon">📊</div>
+        <div class="service-card-title">Reservoir Quality Index</div>
+        <div class="service-metric-row"><span>Porosity</span><span class="service-metric-value">4/5</span></div>
+        <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 80%;"></div></div>
+        <div class="service-metric-row"><span>Permeability</span><span class="service-metric-value">3/5</span></div>
+        <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 60%;"></div></div>
+        <div class="service-metric-row"><span>Net-to-Gross</span><span class="service-metric-value">4/5</span></div>
+        <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 80%;"></div></div>
+        <div class="service-metric-row"><span>Oil Saturation</span><span class="service-metric-value">3.5/5</span></div>
+        <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 70%;"></div></div>
+        <div class="service-metric-row"><span>Aquifer Support</span><span class="service-metric-value">5/5</span></div>
+        <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 100%;"></div></div>
+        <div class="service-softwares" style="margin-top: 1rem;">
+          <span>IPM</span><span>PHDWIN</span>
+        </div>
+        <a href="contact.html" class="service-card-btn">Assess your reservoir →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= S12: RECOVERY FACTOR BRIDGE (Card on LEFT) ========= -->
+<section class="service-detail-section">
+  <div class="container split-layout" style="flex-direction: row-reverse;">
+    <div class="split-text">
+      <div class="section-subhead">RECOVERY OPTIMIZATION</div>
+      <h2>Recovery Factor Breakdown</h2>
+      <p>We quantify every opportunity to increase hydrocarbon recovery — from infill drilling to enhanced oil recovery. Our gap analysis provides a clear roadmap to maximize asset value with economic ranking of each opportunity.</p>
+      <div class="insight-stats">
+        <div class="insight-item"><div class="insight-number">18%</div><div style="font-size:0.75rem;">CURRENT RF</div></div>
+        <div class="insight-item"><div class="insight-number">42%</div><div style="font-size:0.75rem;">TARGET RF</div></div>
+        <div class="insight-item"><div class="insight-number">+24%</div><div style="font-size:0.75rem;">TOTAL UPSIDE</div></div>
+      </div>
+      <a href="methodology.html#technical-pillars" class="btn-secondary" style="margin-top: 1rem; display: inline-block;">Explore methodology →</a>
+    </div>
+    <div class="split-visual">
+      <div class="service-card-detail">
+        <div class="service-card-icon">📈</div>
+        <div class="service-card-title">Recovery Factor Bridge</div>
+        <div class="service-metric-row"><span>Current RF</span><span class="service-metric-value">18%</span></div>
+        <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 18%; background-color: #555;"></div></div>
+        <div class="service-metric-row"><span>+ Infill Drilling</span><span class="service-metric-value">+8%</span></div>
+        <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 8%; background-color: #E8A735;"></div></div>
+        <div class="service-metric-row"><span>+ EOR</span><span class="service-metric-value">+12%</span></div>
+        <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 12%; background-color: #0077B6;"></div></div>
+        <div class="service-metric-row"><span>+ Optimization</span><span class="service-metric-value">+4%</span></div>
+        <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 4%; background-color: #2E8B57;"></div></div>
+        <div class="service-metric-row" style="margin-top: 0.5rem;"><span>Target RF</span><span class="service-metric-value">42%</span></div>
+        <div class="service-softwares" style="margin-top: 1rem;">
+          <span>IPM</span><span>PHDWIN</span><span>Matlab</span>
+        </div>
+        <a href="contact.html" class="service-card-btn">Maximize your recovery →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= S13: PETROPHYSICS (Card on RIGHT) ========= -->
+<section class="service-detail-section">
+  <div class="container split-layout">
+    <div class="split-text">
+      <div class="section-subhead">ROCK PROPERTIES</div>
+      <h2>Petrophysical Analysis & Interpretation</h2>
+      <p>We analyze well logs and core data to characterize reservoir rock properties critical for volume estimation and flow prediction. Our interpretations provide the foundation for static and dynamic reservoir models.</p>
+      <div class="insight-stats">
+        <div class="insight-item"><div class="insight-number">19%</div><div style="font-size:0.75rem;">EFFECTIVE POROSITY</div></div>
+        <div class="insight-item"><div class="insight-number">245 mD</div><div style="font-size:0.75rem;">PERMEABILITY</div></div>
+      </div>
+      <a href="methodology.html#technical-pillars" class="btn-secondary" style="margin-top: 1rem; display: inline-block;">Explore methodology →</a>
+    </div>
+    <div class="split-visual">
+      <div class="service-card-detail">
+        <div class="service-card-icon">🔬</div>
+        <div class="service-card-title">Petrophysics</div>
+        <div class="service-metric-box">
+          <div class="service-metric-row"><span class="service-metric-label">Porosity (effective)</span><span class="service-metric-value">19%</span></div>
+          <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 76%;"></div></div>
+          <div class="service-metric-row"><span class="service-metric-label">Permeability</span><span class="service-metric-value">245 mD</span></div>
+          <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 65%;"></div></div>
+          <div class="service-metric-row"><span class="service-metric-label">Water Saturation</span><span class="service-metric-value">28%</span></div>
+          <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 28%; background-color: #0077B6;"></div></div>
+          <div class="service-metric-row"><span class="service-metric-label">Net-to-Gross</span><span class="service-metric-value">0.72</span></div>
+          <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 72%;"></div></div>
+        </div>
+        <ul class="service-feature-list">
+          <li>Porosity (total & effective)</li>
+          <li>Permeability (absolute & relative)</li>
+          <li>Water saturation (Sw) & net pay</li>
+          <li>Rock typing & facies classification</li>
+        </ul>
+        <div class="service-softwares">
+          <span>Techlog</span><span>Petrel</span><span>IPM</span>
+        </div>
+        <a href="contact.html" class="service-card-btn">Characterize your rock →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= S14: UNCONVENTIONAL RESOURCES (Card on LEFT) ========= -->
+<section class="service-detail-section">
+  <div class="container split-layout" style="flex-direction: row-reverse;">
+    <div class="split-text">
+      <div class="section-subhead">UNCONVENTIONAL ASSETS</div>
+      <h2>Shale & Tight Reservoir Engineering</h2>
+      <p>We specialize in unconventional reservoir evaluation — from completion design to production forecasting and EUR assessment. Our data-driven approach optimizes development in shale, tight gas, and coal bed methane assets.</p>
+      <div class="insight-stats">
+        <div class="insight-item"><div class="insight-number">Duong</div><div style="font-size:0.75rem;">MODEL FOR SHALE</div></div>
+        <div class="insight-item"><div class="insight-number">SEPD</div><div style="font-size:0.75rem;">STRETCHED EXPONENTIAL</div></div>
+      </div>
+      <a href="methodology.html#technical-pillars" class="btn-secondary" style="margin-top: 1rem; display: inline-block;">Explore methodology →</a>
+    </div>
+    <div class="split-visual">
+      <div class="service-card-detail">
+        <div class="service-card-icon">⛰️</div>
+        <div class="service-card-title">Unconventional Resources</div>
+        <div class="service-metric-box">
+          <div class="service-metric-row"><span class="service-metric-label">EUR P90</span><span class="service-metric-value">1.2 Bcf</span></div>
+          <div class="service-metric-row"><span class="service-metric-label">EUR P50</span><span class="service-metric-value">1.8 Bcf</span></div>
+          <div class="service-metric-row"><span class="service-metric-label">EUR P10</span><span class="service-metric-value">2.5 Bcf</span></div>
+        </div>
+        <ul class="service-feature-list">
+          <li>Decline curve analysis (Duong, SEPD)</li>
+          <li>Rate-transient analysis (RTA)</li>
+          <li>DFIT / mini-frac interpretation</li>
+          <li>Parent-child well interactions</li>
+        </ul>
+        <div class="service-softwares">
+          <span>IPM</span><span>PHDWIN</span><span>Harmony</span>
+        </div>
+        <a href="contact.html" class="service-card-btn">Optimize your unconventional asset →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= S15: CARBON CAPTURE & STORAGE (Card on RIGHT) ========= -->
+<section class="service-detail-section">
+  <div class="container split-layout">
+    <div class="split-text">
+      <div class="section-subhead">CARBON MANAGEMENT</div>
+      <h2>CCS Feasibility & Design</h2>
+      <p>We provide engineering support for carbon capture and storage projects — from site screening to injection design and monitoring. Our expertise helps operators reduce emissions and generate carbon credits.</p>
+      <div class="insight-stats">
+        <div class="insight-item"><div class="insight-number">50 MMt</div><div style="font-size:0.75rem;">STORAGE CAPACITY</div></div>
+        <div class="insight-item"><div class="insight-number">1 MMt/yr</div><div style="font-size:0.75rem;">INJECTION RATE</div></div>
+      </div>
+      <a href="methodology.html#technical-pillars" class="btn-secondary" style="margin-top: 1rem; display: inline-block;">Explore methodology →</a>
+    </div>
+    <div class="split-visual">
+      <div class="service-card-detail">
+        <div class="service-card-icon">🌍</div>
+        <div class="service-card-title">Carbon Capture & Storage</div>
+        <div class="service-metric-box">
+          <div class="service-metric-row"><span class="service-metric-label">Target Formation</span><span class="service-metric-value">Depleted Gas</span></div>
+          <div class="service-metric-row"><span class="service-metric-label">Capacity</span><span class="service-metric-value">50 MMt CO₂</span></div>
+          <div class="service-metric-row"><span class="service-metric-label">Injection Rate</span><span class="service-metric-value">1 MMt/year</span></div>
+        </div>
+        <ul class="service-feature-list">
+          <li>Storage capacity estimation</li>
+          <li>CO₂ injection simulation</li>
+          <li>Plume migration modeling</li>
+          <li>Leakage risk assessment</li>
+        </ul>
+        <div class="service-softwares">
+          <span>CMG</span><span>ECLIPSE</span><span>COMSOL</span>
+        </div>
+        <a href="contact.html" class="service-card-btn">Advance your CCS project →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= S16: INTEGRATED ASSET MODELING (Card on LEFT) ========= -->
+<section class="service-detail-section">
+  <div class="container split-layout" style="flex-direction: row-reverse;">
+    <div class="split-text">
+      <div class="section-subhead">ASSET-WIDE OPTIMIZATION</div>
+      <h2>Integrated Asset Modeling</h2>
+      <p>We connect subsurface, surface, and economic models for full-field optimization — from reservoir to sales point. Our integrated approach ensures that every component works together to maximize value.</p>
+      <div class="insight-stats">
+        <div class="insight-item"><div class="insight-number">12</div><div style="font-size:0.75rem;">WELLS MODELED</div></div>
+        <div class="insight-item"><div class="insight-number">15,000</div><div style="font-size:0.75rem;">BOPD CURRENT RATE</div></div>
+      </div>
+      <a href="methodology.html#technical-pillars" class="btn-secondary" style="margin-top: 1rem; display: inline-block;">Explore methodology →</a>
+    </div>
+    <div class="split-visual">
+      <div class="service-card-detail">
+        <div class="service-card-icon">🔗</div>
+        <div class="service-card-title">Integrated Asset Modeling</div>
+        <div class="service-metric-box">
+          <div class="service-metric-row"><span class="service-metric-label">Wells</span><span class="service-metric-value">12</span></div>
+          <div class="service-metric-row"><span class="service-metric-label">Flowlines</span><span class="service-metric-value">15 km</span></div>
+          <div class="service-metric-row"><span class="service-metric-label">Facilities</span><span class="service-metric-value">1 Central Processing</span></div>
+          <div class="service-metric-row"><span class="service-metric-label">Current Rate</span><span class="service-metric-value">15,000 bopd</span></div>
+        </div>
+        <ul class="service-feature-list">
+          <li>Coupled reservoir-network modeling</li>
+          <li>Production system optimization</li>
+          <li>Field development scenario ranking</li>
+          <li>Economic limit analysis</li>
+        </ul>
+        <div class="service-softwares">
+          <span>Petroleum Experts IPM</span><span>PIPESIM</span>
+        </div>
+        <a href="contact.html" class="service-card-btn">Optimize your entire asset →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= S17: DIGITAL OILFIELD (Card on RIGHT) ========= -->
+<section class="service-detail-section">
+  <div class="container split-layout">
+    <div class="split-text">
+      <div class="section-subhead">DATA-DRIVEN SOLUTIONS</div>
+      <h2>Digital Oilfield & Machine Learning</h2>
+      <p>We apply advanced analytics and machine learning to optimize production, predict failures, and reduce operating costs. Our data-driven solutions turn field data into actionable intelligence.</p>
+      <div class="insight-stats">
+        <div class="insight-item"><div class="insight-number">89%</div><div style="font-size:0.75rem;">PREDICTION ACCURACY</div></div>
+        <div class="insight-item"><div class="insight-number">12-18%</div><div style="font-size:0.75rem;">OPEX REDUCTION</div></div>
+      </div>
+      <a href="methodology.html#technical-pillars" class="btn-secondary" style="margin-top: 1rem; display: inline-block;">Explore methodology →</a>
+    </div>
+    <div class="split-visual">
+      <div class="service-card-detail">
+        <div class="service-card-icon">🤖</div>
+        <div class="service-card-title">Digital Oilfield</div>
+        <div class="service-metric-box">
+          <div class="service-metric-row"><span class="service-metric-label">Prediction Accuracy</span><span class="service-metric-value">89%</span></div>
+          <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 89%;"></div></div>
+          <div class="service-metric-row"><span class="service-metric-label">False Alarms Reduced</span><span class="service-metric-value">45%</span></div>
+          <div class="progress-bar-simple"><div class="progress-fill-simple" style="width: 45%; background-color: #2E8B57;"></div></div>
+        </div>
+        <ul class="service-feature-list">
+          <li>Production forecasting with ML</li>
+          <li>ESP failure prediction</li>
+          <li>Anomaly detection in real-time</li>
+          <li>Virtual metering & pattern recognition</li>
+        </ul>
+        <div class="service-softwares">
+          <span>Python</span><span>Matlab</span><span>Spotfire</span>
+        </div>
+        <a href="contact.html" class="service-card-btn">Digitize your operations →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= S18: GAS RESERVOIR ENGINEERING (Card on LEFT) ========= -->
+<section class="service-detail-section">
+  <div class="container split-layout" style="flex-direction: row-reverse;">
+    <div class="split-text">
+      <div class="section-subhead">GAS ASSETS</div>
+      <h2>Gas Reservoir Engineering</h2>
+      <p>We provide specialized engineering for gas reservoirs — from dry gas to condensate and storage. Our expertise ensures accurate reserves estimates and optimized production strategies.</p>
+      <div class="insight-stats">
+        <div class="insight-item"><div class="insight-number">125 Bcf</div><div style="font-size:0.75rem;">OGIP</div></div>
+        <div class="insight-item"><div class="insight-number">P/Z</div><div style="font-size:0.75rem;">MATERIAL BALANCE</div></div>
+      </div>
+      <a href="methodology.html#technical-pillars" class="btn-secondary" style="margin-top: 1rem; display: inline-block;">Explore methodology →</a>
+    </div>
+    <div class="split-visual">
+      <div class="service-card-detail">
+        <div class="service-card-icon">⛽</div>
+        <div class="service-card-title">Gas Reservoir Engineering</div>
+        <div class="service-metric-box">
+          <div class="service-metric-row"><span class="service-metric-label">OGIP</span><span class="service-metric-value">125 Bcf</span></div>
+          <div class="service-metric-row"><span class="service-metric-label">Initial Pressure</span><span class="service-metric-value">3,200 psi</span></div>
+          <div class="service-metric-row"><span class="service-metric-label">Gas Gravity</span><span class="service-metric-value">0.65</span></div>
+        </div>
+        <ul class="service-feature-list">
+          <li>Gas material balance (P/Z plots)</li>
+          <li>Deliverability testing (backpressure curves)</li>
+          <li>Condensate banking analysis</li>
+          <li>Gas storage design & cycling</li>
+        </ul>
+        <div class="service-softwares">
+          <span>IPM</span><span>PHDWIN</span><span>Harmony</span>
+        </div>
+        <a href="contact.html" class="service-card-btn">Maximize your gas asset →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= S19: PROCESS SAFETY (Card on RIGHT) ========= -->
+<section class="service-detail-section">
+  <div class="container split-layout">
+    <div class="split-text">
+      <div class="section-subhead">SAFETY & RISK</div>
+      <h2>Process Safety Management</h2>
+      <p>We help operators identify, evaluate, and mitigate process safety risks across their facilities. Our systematic approach reduces incidents and improves operational reliability.</p>
+      <div class="insight-stats">
+        <div class="insight-item"><div class="insight-number">12</div><div style="font-size:0.75rem;">HAZOP NODES</div></div>
+        <div class="insight-item"><div class="insight-number">2</div><div style="font-size:0.75rem;">HIGH RISK ITEMS</div></div>
+      </div>
+      <a href="methodology.html#technical-pillars" class="btn-secondary" style="margin-top: 1rem; display: inline-block;">Explore methodology →</a>
+    </div>
+    <div class="split-visual">
+      <div class="service-card-detail">
+        <div class="service-card-icon">⚠️</div>
+        <div class="service-card-title">Process Safety</div>
+        <div class="service-metric-box">
+          <div class="service-metric-row"><span class="service-metric-label">HAZOP Completed</span><span class="service-metric-value">12 nodes</span></div>
+          <div class="service-metric-row"><span class="service-metric-label">Recommendations</span><span class="service-metric-value">8</span></div>
+          <div class="service-metric-row"><span class="service-metric-label">High Risk Items</span><span class="service-metric-value">2</span></div>
+        </div>
+        <ul class="service-feature-list">
+          <li>HAZOP / HAZID facilitation</li>
+          <li>Bow-tie analysis</li>
+          <li>Safety Integrity Level (SIL) assessment</li>
+          <li>Consequence modeling</li>
+        </ul>
+        <div class="service-softwares">
+          <span>PHA-Pro</span><span>DNV Phast</span>
+        </div>
+        <a href="contact.html" class="service-card-btn">Enhance your safety →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= S20: PROJECT MANAGEMENT (Card on LEFT) ========= -->
+<section class="service-detail-section">
+  <div class="container split-layout" style="flex-direction: row-reverse;">
+    <div class="split-text">
+      <div class="section-subhead">DEVELOPMENT PLANNING</div>
+      <h2>Project Management & Field Development</h2>
+      <p>We provide project management support for field development projects — from concept selection to execution and commissioning. Our structured approach ensures projects are delivered on time and within budget.</p>
+      <div class="insight-stats">
+        <div class="insight-item"><div class="insight-number">$200M</div><div style="font-size:0.75rem;">CAPEX</div></div>
+        <div class="insight-item"><div class="insight-number">36</div><div style="font-size:0.75rem;">MONTHS SCHEDULE</div></div>
+      </div>
+      <a href="methodology.html#technical-pillars" class="btn-secondary" style="margin-top: 1rem; display: inline-block;">Explore methodology →</a>
+    </div>
+    <div class="split-visual">
+      <div class="service-card-detail">
+        <div class="service-card-icon">📋</div>
+        <div class="service-card-title">Project Management</div>
+        <div class="service-metric-box">
+          <div class="service-metric-row"><span class="service-metric-label">CAPEX</span><span class="service-metric-value">$200M</span></div>
+          <div class="service-metric-row"><span class="service-metric-label">OPEX</span><span class="service-metric-value">$12/bbl</span></div>
+          <div class="service-metric-row"><span class="service-metric-label">Schedule</span><span class="service-metric-value">36 months</span></div>
+          <div class="service-metric-row"><span class="service-metric-label">FID Target</span><span class="service-metric-value">Q4 2026</span></div>
+        </div>
+        <ul class="service-feature-list">
+          <li>Development scenario screening</li>
+          <li>CAPEX/OPEX estimation</li>
+          <li>Schedule development & tracking</li>
+          <li>Risk & opportunity management</li>
+        </ul>
+        <div class="service-softwares">
+          <span>MS Project</span><span>Primavera</span><span>Excel</span>
+        </div>
+        <a href="contact.html" class="service-card-btn">Plan your development →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer placeholder (dynamic footer will be injected here) -->
+<div id="footer-placeholder"></div>
+
+<!-- Back to Top Button placeholder -->
+<div id="back-to-top-placeholder"></div>
+
+<!-- Service Cards Data (Expandable cards below the services grid) -->
+<script>
+  const cardsData = [
+    { id: "reservoir", iconType: "svg", iconSvg: `<svg width="64" height="64" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="120" rx="8" fill="transparent" stroke="none"/><path d="M10 90 Q100 20 190 90" stroke="#0077B6" stroke-width="2.5" fill="none"/><path d="M10 70 Q100 10 190 70" stroke="#0077B6" stroke-width="2.5" fill="none"/><path d="M10 50 Q100 0 190 50" stroke="#0077B6" stroke-width="2.5" fill="none"/><path d="M45 70 Q100 30 155 70 Q100 55 45 70 Z" fill="rgba(0,119,182,0.12)"/><line x1="100" y1="5" x2="100" y2="90" stroke="#0077B6" stroke-width="2" stroke-dasharray="5 4"/></svg>`,
+      title: "Reservoir Engineering & Simulation",
+      shortDesc: "Finite-difference and streamline simulation with history matching and uncertainty quantification for full-field dynamic reservoir modeling.",
+      fullDesc: "Reservoir engineering, surveillance and development optimization studies. Finite-difference and streamline simulation with integrated history matching and uncertainty quantification. Advanced modeling of reservoir behavior to optimize development scenarios and estimate reserves and resources. Tools for infill drilling, pressure maintenance, and EOR project planning. Scenarios modeled include vertical, horizontal, and directional wells linked to surface facilities. Skilled with most types of reservoir simulation software. Receive client simulation models and provide opinion about model construction and fit for purpose use.",
+      techBadge: "ECLIPSE · CMG · COMSOL · The Kingdom Software"
+    },
+    { id: "production", iconType: "svg", iconSvg: `<svg width="64" height="64" viewBox="0 0 180 220" xmlns="http://www.w3.org/2000/svg"><rect width="180" height="220" rx="8" fill="transparent" stroke="none"/><line x1="90" y1="200" x2="90" y2="30" stroke="#0077B6" stroke-width="2.5" fill="none"/><rect x="65" y="200" width="50" height="8" rx="2" fill="#0077B6"/><line x1="50" y1="155" x2="130" y2="155" stroke="#0077B6" stroke-width="2.5" fill="none"/><circle cx="50" cy="155" r="5" fill="#0077B6"/><circle cx="130" cy="155" r="5" fill="#0077B6"/><line x1="130" y1="155" x2="158" y2="155" stroke="#0077B6" stroke-width="1.5" fill="none"/><circle cx="162" cy="155" r="4" fill="#0077B6"/><line x1="50" y1="155" x2="22" y2="155" stroke="#0077B6" stroke-width="1.5" fill="none"/><circle cx="18" cy="155" r="4" fill="#0077B6"/><line x1="55" y1="120" x2="125" y2="120" stroke="#0077B6" stroke-width="2.5" fill="none"/><circle cx="55" cy="120" r="5" fill="#0077B6"/><circle cx="125" cy="120" r="5" fill="#0077B6"/><line x1="125" y1="120" x2="158" y2="120" stroke="#0077B6" stroke-width="1.5" fill="none"/><circle cx="164" cy="120" r="6" stroke="#0077B6" stroke-width="2" fill="none"/><line x1="60" y1="90" x2="120" y2="90" stroke="#0077B6" stroke-width="2.5" fill="none"/><circle cx="60" cy="90" r="5" fill="#0077B6"/><circle cx="120" cy="90" r="5" fill="#0077B6"/><line x1="90" y1="30" x2="90" y2="15" stroke="#0077B6" stroke-width="2.5" fill="none"/><circle cx="90" cy="12" r="6" fill="#0077B6"/><line x1="60" y1="48" x2="120" y2="48" stroke="#0077B6" stroke-width="2.5" fill="none"/><circle cx="60" cy="48" r="5" fill="#0077B6"/><circle cx="120" cy="48" r="5" fill="#0077B6"/><line x1="120" y1="48" x2="158" y2="48" stroke="#0077B6" stroke-width="1.5" fill="none"/><circle cx="164" cy="48" r="7" stroke="#0077B6" stroke-width="2" fill="none"/></svg>`,
+      title: "Production Engineering & Field Optimization",
+      shortDesc: "Nodal analysis, artificial lift design for ESP, gas lift, and rod pump systems with production forecasting from sandface to sales.",
+      fullDesc: "Production engineering, well performance analysis, and field optimization studies. Nodal analysis and artificial lift design for ESP, gas lift, and rod pump systems. Well flowback strategies, production forecasting, and integrated field development planning. Optimize production from sandface to sales.",
+      techBadge: "Petroleum Experts IPM · WellFlo"
+    },
+    { id: "decline", iconType: "svg", iconSvg: `<svg width="64" height="64" viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg"><defs><marker id="a3" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><polygon points="0 0,6 3,0 6" fill="#0077B6"/></marker></defs><rect width="220" height="140" rx="8" fill="transparent" stroke="none"/><line x1="10" y1="40" x2="210" y2="40" stroke="#0077B6" stroke-width="2" fill="none"/><line x1="60" y1="40" x2="60" y2="100" stroke="#0077B6" stroke-width="2.5" fill="none"/><circle cx="60" cy="38" r="4" fill="#0077B6"/><line x1="160" y1="40" x2="160" y2="100" stroke="#0077B6" stroke-width="2.5" fill="none"/><circle cx="160" cy="38" r="4" fill="#0077B6"/><rect x="25" y="80" width="170" height="25" rx="4" fill="rgba(0,119,182,0.12)"/><path d="M70 90 Q110 70 150 90" stroke="#0077B6" stroke-width="2" fill="none" marker-end="url(#a3)"/><path d="M70 100 Q110 80 150 100" stroke="#0077B6" stroke-width="2" fill="none" marker-end="url(#a3)"/><line x1="60" y1="55" x2="60" y2="75" stroke="#0077B6" stroke-width="2" marker-end="url(#a3)"/><line x1="160" y1="75" x2="160" y2="55" stroke="#0077B6" stroke-width="2" marker-end="url(#a3)"/></svg>`,
+      title: "Enhanced Oil Recovery (EOR)",
+      shortDesc: "Waterflood, CO₂ injection, thermal recovery, chemical flooding, and SAGD programs for heavy oil production.",
+      fullDesc: "Enhanced Oil Recovery (EOR) feasibility studies and project planning. Design and evaluation of waterflood, CO₂ injection, and thermal recovery methods. Evaluated nearly every major CO₂ flood worldwide with unmatched technical expertise. Chemical flooding (polymer, surfactant, alkaline) and Steam Assisted Gravity Drainage (SAGD) programs for heavy oil production. Simulation-driven EOR design from screening to field implementation.",
+      techBadge: "CMG · ECLIPSE · Aspen · COMSOL"
+    },
+    { id: "flow", iconType: "svg", iconSvg: `<svg width="64" height="64" viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="140" rx="8" fill="transparent" stroke="none"/><line x1="30" y1="10" x2="30" y2="120" stroke="#0077B6" stroke-width="2"/><line x1="30" y1="120" x2="190" y2="120" stroke="#0077B6" stroke-width="2"/><text x="15" y="70" fill="#0077B6" font-family="Inter" font-size="8" font-weight="500" transform="rotate(-90,15,70)" text-anchor="middle">Rate</text><text x="110" y="135" fill="#0077B6" font-family="Inter" font-size="8" font-weight="500" text-anchor="middle">Time</text><path d="M35 40 C80 60,120 90,130 95" stroke="#0077B6" stroke-width="2.5" fill="none"/><path d="M130 95 C150 105,170 110,190 115" stroke="#0077B6" stroke-width="1.8" fill="none" opacity="0.5"/><circle cx="50" cy="50" r="3.5" fill="#0077B6"/><circle cx="80" cy="65" r="3.5" fill="#0077B6"/><circle cx="110" cy="85" r="3.5" fill="#0077B6"/></svg>`,
+      title: "Decline Curve Analysis",
+      shortDesc: "Arps, Duong, and Stretched Exponential methods with probabilistic EUR assessment (P10, P50, P90) and RTA integration.",
+      fullDesc: "Decline Curve Analysis and production forecasting for conventional and unconventional assets. Arps (exponential, hyperbolic, harmonic), Duong, and Stretched Exponential Production Decline (SEPD) methods. Rate Transient Analysis (RTA) and probabilistic EUR assessment (P10, P50, P90). Integration with material balance for connected hydrocarbon volume, aquifer support, and drive mechanism characterization.",
+      techBadge: "IPM · Petra · Surfer · PHDWIN"
+    },
+    { id: "facilities", iconType: "emoji", iconEmoji: "🏭", title: "Facilities Bottleneck Diagnostics", shortDesc: "Production system optimization and debottlenecking across separators, compressors, pumps, and flowlines.", fullDesc: "Production system optimization and facilities debottlenecking across the entire value chain. Integrated network modeling with IPM GAP and PIPESIM. Constraint analysis for separators, compressors, pumps, and flowlines. Process simulation and Aspen process simulation for facility design and capacity expansion studies.", techBadge: "IPM · Aspen · DWSIM · COMSOL" },
+    { id: "economic", iconType: "emoji", iconEmoji: "💰", title: "Economic Forecasting", shortDesc: "NPV, IRR, sensitivity analysis, Monte Carlo simulation, and portfolio optimization for upstream investments.", fullDesc: "Economic Forecasting for upstream investment decisions. NPV, IRR, and sensitivity analysis for development projects and acquisitions. Risk-adjusted valuation and monte carlo simulation. Portfolio optimization and investment ranking. Integration with reservoir and production models for full-cycle economics.", techBadge: "Wolfram Mathematica · Matlab · IPM · PHDWIN" },
+    { id: "flow-assurance", iconType: "svg", iconSvg: `<svg width="64" height="64" viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg"><defs><marker id="a7" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><polygon points="0 0,6 3,0 6" fill="#0077B6"/></marker></defs><rect width="220" height="120" rx="8" fill="transparent" stroke="none"/><line x1="20" y1="60" x2="200" y2="60" stroke="#0077B6" stroke-width="3" fill="none"/><line x1="40" y1="60" x2="70" y2="60" stroke="#0077B6" stroke-width="1.8" fill="none" marker-end="url(#a7)"/><line x1="115" y1="60" x2="145" y2="60" stroke="#0077B6" stroke-width="1.8" fill="none" marker-end="url(#a7)"/><circle cx="100" cy="60" r="14" stroke="#0077B6" stroke-width="2" fill="none"/><circle cx="100" cy="60" r="14" fill="rgba(0,119,182,0.1)"/><line x1="91" y1="51" x2="109" y2="69" stroke="#0077B6" stroke-width="1.2" fill="none" opacity="0.6"/><line x1="109" y1="51" x2="91" y2="69" stroke="#0077B6" stroke-width="1.2" fill="none" opacity="0.6"/><line x1="100" y1="46" x2="100" y2="30" stroke="#0077B6" stroke-width="1.2" fill="none" opacity="0.6"/><circle cx="100" cy="24" r="6" stroke="#0077B6" stroke-width="2" fill="none"/><circle cx="100" cy="24" r="3" fill="rgba(0,119,182,0.1)"/><line x1="100" y1="24" x2="104" y2="21" stroke="#0077B6" stroke-width="1.2"/></svg>`,
+      title: "Flow Assurance", shortDesc: "Hydrate management, wax and asphaltene deposition modeling, thermal-hydraulic analysis, and subsea integrity.", fullDesc: "Comprehensive Flow Assurance across the entire production system. Hydrate prevention strategies (thermodynamic/kinetic inhibition, insulation, heating). Wax and asphaltene deposition modeling with thermal-hydraulic analysis. Subsea flowline and riser design. Slugging control and transient operational analysis.", techBadge: "PIPESIM · COMSOL · Aspen" },
+    { id: "well-testing", iconType: "svg", iconSvg: `<svg width="64" height="64" viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg"><rect width="240" height="140" rx="8" fill="transparent" stroke="none"/><line x1="10" y1="90" x2="230" y2="90" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="50" y1="90" x2="50" y2="50" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="35" y1="60" x2="65" y2="60" stroke="#0077B6" stroke-width="2.5" fill="none"/><circle cx="35" cy="60" r="4" fill="#0077B6"/><circle cx="65" cy="60" r="4" fill="#0077B6"/><line x1="65" y1="60" x2="130" y2="60" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="80" y1="60" x2="100" y2="60" stroke="#0077B6" stroke-width="1.5" fill="none" opacity="0.6"/><line x1="100" y1="60" x2="120" y2="60" stroke="#0077B6" stroke-width="1.5" fill="none" opacity="0.6"/><rect x="130" y="35" width="50" height="50" rx="4" stroke="#0077B6" stroke-width="2.5" fill="none"/><rect x="130" y="35" width="50" height="50" rx="4" fill="rgba(0,119,182,0.08)"/><line x1="130" y1="50" x2="180" y2="50" stroke="#0077B6" stroke-width="1.5" fill="none" opacity="0.6"/><line x1="130" y1="65" x2="180" y2="65" stroke="#0077B6" stroke-width="1.5" fill="none" opacity="0.6"/><text x="145" y="47" fill="#0077B6" font-family="Inter" font-size="7" font-weight="600">G</text><text x="145" y="62" fill="#0077B6" font-family="Inter" font-size="7" font-weight="600">O</text><text x="145" y="77" fill="#0077B6" font-family="Inter" font-size="7" font-weight="600">W</text><line x1="180" y1="60" x2="210" y2="60" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="155" y1="35" x2="155" y2="18" stroke="#0077B6" stroke-width="1.5" fill="none" opacity="0.6"/><circle cx="155" cy="13" r="7" stroke="#0077B6" stroke-width="2.5" fill="none"/><circle cx="155" cy="13" r="3" fill="#0077B6"/><line x1="155" y1="13" x2="159" y2="10" stroke="#0077B6" stroke-width="1.2"/></svg>`,
+      title: "Well Testing", shortDesc: "Pressure transient analysis, deliverability testing, skin and permeability determination, and fracture characterization.", fullDesc: "Well Testing and pressure transient analysis for reservoir characterization. Deliverability testing and well performance evaluation. Skin, permeability, and radius of investigation determination. Fracture characterization and reservoir limit testing. Integration with production data for continuous reservoir surveillance.", techBadge: "Ecrin · PHDWIN · IPM · WellFlo" },
+    { id: "equipment", iconType: "svg", iconSvg: `<svg width="64" height="64" viewBox="0 0 200 170" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="170" rx="8" fill="transparent" stroke="none"/><circle cx="100" cy="80" r="45" stroke="#0077B6" stroke-width="1" fill="none" opacity="0.3" stroke-dasharray="4 4"/><circle cx="100" cy="80" r="35" stroke="#0077B6" stroke-width="2.5" fill="none"/><circle cx="100" cy="80" r="35" fill="rgba(0,119,182,0.05)"/><circle cx="100" cy="80" r="14" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="100" y1="20" x2="100" y2="140" stroke="#0077B6" stroke-width="1" fill="none" opacity="0.3" stroke-dasharray="4 4"/><line x1="40" y1="80" x2="160" y2="80" stroke="#0077B6" stroke-width="1" fill="none" opacity="0.3" stroke-dasharray="4 4"/><line x1="100" y1="45" x2="100" y2="30" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="100" y1="115" x2="100" y2="130" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="65" y1="80" x2="50" y2="80" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="135" y1="80" x2="150" y2="80" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="75" y1="55" x2="65" y2="45" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="125" y1="55" x2="135" y2="45" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="75" y1="105" x2="65" y2="115" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="125" y1="105" x2="135" y2="115" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="60" y1="150" x2="140" y2="150" stroke="#0077B6" stroke-width="1.2" fill="none" opacity="0.6"/><line x1="60" y1="145" x2="60" y2="155" stroke="#0077B6" stroke-width="1.2" fill="none" opacity="0.6"/><line x1="140" y1="145" x2="140" y2="155" stroke="#0077B6" stroke-width="1.2" fill="none" opacity="0.6"/><polygon points="60,150 65,147 65,153" fill="#0077B6"/><polygon points="140,150 135,147 135,153" fill="#0077B6"/><line x1="80" y1="147" x2="80" y2="153" stroke="#0077B6" stroke-width="1.2" fill="none" opacity="0.6"/><line x1="120" y1="147" x2="120" y2="153" stroke="#0077B6" stroke-width="1.2" fill="none" opacity="0.6"/><text x="100" y="165" fill="#0077B6" font-family="Inter" font-size="7" font-weight="500" text-anchor="middle">Ø</text></svg>`,
+      title: "Equipment Design", shortDesc: "3D CAD modeling, FEA structural analysis, thermal simulation, and pressure vessel design.", fullDesc: "Equipment Design for oil & gas facilities. 3D CAD modeling with Siemens NX and Solidworks. Finite Element Analysis (FEA) for structural integrity. Thermal and multi-physics simulation with COMSOL. Pressure vessel, separator, heat exchanger, pump, and compressor design. Equipment sizing and specification from concept to fabrication.", techBadge: "Siemens NX · Solidworks · COMSOL · Femap" }
+  ];
+
+  const grid = document.getElementById('cardsGrid');
+  let activeCard = null;
+
+  cardsData.forEach((card, idx) => {
+    const cardDiv = document.createElement('div');
+    cardDiv.className = 'service-card';
+    cardDiv.id = card.id;
+    const iconHtml = card.iconType === 'svg' ? card.iconSvg : `<span class="card-icon-emoji">${card.iconEmoji}</span>`;
+    cardDiv.innerHTML = `
+      <div class="card-inner" data-idx="${idx}">
+        <div class="card-icon">${iconHtml}</div>
+        <h3>${card.title}</h3>
+        <div class="short-desc">${card.shortDesc}</div>
+        <div class="tech-badge">${card.techBadge}</div>
+        <div class="expand-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg><span>Click to expand</span></div>
+      </div>
+      <div class="drawer" data-drawer="${idx}"><div class="drawer-content"><div class="full-desc">${card.fullDesc}</div></div></div>
+    `;
+    grid.appendChild(cardDiv);
+    
+    const inner = cardDiv.querySelector('.card-inner');
+    const drawer = cardDiv.querySelector('.drawer');
+    const span = inner.querySelector('.expand-indicator span');
+    const icon = inner.querySelector('.expand-indicator svg');
+    
+    inner.addEventListener('click', () => {
+      if (activeCard === idx) {
+        drawer.classList.remove('active');
+        if (icon) icon.style.transform = 'rotate(0deg)';
+        if (span) span.textContent = 'Click to expand';
+        activeCard = null;
+      } else {
+        if (activeCard !== null) {
+          const prevDrawer = document.querySelector(`.drawer[data-drawer="${activeCard}"]`);
+          if (prevDrawer) prevDrawer.classList.remove('active');
+          const prevInner = document.querySelector(`.card-inner[data-idx="${activeCard}"]`);
+          if (prevInner) {
+            const prevIcon = prevInner.querySelector('.expand-indicator svg');
+            const prevText = prevInner.querySelector('.expand-indicator span');
+            if (prevIcon) prevIcon.style.transform = 'rotate(0deg)';
+            if (prevText) prevText.textContent = 'Click to expand';
+          }
+        }
+        drawer.classList.add('active');
+        if (icon) icon.style.transform = 'rotate(180deg)';
+        if (span) span.textContent = 'Click to collapse';
+        activeCard = idx;
+      }
+    });
+  });
+</script>
+
+<!-- Components.js - Centralized navbar, footer, and back-to-top button -->
+<script src="components.js"></script>
+
+</body>
+</html>

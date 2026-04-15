@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="TerraQuint was founded in 2024 to deliver boutique petroleum engineering consulting with technical rigor, practical solutions, and economic focus. Led by Afaq Aslam, PE.">
+  <link rel="canonical" href="https://www.terraquint.com/about.html">
+  
+  <title>About TerraQuint | Petroleum Engineering Consulting Firm</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Page-specific styles (only for about.html) -->
+  <style>
+    /* Center the page header content */
+    .page-header {
+      text-align: center;
+    }
+
+    .page-header h1 {
+      text-align: center;
+    }
+
+    .page-header p {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 4rem 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .about-section:last-child {
+      border-bottom: none;
+    }
+
+    .about-section:nth-child(even) {
+      background-color: var(--gray-100);
+    }
+
+    /* Split Layout for About Content - Forces stacking on mobile */
+    .about-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    /* Mobile stacking fix - text first, card second */
+    @media (max-width: 900px) {
+      .about-flex {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .about-text,
+      .about-visual {
+        width: 100%;
+        flex: none;
+      }
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    .about-visual {
+      flex: 1;
+    }
+
+    /* Value Proposition List */
+    .value-prop-list {
+      list-style: none;
+      margin: 1.5rem 0;
+      padding: 0;
+    }
+
+    .value-prop-list li {
+      margin-bottom: 0.75rem;
+      padding-left: 1.5rem;
+      position: relative;
+      font-size: 0.9rem;
+      color: var(--gray-700);
+      line-height: 1.4;
+    }
+
+    .value-prop-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .stat-box {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--white);
+      border-radius: 20px;
+      border: 1px solid var(--gray-200);
+      transition: all 0.2s;
+    }
+
+    .stat-box:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gray-500);
+      margin-top: 0.5rem;
+    }
+
+    /* Core Values Cards */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .value-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 1.75rem;
+      border: 1px solid var(--gray-200);
+      transition: all 0.2s;
+      text-align: center;
+    }
+
+    .value-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .value-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .value-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .value-card p {
+      font-size: 0.85rem;
+      color: var(--gray-700);
+      line-height: 1.5;
+    }
+
+    /* Leadership Card - Updated with photo support */
+    .leadership-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 2rem;
+      border: 1px solid var(--gray-200);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .leader-header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    /* Avatar Circle with Photo Support */
+    .leader-avatar {
+      width: 100px;
+      height: 100px;
+      background: var(--accent);
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .leader-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .leader-title h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .leader-title p {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* Technical Badges - Updated for new badges */
+    .tech-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: 1rem 0;
+    }
+
+    .tech-badge {
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      padding: 0.4rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Responsive for badges on mobile */
+    @media (max-width: 600px) {
+      .tech-badges {
+        justify-content: center;
+      }
+      .tech-badge {
+        font-size: 0.65rem;
+        padding: 0.35rem 0.7rem;
+      }
+    }
+
+    /* Locations Grid */
+    .locations-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .location-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 1.5rem;
+      border: 1px solid var(--gray-200);
+      text-align: center;
+      transition: all 0.2s;
+    }
+
+    .location-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .location-icon {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .location-card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .location-card p {
+      font-size: 0.8rem;
+      color: var(--gray-500);
+    }
+
+    /* CTA Section */
+    .about-cta {
+      text-align: center;
+      padding: 3rem;
+      background: var(--black);
+      color: var(--white);
+      border-radius: 24px;
+      margin-top: 2rem;
+    }
+
+    .about-cta h3 {
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .about-cta p {
+      color: #aaa;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .about-flex {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+      .locations-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+      .leader-header {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar will be injected here by components.js -->
+<div id="navbar-placeholder"></div>
+
+<!-- Page Header -->
+<section class="page-header">
+  <div class="container">
+    <div class="section-subhead" style="color:#aaa;">WHO WE ARE</div>
+    <h1>Engineering Excellence,<br>Uncompromised Integrity</h1>
+    <p>TerraQuint was founded to deliver boutique petroleum engineering consulting with technical rigor, practical solutions, and unwavering commitment to client success.</p>
+  </div>
+</section>
+
+<!-- Our Story Section (UPDATED with profile photo) -->
+<section class="about-section">
+  <div class="container">
+    <div class="about-flex">
+      <div class="about-text">
+        <div class="section-subhead">OUR STORY</div>
+        <h2>Built by Engineers, for Engineers</h2>
+        <p style="color: var(--gray-700); line-height: 1.6; margin-bottom: 1rem;">TerraQuint was founded in 2024 on a simple premise: the oil and gas industry deserves consulting that combines deep technical expertise with practical, actionable recommendations.</p>
+        
+        <p style="color: var(--gray-700); line-height: 1.6; margin-bottom: 1rem;">We don't just build models — we build value. Every engagement is designed to:</p>
+        
+        <ul class="value-prop-list">
+          <li>Reduce capital expenditures through optimized design</li>
+          <li>Maximize returns with data-driven decisions</li>
+          <li>Accelerate project timelines with rigorous simulation</li>
+          <li>Unlock hidden value in existing assets</li>
+        </ul>
+        
+        <p style="color: var(--gray-700); line-height: 1.6; margin-bottom: 1rem;">Too often, engineering studies are academic exercises that fail to address real operational challenges. We started TerraQuint to change that.</p>
+        
+        <p style="color: var(--gray-700); line-height: 1.6; margin-bottom: 1rem;">Every engagement begins with a deep understanding of your asset, your team, and your financial goals. We don't just deliver reports — we deliver decisions that drive profits.</p>
+        
+        <div style="margin-top: 1.5rem;">
+          <div class="tech-badges">
+            <span class="tech-badge">✓ Founded 2024</span>
+            <span class="tech-badge">✓ 50+ Projects Delivered</span>
+            <span class="tech-badge">✓ 35+ Global Clients</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="leadership-card">
+          <div class="leader-header">
+            <div class="leader-avatar">
+              <img src="afaq-avatar.jpg" alt="Afaq Aslam">
+            </div>
+            <div class="leader-title">
+              <h3>Afaq Aslam</h3>
+              <p>Founder & Principal Petroleum Engineer</p>
+            </div>
+          </div>
+          <p style="color: var(--gray-700); line-height: 1.6; margin-bottom: 1rem;">Afaq brings over 6 years of integrated petroleum engineering experience across conventional, unconventional, and deepwater assets. He has led reservoir studies, production optimization projects, and field development plans for operators worldwide.</p>
+          <div class="tech-badges">
+            <span class="tech-badge">🗻 Reservoir Engineering & Simulation</span>
+            <span class="tech-badge">📈 Production Optimization & Forecasting</span>
+            <span class="tech-badge">🌊 Flow Assurance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- By the Numbers Section -->
+<section class="about-section">
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 2rem;">
+      <div class="section-subhead">BY THE NUMBERS</div>
+      <h2>Track Record of Excellence</h2>
+      <p style="max-width: 600px; margin: 0 auto; color: var(--gray-500);">Measurable results delivered across the globe.</p>
+    </div>
+    
+    <div class="stats-grid">
+      <div class="stat-box">
+        <div class="stat-number">+50</div>
+        <div class="stat-label">PROJECTS DELIVERED</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">+35</div>
+        <div class="stat-label">GLOBAL CLIENTS</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">22+</div>
+        <div class="stat-label">COUNTRIES</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">6+</div>
+        <div class="stat-label">YEARS INTEGRATED EXP.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Core Values Section -->
+<section class="about-section">
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 2rem;">
+      <div class="section-subhead">WHAT DRIVES US</div>
+      <h2>Our Core Values</h2>
+      <p style="max-width: 600px; margin: 0 auto; color: var(--gray-500);">Principles that guide every engagement.</p>
+    </div>
+    
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">🎯</div>
+        <h3>Technical Rigor</h3>
+        <p>Every recommendation is grounded in physics-based modeling, validated by production data, and optimized for economic return.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🤝</div>
+        <h3>Practical Solutions</h3>
+        <p>We don't just analyze — we solve. Our recommendations are actionable, implementable, and designed for real-world operations.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🔓</div>
+        <h3>Radical Transparency</h3>
+        <p>Full documentation of workflows, assumptions, and uncertainties. You'll always know exactly how we reached our conclusions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Locations Section -->
+<section class="about-section">
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 2rem;">
+      <div class="section-subhead">WHERE WE OPERATE</div>
+      <h2>Strategic Footprint</h2>
+      <p style="max-width: 600px; margin: 0 auto; color: var(--gray-500);">Serving clients across North America and beyond.</p>
+    </div>
+    
+    <div class="locations-grid">
+      <div class="location-card">
+        <div class="location-icon">📍</div>
+        <h4>Dallas, Texas</h4>
+        <p>Headquarters</p>
+      </div>
+      <div class="location-card">
+        <div class="location-icon">📍</div>
+        <h4>Midland, Texas</h4>
+        <p>Permian Basin Operations</p>
+      </div>
+      <div class="location-card">
+        <div class="location-icon">📍</div>
+        <h4>Houston, Texas</h4>
+        <p>Gulf Coast & Deepwater</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="about-section" style="border-bottom: none;">
+  <div class="container">
+    <div class="about-cta">
+      <h3>Ready to engineer your next success?</h3>
+      <p>Let's discuss how TerraQuint can help optimize your assets.</p>
+      <a href="contact.html" class="btn-primary">↗ Contact our team</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer placeholder -->
+<div id="footer-placeholder"></div>
+
+<!-- Back to Top Button placeholder -->
+<div id="back-to-top-placeholder"></div>
+
+<!-- Components.js - Centralized navbar and back-to-top button -->
+<script src="components.js"></script>
+
+</body>
+</html>

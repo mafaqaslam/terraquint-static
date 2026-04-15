@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="TerraQuint provides expert petroleum engineering consulting — reservoir simulation, production optimization, EOR, and economic forecasting for E&P operators worldwide. Data-driven solutions that maximize recovery.">
+  <link rel="canonical" href="https://www.terraquint.com/index.html">
+  
+  <title>TerraQuint | Petroleum Engineering Consulting Services</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Three.js core library for 3D globe -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.128.0/build/three.module.js"
+      }
+    }
+  </script>
+  
+  <!-- Page-specific styles (only for index.html) -->
+  <style>
+    /* Categorized Services with Subtitles - unique to homepage */
+    .services-categories {
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    .service-category {
+      margin-bottom: 1.25rem;
+    }
+
+    .category-title {
+      color: var(--accent);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      border-left: 2px solid var(--accent);
+      padding-left: 0.75rem;
+    }
+
+    .category-items {
+      color: #aaaaaa;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      padding-left: 1rem;
+    }
+
+    .category-items span {
+      display: inline-block;
+    }
+
+    .category-items span:not(:last-child)::after {
+      content: "·";
+      margin: 0 0.75rem;
+      color: #555555;
+    }
+
+    /* Home page cards - clickable cursor */
+    .service-card {
+      cursor: pointer;
+    }
+
+    .expand-indicator {
+      display: none;
+    }
+
+    /* Responsive adjustments for categories on mobile */
+    @media (max-width: 800px) {
+      .category-items span {
+        display: block;
+        margin-bottom: 0.35rem;
+      }
+      .category-items span:not(:last-child)::after {
+        content: "";
+        margin: 0;
+      }
+      .category-items {
+        padding-left: 1rem;
+      }
+      .card-inner {
+        padding: 1.5rem;
+      }
+    }
+
+    /* ========= WHY TERRAQUINT SECTION (NEW) ========= */
+    .why-terraquint {
+      padding: 5rem 0;
+      background: linear-gradient(135deg, var(--gray-100) 0%, var(--white) 100%);
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .why-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .why-header h2 {
+      font-size: 2.2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .why-subheadline {
+      font-size: 1.1rem;
+      color: var(--gray-600);
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* 4 Pillars Grid */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .pillar-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 1.75rem;
+      border: 1px solid var(--gray-200);
+      transition: all 0.25s ease;
+      text-align: center;
+      height: 100%;
+    }
+
+    .pillar-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .pillar-icon {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .pillar-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--black);
+    }
+
+    .pillar-description {
+      font-size: 0.85rem;
+      color: var(--gray-700);
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    .pillar-metric {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: rgba(0, 119, 182, 0.1);
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 30px;
+      margin-top: 0.5rem;
+    }
+
+    /* Two CTA Buttons */
+    .why-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary-outline {
+      background: transparent;
+      border: 1.5px solid var(--accent);
+      color: var(--accent);
+      padding: 0.8rem 2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+
+    .btn-primary-outline:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    /* Responsive for Why TerraQuint */
+    @media (max-width: 1000px) {
+      .pillars-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+      }
+      .why-header h2 {
+        font-size: 1.8rem;
+      }
+      .why-subheadline {
+        font-size: 1rem;
+        padding: 0 1rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .pillars-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .why-terraquint {
+        padding: 3rem 0;
+      }
+      .why-header {
+        margin-bottom: 2rem;
+      }
+      .why-header h2 {
+        font-size: 1.6rem;
+      }
+      .pillar-card {
+        padding: 1.25rem;
+      }
+      .why-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .why-buttons .btn-primary,
+      .why-buttons .btn-primary-outline {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+      }
+    }
+
+    /* ========= T3: RESERVOIR QUALITY SCORECARD STYLES ========= */
+    .scorecard-container {
+      background: linear-gradient(135deg, #F9F9F9 0%, #FFFFFF 100%);
+      border-radius: 24px;
+      padding: 1.5rem;
+      border: 1px solid var(--gray-200);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+    }
+
+    .scorecard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .scorecard-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+    }
+
+    .scorecard-badge {
+      font-size: 0.7rem;
+      color: var(--gray-500);
+      background: var(--gray-100);
+      padding: 0.25rem 0.75rem;
+      border-radius: 30px;
+    }
+
+    .score-row {
+      margin-bottom: 1.25rem;
+    }
+
+    .score-metric {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .metric-name {
+      color: var(--black);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .metric-value {
+      color: var(--gray-500);
+      font-weight: 400;
+    }
+
+    .progress-bar-container {
+      background-color: var(--gray-200);
+      border-radius: 20px;
+      height: 8px;
+      overflow: hidden;
+      margin: 0.25rem 0;
+    }
+
+    .progress-fill {
+      background: var(--accent);
+      border-radius: 20px;
+      height: 100%;
+      transition: width 0.3s ease;
+    }
+
+    .star-rating {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .star {
+      color: #FFB800;
+      font-size: 0.9rem;
+    }
+
+    .star-empty {
+      color: var(--gray-200);
+      font-size: 0.9rem;
+    }
+
+    .scorecard-divider {
+      height: 1px;
+      background: var(--gray-200);
+      margin: 1.25rem 0;
+    }
+
+    .overall-score {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+
+    .overall-label {
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .overall-number {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .overall-max {
+      font-size: 0.9rem;
+      color: var(--gray-500);
+      font-weight: 400;
+    }
+
+    .scorecard-insight {
+      background: rgba(0, 119, 182, 0.05);
+      border-left: 3px solid var(--accent);
+      padding: 0.75rem 1rem;
+      margin-top: 1.25rem;
+      border-radius: 8px;
+    }
+
+    .scorecard-insight p {
+      font-size: 0.8rem;
+      color: var(--gray-700);
+      margin: 0;
+    }
+
+    .insight-icon {
+      margin-right: 0.5rem;
+    }
+
+    /* ========= T4: RECOVERY FACTOR BREAKDOWN STYLES ========= */
+    .recovery-container {
+      background: linear-gradient(135deg, #F9F9F9 0%, #FFFFFF 100%);
+      border-radius: 24px;
+      padding: 1.5rem;
+      border: 1px solid var(--gray-200);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+    }
+
+    .recovery-header {
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .recovery-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .recovery-subtitle {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--black);
+    }
+
+    .bridge-chart {
+      margin: 1.5rem 0;
+    }
+
+    .bridge-bar-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      gap: 0.5rem;
+    }
+
+    .bridge-label {
+      width: 110px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--gray-700);
+    }
+
+    .bridge-bar-wrapper {
+      flex: 1;
+      display: flex;
+      height: 32px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .bridge-segment {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: white;
+    }
+
+    .segment-current {
+      background-color: #555555;
+    }
+
+    .segment-infill {
+      background-color: #E8A735;
+    }
+
+    .segment-eor {
+      background-color: #0077B6;
+    }
+
+    .segment-optimization {
+      background-color: #2E8B57;
+    }
+
+    .bridge-value {
+      width: 45px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-align: right;
+      color: var(--black);
+    }
+
+    .recovery-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin: 1.5rem 0;
+    }
+
+    .recovery-stat-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 16px;
+      padding: 0.75rem;
+      text-align: center;
+    }
+
+    .recovery-stat-number {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .recovery-stat-label {
+      font-size: 0.65rem;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-top: 0.25rem;
+    }
+
+    .recovery-upside-grid {
+      display: flex;
+      justify-content: space-between;
+      margin: 1rem 0 0.5rem 0;
+      padding: 0.75rem;
+      background: var(--gray-100);
+      border-radius: 12px;
+    }
+
+    .upside-item {
+      text-align: center;
+      flex: 1;
+    }
+
+    .upside-label {
+      font-size: 0.7rem;
+      color: var(--gray-500);
+    }
+
+    .upside-value {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .recovery-insight {
+      background: rgba(0, 119, 182, 0.05);
+      border-left: 3px solid var(--accent);
+      padding: 0.75rem 1rem;
+      margin-top: 1.25rem;
+      border-radius: 8px;
+    }
+
+    .recovery-insight p {
+      font-size: 0.8rem;
+      color: var(--gray-700);
+      margin: 0;
+    }
+
+    /* ========= T5: ACTIONABLE INSIGHTS LIST STYLES ========= */
+    .insights-section {
+      padding: 4rem 0;
+      background-color: var(--gray-100);
+    }
+
+    .insights-container {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 2rem;
+      border: 1px solid var(--gray-200);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+    }
+
+    .insights-header {
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--gray-200);
+      text-align: center;
+    }
+
+    .insights-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .insights-subtitle {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--black);
+    }
+
+    .insights-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    /* FIX: Make insights grid responsive on mobile - single column */
+    @media (max-width: 700px) {
+      .insights-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+
+    .insight-card {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1rem;
+      background: var(--gray-100);
+      border-radius: 16px;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .insight-card:hover {
+      border-color: var(--accent);
+      transform: translateX(4px);
+    }
+
+    .insight-card-icon {
+      font-size: 1.8rem;
+      min-width: 48px;
+      text-align: center;
+    }
+
+    .insight-card-content {
+      flex: 1;
+    }
+
+    .insight-card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+    }
+
+    .insight-card-text {
+      font-size: 0.85rem;
+      color: var(--gray-700);
+      line-height: 1.5;
+      margin-bottom: 0.5rem;
+    }
+
+    .insight-card-metric {
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-top: 0.5rem;
+      padding-top: 0.5rem;
+      border-top: 1px dashed var(--gray-200);
+    }
+
+    .insights-cta {
+      margin-top: 2rem;
+      text-align: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--gray-200);
+    }
+
+    /* ========= T6: RESERVOIR DASHBOARD STYLES ========= */
+    .dashboard-section {
+      padding: 4rem 0;
+      background-color: var(--white);
+      border-top: 1px solid var(--gray-200);
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .dashboard-container {
+      background: linear-gradient(135deg, #F9F9F9 0%, #FFFFFF 100%);
+      border-radius: 24px;
+      padding: 1.5rem;
+      border: 1px solid var(--gray-200);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+    }
+
+    .dashboard-header {
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--gray-200);
+      text-align: center;
+    }
+
+    .dashboard-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .dashboard-subtitle {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--black);
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .dashboard-metric-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 16px;
+      padding: 1rem;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .dashboard-metric-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .dashboard-metric-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .dashboard-metric-value {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .dashboard-metric-label {
+      font-size: 0.7rem;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-top: 0.25rem;
+    }
+
+    .dashboard-metric-trend {
+      font-size: 0.7rem;
+      margin-top: 0.5rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--gray-200);
+    }
+
+    .trend-up {
+      color: #2E8B57;
+    }
+
+    .trend-down {
+      color: #E8A735;
+    }
+
+    .trend-stable {
+      color: #0077B6;
+    }
+
+    .dashboard-alerts {
+      background: rgba(0, 119, 182, 0.05);
+      border-radius: 16px;
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+
+    .dashboard-alerts-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .dashboard-alerts-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .dashboard-alert-item {
+      background: var(--white);
+      border-left: 3px solid #E8A735;
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      color: var(--gray-700);
+      flex: 1;
+      min-width: 180px;
+    }
+
+    .dashboard-alert-item strong {
+      color: var(--accent);
+    }
+
+    .dashboard-cta {
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+
+    /* ========= OUR TARGET PARTNERS SECTION (6 cards per row) ========= */
+    .partners-section {
+      padding: 4rem 0;
+      background-color: var(--gray-100);
+    }
+
+    .partners-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .partners-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .partners-subtitle {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+    }
+
+    .partners-description {
+      font-size: 0.9rem;
+      color: var(--gray-500);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1rem;
+    }
+
+    .partner-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 16px;
+      padding: 1.25rem 0.75rem;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .partner-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .partner-name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--black);
+      margin-bottom: 0.25rem;
+    }
+
+    .partner-type {
+      font-size: 0.65rem;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    /* Stat Card Special Style */
+    .partner-card.stat-card {
+      background: linear-gradient(135deg, var(--white) 0%, var(--gray-100) 100%);
+      border-color: var(--accent);
+    }
+
+    .partner-card.stat-card .partner-name {
+      font-size: 1.8rem;
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .partner-card.stat-card .partner-type {
+      font-size: 0.7rem;
+      color: var(--gray-600);
+      text-transform: none;
+    }
+
+    @media (max-width: 1200px) {
+      .partners-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (max-width: 800px) {
+      .partners-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .partners-subtitle {
+        font-size: 1.4rem;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .partners-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .split-visual {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar will be injected here by components.js -->
+<div id="navbar-placeholder"></div>
+
+<section class="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <div class="section-subhead blinking-text" style="color:#aaa; font-weight: 700;">PETROLEUM ENGINEERING SERVICES & CONSULTANCY</div>
+      <h1>We Deliver Precision.</h1>
+      <p>Turning complex engineering problems into clear decisions.</p>
+      
+      <div class="services-categories">
+        <div class="service-category">
+          <div class="category-title">RESERVOIR & PRODUCTION</div>
+          <div class="category-items">
+            <span>Reservoir Engineering &amp; Simulation</span>
+            <span>Production Engineering &amp; Field Optimization</span>
+            <span>Enhanced Oil Recovery (EOR)</span>
+          </div>
+        </div>
+        <div class="service-category">
+          <div class="category-title">ANALYSIS & DIAGNOSTICS</div>
+          <div class="category-items">
+            <span>Decline Curve Analysis</span>
+            <span>Facilities Bottleneck Diagnostics</span>
+            <span>Economic Forecasting</span>
+          </div>
+        </div>
+        <div class="service-category">
+          <div class="category-title">OPERATIONS & TESTING</div>
+          <div class="category-items">
+            <span>Flow Assurance</span>
+            <span>Well Testing</span>
+            <span>Equipment Design</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="tagline">
+        TerraQuint turns raw data into actionable intelligence.
+      </div>
+      <div style="margin-top: 2rem;">
+        <a href="services.html#servicesSection" class="btn-primary">↗ Engineered solutions</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-row">
+        <div class="stat-card">
+          <div class="stat-number">+50</div>
+          <div class="stat-label">PROJECTS DELIVERED</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">+8</div>
+          <div class="stat-label">YEARS INTEGRATED</div>
+        </div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-card">
+          <div class="stat-number">+35</div>
+          <div class="stat-label">GLOBAL CLIENTS</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">22+</div>
+          <div class="stat-label">COUNTRIES</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= WHY TERRAQUINT? SECTION (NEW - Option C1) ========= -->
+<section class="why-terraquint">
+  <div class="container">
+    <div class="why-header">
+      <div class="section-subhead">WHY CHOOSE US</div>
+      <h2>Why TerraQuint?</h2>
+      <div class="why-subheadline">
+        We solve what the oil and gas industry cares about most — higher recovery, lower costs, better returns, less risk.
+      </div>
+    </div>
+
+    <div class="pillars-grid">
+      <!-- Pillar 1: Maximize Recovery Factor -->
+      <div class="pillar-card">
+        <div class="pillar-icon">📈</div>
+        <h3>Maximize Recovery Factor</h3>
+        <div class="pillar-description">
+          Advanced reservoir simulation, history matching, and EOR screening to unlock bypassed hydrocarbons.
+        </div>
+        <div class="pillar-metric">+8-18% additional recovery</div>
+      </div>
+
+      <!-- Pillar 2: Reduce OPEX & Maximize Uptime -->
+      <div class="pillar-card">
+        <div class="pillar-icon">⚡</div>
+        <h3>Reduce OPEX & Maximize Uptime</h3>
+        <div class="pillar-description">
+          Production optimization, ESP design, and bottleneck diagnostics to stop downtime before it hits your bottom line.
+        </div>
+        <div class="pillar-metric">15-25% OPEX reduction · 23% uptime improvement</div>
+      </div>
+
+      <!-- Pillar 3: Improve Investment Returns -->
+      <div class="pillar-card">
+        <div class="pillar-icon">💰</div>
+        <h3>Improve Investment Returns</h3>
+        <div class="pillar-description">
+          Probabilistic economic forecasts (P10/P50/P90) and Monte Carlo analysis for confident capital allocation.
+        </div>
+        <div class="pillar-metric">Risk-adjusted NPV/IRR · Scenario analysis</div>
+      </div>
+
+      <!-- Pillar 4: Reduce Technical Risk -->
+      <div class="pillar-card">
+        <div class="pillar-icon">🛡️</div>
+        <h3>Reduce Technical Risk</h3>
+        <div class="pillar-description">
+          Flow assurance studies, well testing, and uncertainty quantification to expose hidden risks before they become problems.
+        </div>
+        <div class="pillar-metric">P10/P50/P90 ranges · Hidden risk exposure</div>
+      </div>
+    </div>
+
+    <div class="why-buttons">
+      <a href="contact.html" class="btn-primary">📞 Contact our team</a>
+      <a href="services.html#servicesSection" class="btn-primary-outline">🔍 Explore our services</a>
+    </div>
+  </div>
+</section>
+
+<!-- What We Do Section -->
+<section class="services-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-subhead">Our Expertise</div>
+      <h2>What We Do</h2>
+      <p style="max-width: 680px; margin: 0 auto; color: #4a4a4a;">TerraQuint provides full-cycle petroleum engineering consulting — from reservoir characterization to production optimization and beyond.</p>
+    </div>
+    <div class="cards-grid" id="cardsGrid"></div>
+  </div>
+</section>
+
+<!-- ========= T3 SECTION: RESERVOIR QUALITY SCORECARD ========= -->
+<section class="data-showcase">
+  <div class="container split-layout">
+    <div class="split-text">
+      <div class="section-subhead">DYNAMIC CHARACTERIZATION</div>
+      <h2>Reservoir Quality Scorecard</h2>
+      <p>TerraQuint integrates material balance with advanced decline curve methods to characterize connected hydrocarbon volume, aquifer support, and drive mechanisms. Our deterministic & probabilistic models provide true reservoir intelligence.</p>
+      <div class="insight-stats">
+        <div class="insight-item">
+          <div class="insight-number">±8%</div>
+          <div style="font-size:0.75rem;">AVERAGE EUR UNCERTAINTY REDUCTION</div>
+        </div>
+        <div class="insight-item">
+          <div class="insight-number">12+</div>
+          <div style="font-size:0.75rem;">OPERATORS RELY ON OUR FORECASTS</div>
+        </div>
+      </div>
+      <a href="methodology.html#technical-pillars" style="margin-top: 1.5rem; display: inline-block;" class="btn-secondary">Explore methodology →</a>
+    </div>
+    <div class="split-visual">
+      <div class="scorecard-container">
+        <div class="scorecard-header">
+          <span class="scorecard-title">📊 RESERVOIR QUALITY INDEX</span>
+          <span class="scorecard-badge">Based on SPE PRMS Standards</span>
+        </div>
+        
+        <div class="score-row">
+          <div class="score-metric">
+            <span class="metric-name">🔬 Porosity (ϕ)</span>
+            <span class="metric-value">19% · 4/5</span>
+          </div>
+          <div class="progress-bar-container">
+            <div class="progress-fill" style="width: 80%;"></div>
+          </div>
+        </div>
+        
+        <div class="score-row">
+          <div class="score-metric">
+            <span class="metric-name">💨 Permeability (kh)</span>
+            <span class="metric-value">245 mD · 3/5</span>
+          </div>
+          <div class="progress-bar-container">
+            <div class="progress-fill" style="width: 60%;"></div>
+          </div>
+        </div>
+        
+        <div class="score-row">
+          <div class="score-metric">
+            <span class="metric-name">📐 Net-to-Gross (NTG)</span>
+            <span class="metric-value">0.72 · 4/5</span>
+          </div>
+          <div class="progress-bar-container">
+            <div class="progress-fill" style="width: 80%;"></div>
+          </div>
+        </div>
+        
+        <div class="score-row">
+          <div class="score-metric">
+            <span class="metric-name">🛢️ Oil Saturation (So)</span>
+            <span class="metric-value">68% · 3.5/5</span>
+          </div>
+          <div class="progress-bar-container">
+            <div class="progress-fill" style="width: 70%;"></div>
+          </div>
+        </div>
+        
+        <div class="score-row">
+          <div class="score-metric">
+            <span class="metric-name">🌊 Aquifer Support</span>
+            <span class="metric-value">Strong · 5/5</span>
+          </div>
+          <div class="progress-bar-container">
+            <div class="progress-fill" style="width: 100%;"></div>
+          </div>
+        </div>
+        
+        <div class="score-row">
+          <div class="score-metric">
+            <span class="metric-name">🧩 Compartmentalization Risk</span>
+            <span class="metric-value">Moderate · 3/5</span>
+          </div>
+          <div class="progress-bar-container">
+            <div class="progress-fill" style="width: 60%; background-color: #E8A735;"></div>
+          </div>
+        </div>
+        
+        <div class="scorecard-divider"></div>
+        
+        <div class="overall-score">
+          <span class="overall-label">OVERALL RESERVOIR QUALITY INDEX</span>
+          <div>
+            <span class="overall-number">3.7</span>
+            <span class="overall-max"> / 5.0</span>
+          </div>
+        </div>
+        
+        <div class="star-rating" style="margin-top: 0.5rem; justify-content: flex-end;">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star-empty">☆</span>
+          <span style="margin-left: 0.5rem; font-size: 0.7rem; color: var(--gray-500);">Good, with upside potential</span>
+        </div>
+        
+        <div class="scorecard-insight">
+          <p><span class="insight-icon">🎯</span> <strong>Key Insight:</strong> Compartmentalization is the primary uncertainty. Recommended: Seismic reprocessing + pressure interference test to confirm connectivity. Upside potential: +12 MMbbl.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= T4 SECTION: RECOVERY FACTOR BREAKDOWN ========= -->
+<section style="padding: 4rem 0; background-color: var(--white); border-top: 1px solid var(--gray-200);">
+  <div class="container">
+    <div class="split-layout" style="flex-direction: row-reverse;">
+      <div class="split-text">
+        <div class="section-subhead">RECOVERY OPTIMIZATION</div>
+        <h2>Recovery Factor Breakdown</h2>
+        <p>TerraQuint identifies and quantifies every opportunity to increase hydrocarbon recovery — from infill drilling to enhanced oil recovery. Our gap analysis provides a clear roadmap to maximize asset value.</p>
+        
+        <div class="recovery-stats-grid">
+          <div class="recovery-stat-card">
+            <div class="recovery-stat-number">125 MMbbl</div>
+            <div class="recovery-stat-label">ORIGINAL OIL IN PLACE</div>
+          </div>
+          <div class="recovery-stat-card">
+            <div class="recovery-stat-number">22.5 MMbbl</div>
+            <div class="recovery-stat-label">CUMULATIVE PRODUCED</div>
+          </div>
+          <div class="recovery-stat-card">
+            <div class="recovery-stat-number">52.5 MMbbl</div>
+            <div class="recovery-stat-label">REMAINING OPPORTUNITY</div>
+          </div>
+        </div>
+        
+        <div class="insight-stats" style="margin-top: 0.5rem;">
+          <div class="insight-item">
+            <div class="insight-number">18%</div>
+            <div style="font-size:0.75rem;">CURRENT RECOVERY FACTOR</div>
+          </div>
+          <div class="insight-item">
+            <div class="insight-number">42%</div>
+            <div style="font-size:0.75rem;">TARGET RECOVERY FACTOR</div>
+          </div>
+          <div class="insight-item">
+            <div class="insight-number">+24%</div>
+            <div style="font-size:0.75rem;">TOTAL UPSIDE POTENTIAL</div>
+          </div>
+        </div>
+        
+        <a href="services.html#eor" style="margin-top: 1.5rem; display: inline-block;" class="btn-secondary">Explore recovery solutions →</a>
+      </div>
+      
+      <div class="split-visual">
+        <div class="recovery-container">
+          <div class="recovery-header">
+            <span class="recovery-title">📈 RECOVERY FACTOR BRIDGE</span>
+            <span class="recovery-subtitle">From Current to Target Recovery</span>
+          </div>
+          
+          <div class="bridge-chart">
+            <div class="bridge-bar-container">
+              <span class="bridge-label">Current RF</span>
+              <div class="bridge-bar-wrapper">
+                <div class="bridge-segment segment-current" style="width: 18%;">18%</div>
+                <div class="bridge-segment" style="width: 82%; background-color: #E8E8E8;"></div>
+              </div>
+              <span class="bridge-value">18%</span>
+            </div>
+            
+            <div class="bridge-bar-container">
+              <span class="bridge-label">+ Infill Drilling</span>
+              <div class="bridge-bar-wrapper">
+                <div class="bridge-segment segment-current" style="width: 18%;">18%</div>
+                <div class="bridge-segment segment-infill" style="width: 8%;">+8%</div>
+                <div class="bridge-segment" style="width: 74%; background-color: #E8E8E8;"></div>
+              </div>
+              <span class="bridge-value">26%</span>
+            </div>
+            
+            <div class="bridge-bar-container">
+              <span class="bridge-label">+ EOR (Waterflood)</span>
+              <div class="bridge-bar-wrapper">
+                <div class="bridge-segment segment-current" style="width: 18%;">18%</div>
+                <div class="bridge-segment segment-infill" style="width: 8%;">+8%</div>
+                <div class="bridge-segment segment-eor" style="width: 12%;">+12%</div>
+                <div class="bridge-segment" style="width: 62%; background-color: #E8E8E8;"></div>
+              </div>
+              <span class="bridge-value">38%</span>
+            </div>
+            
+            <div class="bridge-bar-container">
+              <span class="bridge-label">+ Optimization</span>
+              <div class="bridge-bar-wrapper">
+                <div class="bridge-segment segment-current" style="width: 18%;">18%</div>
+                <div class="bridge-segment segment-infill" style="width: 8%;">+8%</div>
+                <div class="bridge-segment segment-eor" style="width: 12%;">+12%</div>
+                <div class="bridge-segment segment-optimization" style="width: 4%;">+4%</div>
+                <div class="bridge-segment" style="width: 58%; background-color: #E8E8E8;"></div>
+              </div>
+              <span class="bridge-value">42%</span>
+            </div>
+          </div>
+          
+          <div class="recovery-upside-grid">
+            <div class="upside-item">
+              <div class="upside-label">INFILL DRILLING</div>
+              <div class="upside-value" style="color: #E8A735;">+8%</div>
+              <div style="font-size: 0.65rem; color: var(--gray-500);">10 MMbbl</div>
+            </div>
+            <div class="upside-item">
+              <div class="upside-label">EOR (WATERFLOOD)</div>
+              <div class="upside-value" style="color: #0077B6;">+12%</div>
+              <div style="font-size: 0.65rem; color: var(--gray-500);">15 MMbbl</div>
+            </div>
+            <div class="upside-item">
+              <div class="upside-label">OPTIMIZATION</div>
+              <div class="upside-value" style="color: #2E8B57;">+4%</div>
+              <div style="font-size: 0.65rem; color: var(--gray-500);">5 MMbbl</div>
+            </div>
+          </div>
+          
+          <div class="recovery-insight">
+            <p><span class="insight-icon">🎯</span> <strong>Key Insight:</strong> Current recovery factor is 18% of 125 MMbbl OOIP (22.5 MMbbl produced). Infill drilling (+8% / 10 MMbbl) and EOR waterflood (+12% / 15 MMbbl) offer the largest upside. Optimization adds +4% (5 MMbbl). Total upside: 30 MMbbl additional recovery. Target RF: 42% (52.5 MMbbl total).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= T5 SECTION: ACTIONABLE INSIGHTS LIST ========= -->
+<section class="insights-section">
+  <div class="container">
+    <div class="insights-container">
+      <div class="insights-header">
+        <span class="insights-title">🔍 ACTIONABLE INSIGHTS</span>
+        <span class="insights-subtitle">Data-Driven Recommendations</span>
+      </div>
+      
+      <div class="insights-grid">
+        <div class="insight-card">
+          <div class="insight-card-icon">🌊</div>
+          <div class="insight-card-content">
+            <div class="insight-card-title">Strong Aquifer Support Detected</div>
+            <div class="insight-card-text">Water influx is contributing 55% of reservoir energy. Water breakthrough expected in Year 3.</div>
+            <div class="insight-card-metric">→ Plan water handling facilities: +12% recovery potential</div>
+          </div>
+        </div>
+        
+        <div class="insight-card">
+          <div class="insight-card-icon">⛽</div>
+          <div class="insight-card-content">
+            <div class="insight-card-title">Gas Cap Drive Active</div>
+            <div class="insight-card-text">Gas cap contributes 25% of drive energy. Crestal wells should be prioritized.</div>
+            <div class="insight-card-metric">→ Monitor GOR: Blowdown timing critical for +8% recovery</div>
+          </div>
+        </div>
+        
+        <div class="insight-card">
+          <div class="insight-card-icon">🧩</div>
+          <div class="insight-card-content">
+            <div class="insight-card-title">Compartmentalization Risk Identified</div>
+            <div class="insight-card-text">Seismic and pressure data indicate potential fault compartments.</div>
+            <div class="insight-card-metric">→ Seismic reprocessing + interference test recommended: +12 MMbbl upside</div>
+          </div>
+        </div>
+        
+        <div class="insight-card">
+          <div class="insight-card-icon">📍</div>
+          <div class="insight-card-content">
+            <div class="insight-card-title">Infill Drilling Opportunity</div>
+            <div class="insight-card-text">Undrained attic oil identified between existing producers.</div>
+            <div class="insight-card-metric">→ 2-3 infill wells recommended: +8% recovery (10 MMbbl)</div>
+          </div>
+        </div>
+        
+        <div class="insight-card">
+          <div class="insight-card-icon">💧</div>
+          <div class="insight-card-content">
+            <div class="insight-card-title">EOR Waterflood Feasible</div>
+            <div class="insight-card-text">Reservoir characteristics suitable for pattern waterflood.</div>
+            <div class="insight-card-metric">→ Pilot waterflood recommended: +12% recovery (15 MMbbl)</div>
+          </div>
+        </div>
+        
+        <div class="insight-card">
+          <div class="insight-card-icon">⚙️</div>
+          <div class="insight-card-content">
+            <div class="insight-card-title">Production System Optimization</div>
+            <div class="insight-card-text">Current ESP operating below peak efficiency.</div>
+            <div class="insight-card-metric">→ ESP resizing + variable frequency drive: +4% uplift (5 MMbbl)</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="insights-cta">
+        <a href="services.html#servicesSection" class="btn-primary">Get actionable insights for your asset →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= T6 SECTION: RESERVOIR DASHBOARD ========= -->
+<section class="dashboard-section">
+  <div class="container">
+    <div class="dashboard-container">
+      <div class="dashboard-header">
+        <span class="dashboard-title">📊 RESERVOIR DASHBOARD</span>
+        <span class="dashboard-subtitle">Real-Time Performance Metrics</span>
+      </div>
+      
+      <div class="dashboard-grid">
+        <div class="dashboard-metric-card">
+          <div class="dashboard-metric-icon">🛢️</div>
+          <div class="dashboard-metric-value">125</div>
+          <div class="dashboard-metric-label">OOIP (MMbbl)</div>
+          <div class="dashboard-metric-trend trend-stable">✓ Verified</div>
+        </div>
+        
+        <div class="dashboard-metric-card">
+          <div class="dashboard-metric-icon">📈</div>
+          <div class="dashboard-metric-value">18%</div>
+          <div class="dashboard-metric-label">CURRENT RF</div>
+          <div class="dashboard-metric-trend trend-up">↑ +24% upside</div>
+        </div>
+        
+        <div class="dashboard-metric-card">
+          <div class="dashboard-metric-icon">💧</div>
+          <div class="dashboard-metric-value">12%</div>
+          <div class="dashboard-metric-label">WATER CUT</div>
+          <div class="dashboard-metric-trend trend-up">↑ +3% vs forecast</div>
+        </div>
+        
+        <div class="dashboard-metric-card">
+          <div class="dashboard-metric-icon">⛽</div>
+          <div class="dashboard-metric-value">850</div>
+          <div class="dashboard-metric-label">GOR (scf/bbl)</div>
+          <div class="dashboard-metric-trend trend-stable">○ Stable</div>
+        </div>
+      </div>
+      
+      <div class="dashboard-alerts">
+        <div class="dashboard-alerts-title">
+          <span>🚨</span> ACTIVE ALERTS (2)
+        </div>
+        <div class="dashboard-alerts-list">
+          <div class="dashboard-alert-item">
+            <strong>Pressure Decline</strong> — Accelerating below forecast. Recommend pressure survey.
+          </div>
+          <div class="dashboard-alert-item">
+            <strong>Water Cut</strong> — Rising faster than predicted. Review injection strategy.
+          </div>
+        </div>
+      </div>
+      
+      <div class="dashboard-cta">
+        <a href="services.html#servicesSection" class="btn-secondary">View full dashboard →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= OUR TARGET PARTNERS SECTION ========= -->
+<section class="partners-section">
+  <div class="container">
+    <div class="partners-header">
+      <span class="partners-title">🎯 OUR TARGET PARTNERS</span>
+      <h2 class="partners-subtitle">Serving the World's Leading Energy Companies</h2>
+      <p class="partners-description">TerraQuint is built to deliver precision engineering to major operators globally.</p>
+    </div>
+    
+    <div class="partners-grid">
+      <!-- Row 1: Cards 1-6 -->
+      <div class="partner-card">
+        <div class="partner-name">ExxonMobil</div>
+        <div class="partner-type">Major Operator</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-name">Chevron</div>
+        <div class="partner-type">Major Operator</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-name">Shell</div>
+        <div class="partner-type">Major Operator</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-name">BP</div>
+        <div class="partner-type">Major Operator</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-name">ConocoPhillips</div>
+        <div class="partner-type">Independent E&P</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-name">Occidental</div>
+        <div class="partner-type">Independent E&P</div>
+      </div>
+      
+      <!-- Row 2: Cards 7-12 (last is stat card) -->
+      <div class="partner-card">
+        <div class="partner-name">TotalEnergies</div>
+        <div class="partner-type">Major Operator</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-name">Equinor</div>
+        <div class="partner-type">Major Operator</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-name">Eni</div>
+        <div class="partner-type">Major Operator</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-name">Repsol</div>
+        <div class="partner-type">Independent E&P</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-name">Woodside</div>
+        <div class="partner-type">Independent E&P</div>
+      </div>
+      <div class="partner-card stat-card">
+        <div class="partner-name">+35</div>
+        <div class="partner-type">Global Clients & Growing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer placeholder (dynamic footer will be injected here) -->
+<div id="footer-placeholder"></div>
+
+<div id="back-to-top-placeholder"></div>
+
+<!-- Three.js Clean Globe with Starfield Only -->
+<script type="module">
+  import * as THREE from 'three';
+
+  const canvas = document.getElementById('hero-canvas');
+  const heroSection = document.querySelector('.hero');
+  
+  let renderer, camera, scene, earthGroup, cloudMesh, stars, bgStars;
+  let time = 0;
+  
+  function initThreeJS() {
+    scene = new THREE.Scene();
+    scene.background = null;
+    
+    camera = new THREE.PerspectiveCamera(42, 1, 0.1, 1000);
+    camera.position.set(0, 0.1, 4.2);
+    camera.lookAt(0, 0, 0);
+    
+    renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setClearColor(0x000000, 0);
+    
+    earthGroup = new THREE.Group();
+    const earthRadius = 1.25;
+    
+    const textureLoader = new THREE.TextureLoader();
+    const earthMap = textureLoader.load('https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg');
+    const earthSpecularMap = textureLoader.load('https://threejs.org/examples/textures/planets/earth_specular_2048.jpg');
+    const earthNormalMap = textureLoader.load('https://threejs.org/examples/textures/planets/earth_normal_2048.jpg');
+    const cloudMap = textureLoader.load('https://threejs.org/examples/textures/planets/earth_clouds_1024.png');
+    
+    const earthGeometry = new THREE.SphereGeometry(earthRadius, 128, 128);
+    const earthMaterial = new THREE.MeshPhongMaterial({
+      map: earthMap,
+      specularMap: earthSpecularMap,
+      specular: new THREE.Color('grey'),
+      shininess: 8,
+      normalMap: earthNormalMap,
+      normalScale: new THREE.Vector2(0.9, 0.9)
+    });
+    const earthMesh = new THREE.Mesh(earthGeometry, earthMaterial);
+    earthGroup.add(earthMesh);
+    
+    const cloudGeometry = new THREE.SphereGeometry(earthRadius + 0.012, 128, 128);
+    const cloudMaterial = new THREE.MeshPhongMaterial({
+      map: cloudMap,
+      transparent: true,
+      opacity: 0.12,
+      blending: THREE.AdditiveBlending
+    });
+    cloudMesh = new THREE.Mesh(cloudGeometry, cloudMaterial);
+    earthGroup.add(cloudMesh);
+    
+    const glowMaterial = new THREE.MeshBasicMaterial({
+      color: 0x0077b6,
+      transparent: true,
+      opacity: 0.05,
+      side: THREE.BackSide
+    });
+    const atmosphereGlow = new THREE.Mesh(new THREE.SphereGeometry(earthRadius + 0.06, 64, 64), glowMaterial);
+    earthGroup.add(atmosphereGlow);
+    
+    scene.add(earthGroup);
+    
+    const starCount = 2800;
+    const starGeo = new THREE.BufferGeometry();
+    const starPositionsArray = new Float32Array(starCount * 3);
+    const starColorsArray = new Float32Array(starCount * 3);
+    
+    for (let i = 0; i < starCount; i++) {
+      const radius = 55 + Math.random() * 45;
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.acos(2 * Math.random() - 1);
+      starPositionsArray[i*3] = radius * Math.sin(phi) * Math.cos(theta);
+      starPositionsArray[i*3+1] = radius * Math.sin(phi) * Math.sin(theta);
+      starPositionsArray[i*3+2] = radius * Math.cos(phi);
+      
+      const colorChoice = Math.random();
+      if (colorChoice < 0.75) {
+        starColorsArray[i*3] = 1;
+        starColorsArray[i*3+1] = 1;
+        starColorsArray[i*3+2] = 1;
+      } else if (colorChoice < 0.88) {
+        starColorsArray[i*3] = 0.7;
+        starColorsArray[i*3+1] = 0.8;
+        starColorsArray[i*3+2] = 1;
+      } else {
+        starColorsArray[i*3] = 1;
+        starColorsArray[i*3+1] = 0.75;
+        starColorsArray[i*3+2] = 0.55;
+      }
+    }
+    starGeo.setAttribute('position', new THREE.BufferAttribute(starPositionsArray, 3));
+    starGeo.setAttribute('color', new THREE.BufferAttribute(starColorsArray, 3));
+    const starMat = new THREE.PointsMaterial({ size: 0.065, vertexColors: true, transparent: true, opacity: 0.7, blending: THREE.AdditiveBlending });
+    stars = new THREE.Points(starGeo, starMat);
+    scene.add(stars);
+    
+    const bgStarCount = 2000;
+    const bgStarGeo = new THREE.BufferGeometry();
+    const bgStarPositions = new Float32Array(bgStarCount * 3);
+    for (let i = 0; i < bgStarCount; i++) {
+      bgStarPositions[i*3] = (Math.random() - 0.5) * 400;
+      bgStarPositions[i*3+1] = (Math.random() - 0.5) * 250;
+      bgStarPositions[i*3+2] = (Math.random() - 0.5) * 250 - 100;
+    }
+    bgStarGeo.setAttribute('position', new THREE.BufferAttribute(bgStarPositions, 3));
+    const bgStarMat = new THREE.PointsMaterial({ color: 0xaabbdd, size: 0.025, transparent: true, opacity: 0.3 });
+    bgStars = new THREE.Points(bgStarGeo, bgStarMat);
+    scene.add(bgStars);
+    
+    const ambientLight = new THREE.AmbientLight(0x222222);
+    scene.add(ambientLight);
+    const mainLight = new THREE.DirectionalLight(0xffffff, 1.3);
+    mainLight.position.set(5, 3, 4);
+    scene.add(mainLight);
+    const fillLight = new THREE.PointLight(0x3366aa, 0.3);
+    fillLight.position.set(-2, 1, 3);
+    scene.add(fillLight);
+    const backLight = new THREE.PointLight(0x4488aa, 0.2);
+    backLight.position.set(0, 2, -3.5);
+    scene.add(backLight);
+    const rimLight = new THREE.PointLight(0x88aaff, 0.25);
+    rimLight.position.set(1.5, 1, -2.5);
+    scene.add(rimLight);
+    
+    setCanvasSize();
+  }
+  
+  function setCanvasSize() {
+    if (!heroSection) return;
+    const rect = heroSection.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    
+    if (width === 0 || height === 0) return;
+    
+    canvas.width = width;
+    canvas.height = height;
+    if (renderer) renderer.setSize(width, height);
+    
+    if (camera) {
+      const aspect = width / height;
+      camera.aspect = aspect;
+      camera.updateProjectionMatrix();
+    }
+  }
+  
+  function animate() {
+    requestAnimationFrame(animate);
+    time += 0.003;
+    
+    if (earthGroup) earthGroup.rotation.y += 0.0018;
+    if (earthGroup) earthGroup.rotation.x = Math.sin(time * 0.12) * 0.02;
+    if (earthGroup) earthGroup.rotation.z = Math.cos(time * 0.1) * 0.012;
+    if (cloudMesh) cloudMesh.rotation.y += 0.0021;
+    if (stars) stars.rotation.y += 0.00004;
+    if (stars) stars.rotation.x += 0.00002;
+    if (bgStars) bgStars.rotation.y -= 0.00003;
+    
+    if (renderer && scene && camera) renderer.render(scene, camera);
+  }
+  
+  window.addEventListener('resize', () => {
+    setCanvasSize();
+  });
+  
+  setTimeout(() => {
+    initThreeJS();
+    animate();
+  }, 100);
+</script>
+
+<!-- Home Page Cards -->
+<script>
+  const cardsData = [
+    { iconType: "svg", iconSvg: `<svg width="64" height="64" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="120" rx="8" fill="transparent" stroke="none"/><path d="M10 90 Q100 20 190 90" stroke="#0077B6" stroke-width="2.5" fill="none"/><path d="M10 70 Q100 10 190 70" stroke="#0077B6" stroke-width="2.5" fill="none"/><path d="M10 50 Q100 0 190 50" stroke="#0077B6" stroke-width="2.5" fill="none"/><path d="M45 70 Q100 30 155 70 Q100 55 45 70 Z" fill="rgba(0,119,182,0.12)"/><line x1="100" y1="5" x2="100" y2="90" stroke="#0077B6" stroke-width="2" stroke-dasharray="5 4"/></svg>`,
+      title: "Reservoir Engineering & Simulation",
+      shortDesc: "Finite-difference and streamline simulation with history matching and uncertainty quantification for full-field dynamic reservoir modeling.",
+      techBadge: "ECLIPSE · CMG · COMSOL · The Kingdom Software"
+    },
+    { iconType: "svg", iconSvg: `<svg width="64" height="64" viewBox="0 0 180 220" xmlns="http://www.w3.org/2000/svg"><rect width="180" height="220" rx="8" fill="transparent" stroke="none"/><line x1="90" y1="200" x2="90" y2="30" stroke="#0077B6" stroke-width="2.5" fill="none"/><rect x="65" y="200" width="50" height="8" rx="2" fill="#0077B6"/><line x1="50" y1="155" x2="130" y2="155" stroke="#0077B6" stroke-width="2.5" fill="none"/><circle cx="50" cy="155" r="5" fill="#0077B6"/><circle cx="130" cy="155" r="5" fill="#0077B6"/><line x1="130" y1="155" x2="158" y2="155" stroke="#0077B6" stroke-width="1.5" fill="none"/><circle cx="162" cy="155" r="4" fill="#0077B6"/><line x1="50" y1="155" x2="22" y2="155" stroke="#0077B6" stroke-width="1.5" fill="none"/><circle cx="18" cy="155" r="4" fill="#0077B6"/><line x1="55" y1="120" x2="125" y2="120" stroke="#0077B6" stroke-width="2.5" fill="none"/><circle cx="55" cy="120" r="5" fill="#0077B6"/><circle cx="125" cy="120" r="5" fill="#0077B6"/><line x1="125" y1="120" x2="158" y2="120" stroke="#0077B6" stroke-width="1.5" fill="none"/><circle cx="164" cy="120" r="6" stroke="#0077B6" stroke-width="2" fill="none"/><line x1="60" y1="90" x2="120" y2="90" stroke="#0077B6" stroke-width="2.5" fill="none"/><circle cx="60" cy="90" r="5" fill="#0077B6"/><circle cx="120" cy="90" r="5" fill="#0077B6"/><line x1="90" y1="30" x2="90" y2="15" stroke="#0077B6" stroke-width="2.5" fill="none"/><circle cx="90" cy="12" r="6" fill="#0077B6"/><line x1="60" y1="48" x2="120" y2="48" stroke="#0077B6" stroke-width="2.5" fill="none"/><circle cx="60" cy="48" r="5" fill="#0077B6"/><circle cx="120" cy="48" r="5" fill="#0077B6"/><line x1="120" y1="48" x2="158" y2="48" stroke="#0077B6" stroke-width="1.5" fill="none"/><circle cx="164" cy="48" r="7" stroke="#0077B6" stroke-width="2" fill="none"/></svg>`,
+      title: "Production Engineering & Field Optimization",
+      shortDesc: "Nodal analysis, artificial lift design for ESP, gas lift, and rod pump systems with production forecasting from sandface to sales.",
+      techBadge: "Petroleum Experts IPM · WellFlo"
+    },
+    { iconType: "svg", iconSvg: `<svg width="64" height="64" viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg"><defs><marker id="a3" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><polygon points="0 0,6 3,0 6" fill="#0077B6"/></marker></defs><rect width="220" height="140" rx="8" fill="transparent" stroke="none"/><line x1="10" y1="40" x2="210" y2="40" stroke="#0077B6" stroke-width="2" fill="none"/><line x1="60" y1="40" x2="60" y2="100" stroke="#0077B6" stroke-width="2.5" fill="none"/><circle cx="60" cy="38" r="4" fill="#0077B6"/><line x1="160" y1="40" x2="160" y2="100" stroke="#0077B6" stroke-width="2.5" fill="none"/><circle cx="160" cy="38" r="4" fill="#0077B6"/><rect x="25" y="80" width="170" height="25" rx="4" fill="rgba(0,119,182,0.12)"/><path d="M70 90 Q110 70 150 90" stroke="#0077B6" stroke-width="2" fill="none" marker-end="url(#a3)"/><path d="M70 100 Q110 80 150 100" stroke="#0077B6" stroke-width="2" fill="none" marker-end="url(#a3)"/><line x1="60" y1="55" x2="60" y2="75" stroke="#0077B6" stroke-width="2" marker-end="url(#a3)"/><line x1="160" y1="75" x2="160" y2="55" stroke="#0077B6" stroke-width="2" marker-end="url(#a3)"/></svg>`,
+      title: "Enhanced Oil Recovery (EOR)",
+      shortDesc: "Waterflood, CO₂ injection, thermal recovery, chemical flooding, and SAGD programs for heavy oil production.",
+      techBadge: "CMG · ECLIPSE · Aspen · COMSOL"
+    },
+    { iconType: "svg", iconSvg: `<svg width="64" height="64" viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="140" rx="8" fill="transparent" stroke="none"/><line x1="30" y1="10" x2="30" y2="120" stroke="#0077B6" stroke-width="2"/><line x1="30" y1="120" x2="190" y2="120" stroke="#0077B6" stroke-width="2"/><text x="15" y="70" fill="#0077B6" font-family="Inter" font-size="8" font-weight="500" transform="rotate(-90,15,70)" text-anchor="middle">Rate</text><text x="110" y="135" fill="#0077B6" font-family="Inter" font-size="8" font-weight="500" text-anchor="middle">Time</text><path d="M35 40 C80 60,120 90,130 95" stroke="#0077B6" stroke-width="2.5" fill="none"/><path d="M130 95 C150 105,170 110,190 115" stroke="#0077B6" stroke-width="1.8" fill="none" opacity="0.5"/><circle cx="50" cy="50" r="3.5" fill="#0077B6"/><circle cx="80" cy="65" r="3.5" fill="#0077B6"/><circle cx="110" cy="85" r="3.5" fill="#0077B6"/></svg>`,
+      title: "Decline Curve Analysis",
+      shortDesc: "Arps, Duong, and Stretched Exponential methods with probabilistic EUR assessment (P10, P50, P90) and RTA integration.",
+      techBadge: "IPM · Petra · Surfer · PHDWIN"
+    },
+    { iconType: "emoji", iconEmoji: "🏭", title: "Facilities Bottleneck Diagnostics", shortDesc: "Production system optimization and debottlenecking across separators, compressors, pumps, and flowlines.", techBadge: "IPM · Aspen · DWSIM · COMSOL" },
+    { iconType: "emoji", iconEmoji: "💰", title: "Economic Forecasting", shortDesc: "NPV, IRR, sensitivity analysis, Monte Carlo simulation, and portfolio optimization for upstream investments.", techBadge: "Wolfram Mathematica · Matlab · IPM · PHDWIN" },
+    { iconType: "svg", iconSvg: `<svg width="64" height="64" viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg"><defs><marker id="a7" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><polygon points="0 0,6 3,0 6" fill="#0077B6"/></marker></defs><rect width="220" height="120" rx="8" fill="transparent" stroke="none"/><line x1="20" y1="60" x2="200" y2="60" stroke="#0077B6" stroke-width="3" fill="none"/><line x1="40" y1="60" x2="70" y2="60" stroke="#0077B6" stroke-width="1.8" fill="none" marker-end="url(#a7)"/><line x1="115" y1="60" x2="145" y2="60" stroke="#0077B6" stroke-width="1.8" fill="none" marker-end="url(#a7)"/><circle cx="100" cy="60" r="14" stroke="#0077B6" stroke-width="2" fill="none"/><circle cx="100" cy="60" r="14" fill="rgba(0,119,182,0.1)"/><line x1="91" y1="51" x2="109" y2="69" stroke="#0077B6" stroke-width="1.2" fill="none" opacity="0.6"/><line x1="109" y1="51" x2="91" y2="69" stroke="#0077B6" stroke-width="1.2" fill="none" opacity="0.6"/><line x1="100" y1="46" x2="100" y2="30" stroke="#0077B6" stroke-width="1.2" fill="none" opacity="0.6"/><circle cx="100" cy="24" r="6" stroke="#0077B6" stroke-width="2" fill="none"/><circle cx="100" cy="24" r="3" fill="rgba(0,119,182,0.1)"/><line x1="100" y1="24" x2="104" y2="21" stroke="#0077B6" stroke-width="1.2"/></svg>`,
+      title: "Flow Assurance", shortDesc: "Hydrate management, wax and asphaltene deposition modeling, thermal-hydraulic analysis, and subsea integrity.", techBadge: "PIPESIM · COMSOL · Aspen" },
+    { iconType: "svg", iconSvg: `<svg width="64" height="64" viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg"><rect width="240" height="140" rx="8" fill="transparent" stroke="none"/><line x1="10" y1="90" x2="230" y2="90" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="50" y1="90" x2="50" y2="50" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="35" y1="60" x2="65" y2="60" stroke="#0077B6" stroke-width="2.5" fill="none"/><circle cx="35" cy="60" r="4" fill="#0077B6"/><circle cx="65" cy="60" r="4" fill="#0077B6"/><line x1="65" y1="60" x2="130" y2="60" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="80" y1="60" x2="100" y2="60" stroke="#0077B6" stroke-width="1.5" fill="none" opacity="0.6"/><line x1="100" y1="60" x2="120" y2="60" stroke="#0077B6" stroke-width="1.5" fill="none" opacity="0.6"/><rect x="130" y="35" width="50" height="50" rx="4" stroke="#0077B6" stroke-width="2.5" fill="none"/><rect x="130" y="35" width="50" height="50" rx="4" fill="rgba(0,119,182,0.08)"/><line x1="130" y1="50" x2="180" y2="50" stroke="#0077B6" stroke-width="1.5" fill="none" opacity="0.6"/><line x1="130" y1="65" x2="180" y2="65" stroke="#0077B6" stroke-width="1.5" fill="none" opacity="0.6"/><text x="145" y="47" fill="#0077B6" font-family="Inter" font-size="7" font-weight="600">G</text><text x="145" y="62" fill="#0077B6" font-family="Inter" font-size="7" font-weight="600">O</text><text x="145" y="77" fill="#0077B6" font-family="Inter" font-size="7" font-weight="600">W</text><line x1="180" y1="60" x2="210" y2="60" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="155" y1="35" x2="155" y2="18" stroke="#0077B6" stroke-width="1.5" fill="none" opacity="0.6"/><circle cx="155" cy="13" r="7" stroke="#0077B6" stroke-width="2.5" fill="none"/><circle cx="155" cy="13" r="3" fill="#0077B6"/><line x1="155" y1="13" x2="159" y2="10" stroke="#0077B6" stroke-width="1.2"/></svg>`,
+      title: "Well Testing", shortDesc: "Pressure transient analysis, deliverability testing, skin and permeability determination, and fracture characterization.", techBadge: "Ecrin · PHDWIN · IPM · WellFlo" },
+    { iconType: "svg", iconSvg: `<svg width="64" height="64" viewBox="0 0 200 170" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="170" rx="8" fill="transparent" stroke="none"/><circle cx="100" cy="80" r="45" stroke="#0077B6" stroke-width="1" fill="none" opacity="0.3" stroke-dasharray="4 4"/><circle cx="100" cy="80" r="35" stroke="#0077B6" stroke-width="2.5" fill="none"/><circle cx="100" cy="80" r="35" fill="rgba(0,119,182,0.05)"/><circle cx="100" cy="80" r="14" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="100" y1="20" x2="100" y2="140" stroke="#0077B6" stroke-width="1" fill="none" opacity="0.3" stroke-dasharray="4 4"/><line x1="40" y1="80" x2="160" y2="80" stroke="#0077B6" stroke-width="1" fill="none" opacity="0.3" stroke-dasharray="4 4"/><line x1="100" y1="45" x2="100" y2="30" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="100" y1="115" x2="100" y2="130" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="65" y1="80" x2="50" y2="80" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="135" y1="80" x2="150" y2="80" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="75" y1="55" x2="65" y2="45" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="125" y1="55" x2="135" y2="45" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="75" y1="105" x2="65" y2="115" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="125" y1="105" x2="135" y2="115" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="60" y1="150" x2="140" y2="150" stroke="#0077B6" stroke-width="1.2" fill="none" opacity="0.6"/><line x1="60" y1="145" x2="60" y2="155" stroke="#0077B6" stroke-width="1.2" fill="none" opacity="0.6"/><line x1="140" y1="145" x2="140" y2="155" stroke="#0077B6" stroke-width="1.2" fill="none" opacity="0.6"/><polygon points="60,150 65,147 65,153" fill="#0077B6"/><polygon points="140,150 135,147 135,153" fill="#0077B6"/><line x1="80" y1="147" x2="80" y2="153" stroke="#0077B6" stroke-width="1.2" fill="none" opacity="0.6"/><line x1="120" y1="147" x2="120" y2="153" stroke="#0077B6" stroke-width="1.2" fill="none" opacity="0.6"/><text x="100" y="165" fill="#0077B6" font-family="Inter" font-size="7" font-weight="500" text-anchor="middle">Ø</text></svg>`,
+      title: "Equipment Design", shortDesc: "3D CAD modeling, FEA structural analysis, thermal simulation, and pressure vessel design.", techBadge: "Siemens NX · Solidworks · COMSOL · Femap" }
+  ];
+
+  const grid = document.getElementById('cardsGrid');
+
+  cardsData.forEach((card) => {
+    const cardDiv = document.createElement('div');
+    cardDiv.className = 'service-card';
+    
+    const iconHtml = card.iconType === 'svg' ? card.iconSvg : `<span class="card-icon-emoji">${card.iconEmoji}</span>`;
+    
+    cardDiv.innerHTML = `
+      <div class="card-inner">
+        <div class="card-icon">${iconHtml}</div>
+        <h3>${card.title}</h3>
+        <div class="short-desc">${card.shortDesc}</div>
+        <div class="tech-badge">${card.techBadge}</div>
+      </div>
+    `;
+    
+    cardDiv.addEventListener('click', () => {
+      window.location.href = 'services.html#servicesSection';
+    });
+    
+    grid.appendChild(cardDiv);
+  });
+</script>
+
+<script src="components.js"></script>
+
+</body>
+</html>

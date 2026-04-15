@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Contact TerraQuint for reservoir studies, production optimization, and engineering consulting. Call +1 (918) 625-2549 or email afaq.aslam@terraquint.com. We respond within 24 hours.">
+  <link rel="canonical" href="https://www.terraquint.com/contact.html">
+  
+  <title>Contact TerraQuint | Petroleum Engineering Consultants</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Page-specific styles (only for contact.html) -->
+  <style>
+    /* Contact Section */
+    .contact-section {
+      padding: 5rem 0;
+      background: var(--white);
+    }
+
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4rem;
+    }
+
+    .contact-info {
+      flex: 1;
+    }
+
+    .contact-form {
+      flex: 1.5;
+    }
+
+    /* Contact Details Cards */
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding: 1rem;
+      background: var(--gray-100);
+      border-radius: 12px;
+      border-left: 3px solid var(--accent);
+      transition: all 0.2s ease;
+    }
+
+    /* Make clickable cards */
+    .contact-detail.clickable {
+      cursor: pointer;
+    }
+
+    .contact-detail.clickable:hover {
+      background: var(--gray-200);
+      transform: translateX(2px);
+    }
+
+    /* Social card specific hover */
+    .contact-detail.social-card {
+      cursor: pointer;
+    }
+
+    .contact-detail.social-card:hover {
+      background: var(--gray-200);
+      transform: translateX(2px);
+    }
+
+    .contact-icon {
+      font-size: 1.8rem;
+    }
+
+    .contact-detail h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+      font-weight: 600;
+    }
+
+    .contact-detail p, .contact-detail a {
+      color: var(--gray-700);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .contact-detail a:hover {
+      color: var(--accent);
+    }
+
+    /* Office Hours */
+    .office-hours {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: var(--gray-100);
+      border-radius: 12px;
+    }
+
+    .office-hours h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+
+    .office-hours p {
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--gray-700);
+    }
+
+    /* Google Form Embed Styles */
+    .google-form-container {
+      position: relative;
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--gray-200);
+      background: var(--white);
+    }
+
+    .google-form-container iframe {
+      display: block;
+      width: 100%;
+      height: 800px;
+      border: none;
+    }
+
+    .form-note {
+      font-size: 0.75rem;
+      color: var(--gray-500);
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    /* Center the page header content */
+    .page-header {
+      text-align: center;
+    }
+
+    .page-header h1 {
+      text-align: center;
+    }
+
+    .page-header p {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Responsive adjustments for contact page */
+    @media (max-width: 800px) {
+      .contact-grid {
+        flex-direction: column;
+      }
+      .google-form-container iframe {
+        height: 700px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar will be injected here by components.js -->
+<div id="navbar-placeholder"></div>
+
+<!-- Page Header -->
+<section class="page-header">
+  <div class="container">
+    <div class="section-subhead" style="color:#aaa;">GET IN TOUCH</div>
+    <h1>Let's engineer your next success.</h1>
+    <p>Reach out for reservoir studies, production optimization, or technical consulting. We respond within 24 hours.</p>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-grid">
+      
+      <!-- Left: Contact Information -->
+      <div class="contact-info">
+        
+        <!-- Location Card - Dallas (Headquarters) -->
+        <div class="contact-detail">
+          <div class="contact-icon">📍</div>
+          <div>
+            <h3>Dallas (Headquarters)</h3>
+            <p>Dallas, Texas</p>
+          </div>
+        </div>
+        
+        <!-- Phone Card - Click to Call -->
+        <div class="contact-detail clickable" id="phoneCard">
+          <div class="contact-icon">📞</div>
+          <div>
+            <h3>Phone</h3>
+            <p>+1 (918) 625 2549</p>
+          </div>
+        </div>
+        
+        <!-- Email Card - Click to Email -->
+        <div class="contact-detail clickable" id="emailCard">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <h3>Email</h3>
+            <p>afaq.aslam@terraquint.com</p>
+          </div>
+        </div>
+        
+        <!-- LinkedIn Card - Separate Card -->
+        <div class="contact-detail social-card" id="linkedinCard">
+          <div class="contact-icon">🔗</div>
+          <div>
+            <h3>LinkedIn</h3>
+            <p>Connect with us on LinkedIn</p>
+          </div>
+        </div>
+        
+        <!-- X (Twitter) Card - Separate Card -->
+        <div class="contact-detail social-card" id="twitterCard">
+          <div class="contact-icon">🐦</div>
+          <div>
+            <h3>X (Twitter)</h3>
+            <p>Follow us for industry updates</p>
+          </div>
+        </div>
+        
+        <!-- Office Hours -->
+        <div class="office-hours">
+          <h3>Office Hours</h3>
+          <p>Monday – Sunday: 8:00 AM – 6:00 PM (CST)</p>
+        </div>
+      </div>
+      
+      <!-- Right: Google Form Embed -->
+      <div class="contact-form">
+        <div class="google-form-container">
+          <iframe 
+            src="https://docs.google.com/forms/d/e/1FAIpQLSdkMvAP4U7v0XCD752K8RbUSWVLhrWWX8dNO4clcof0G7qdmA/viewform?embedded=true" 
+            title="TerraQuint Contact Form">
+            Loading…
+          </iframe>
+        </div>
+        <div class="form-note">
+          * Required fields. We'll respond within 1 business day.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer placeholder (dynamic footer will be injected here) -->
+<div id="footer-placeholder"></div>
+
+<!-- Back to Top Button placeholder -->
+<div id="back-to-top-placeholder"></div>
+
+<!-- JavaScript for Phone, Email, and Social Media Click Actions -->
+<script>
+  // Phone card click - opens dialer
+  const phoneCard = document.getElementById('phoneCard');
+  if (phoneCard) {
+    phoneCard.addEventListener('click', function() {
+      window.location.href = 'tel:+19186252549';
+    });
+  }
+
+  // Email card click - opens mail client
+  const emailCard = document.getElementById('emailCard');
+  if (emailCard) {
+    emailCard.addEventListener('click', function() {
+      window.location.href = 'mailto:afaq.aslam@terraquint.com';
+    });
+  }
+
+  // LinkedIn card click - opens LinkedIn profile
+  const linkedinCard = document.getElementById('linkedinCard');
+  if (linkedinCard) {
+    linkedinCard.addEventListener('click', function() {
+      window.open('https://www.linkedin.com/in/afaqaslam/', '_blank', 'noopener,noreferrer');
+    });
+  }
+
+  // X (Twitter) card click - opens X profile
+  const twitterCard = document.getElementById('twitterCard');
+  if (twitterCard) {
+    twitterCard.addEventListener('click', function() {
+      window.open('https://x.com/11Afaq', '_blank', 'noopener,noreferrer');
+    });
+  }
+</script>
+
+<!-- Components.js - Centralized navbar and back-to-top button -->
+<script src="components.js"></script>
+
+</body>
+</html>

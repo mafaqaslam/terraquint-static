@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- ============================================ -->
+  <!-- MAIN PAGES (Highest Priority)                -->
+  <!-- ============================================ -->
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.terraquint.com/index.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.00</priority>
+  </url>
+  
+  <!-- Services Page -->
+  <url>
+    <loc>https://www.terraquint.com/services.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  
+  <!-- Methodology Page -->
+  <url>
+    <loc>https://www.terraquint.com/methodology.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  
+  <!-- About Page -->
+  <url>
+    <loc>https://www.terraquint.com/about.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  
+  <!-- Insights Page -->
+  <url>
+    <loc>https://www.terraquint.com/insights.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  
+  <!-- Videos Page -->
+  <url>
+    <loc>https://www.terraquint.com/videos.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  
+  <!-- Contact Page -->
+  <url>
+    <loc>https://www.terraquint.com/contact.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  
+  <!-- ============================================ -->
+  <!-- ARTICLES (Lower Priority)                    -->
+  <!-- ============================================ -->
+  
+  <!-- Article 1: ESP Optimization -->
+  <url>
+    <loc>https://www.terraquint.com/articles/esp-optimization.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  
+  <!-- Article 2: Decline Curve Analysis -->
+  <url>
+    <loc>https://www.terraquint.com/articles/decline-curve-analysis.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  
+  <!-- Article 3: Flow Assurance -->
+  <url>
+    <loc>https://www.terraquint.com/articles/flow-assurance.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  
+  <!-- Article 4: Material Balance -->
+  <url>
+    <loc>https://www.terraquint.com/articles/material-balance.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  
+  <!-- Article 5: CO₂ Flooding -->
+  <url>
+    <loc>https://www.terraquint.com/articles/co2-flooding.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  
+  <!-- Article 6: AI in Production -->
+  <url>
+    <loc>https://www.terraquint.com/articles/ai-production.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  
+</urlset>

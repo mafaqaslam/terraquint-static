@@ -1,0 +1,22 @@
+# ============================================
+# robots.txt for TerraQuint.com
+# This file tells search engines which pages to crawl
+# ============================================
+
+# Allow all search engines to crawl the site
+User-agent: *
+
+# Allow all pages to be crawled
+Allow: /
+
+# Tell search engines where the sitemap is located
+Sitemap: https://www.terraquint.com/sitemap.xml
+
+# ============================================
+# OPTIONAL: If you ever add pages you don't
+# want indexed, uncomment the lines below
+# ============================================
+
+# Disallow: /admin/
+# Disallow: /thank-you.html
+# Disallow: /private/
