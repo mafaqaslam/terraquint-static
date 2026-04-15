@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>CO₂ Flooding: Design, Implementation, and Economics | TerraQuint Insights</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="../styles.css">
+  
+  <!-- Article-specific styles -->
+  <style>
+    .article-container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem 2rem;
+    }
+
+    .article-header {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .article-category {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      padding: 0.25rem 0.75rem;
+      background: rgba(0, 119, 182, 0.1);
+      border-radius: 20px;
+    }
+
+    .article-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      color: var(--gray-500);
+      font-size: 0.85rem;
+      margin-top: 1rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .article-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .article-content {
+      line-height: 1.7;
+      color: var(--gray-700);
+    }
+
+    .article-content h2 {
+      font-size: 1.6rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: var(--black);
+    }
+
+    .article-content h3 {
+      font-size: 1.3rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--black);
+    }
+
+    .article-content p {
+      margin-bottom: 1.25rem;
+      font-size: 1rem;
+    }
+
+    .article-content ul, 
+    .article-content ol {
+      margin: 1rem 0 1.5rem 1.5rem;
+    }
+
+    .article-content li {
+      margin-bottom: 0.5rem;
+    }
+
+    .article-content blockquote {
+      border-left: 3px solid var(--accent);
+      margin: 1.5rem 0;
+      padding: 0.75rem 0 0.75rem 1.5rem;
+      font-style: italic;
+      color: var(--gray-600);
+      background: var(--gray-100);
+      border-radius: 0 12px 12px 0;
+    }
+
+    .article-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.9rem;
+    }
+
+    .article-content th,
+    .article-content td {
+      border: 1px solid var(--gray-200);
+      padding: 0.75rem;
+      text-align: left;
+    }
+
+    .article-content th {
+      background: var(--gray-100);
+      font-weight: 600;
+    }
+
+    .article-footer {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--gray-200);
+    }
+
+    .share-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .share-label {
+      font-size: 0.85rem;
+      color: var(--gray-500);
+    }
+
+    .share-buttons {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .share-btn.linkedin {
+      background: #0077B5;
+      color: white;
+    }
+
+    .share-btn.twitter {
+      background: #1DA1F2;
+      color: white;
+    }
+
+    .share-btn.email {
+      background: var(--gray-700);
+      color: white;
+    }
+
+    .share-btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--gray-500);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+      margin-bottom: 1.5rem;
+    }
+
+    .back-button:hover {
+      color: var(--accent);
+    }
+
+    .author-bio {
+      background: var(--gray-100);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .author-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: var(--accent);
+    }
+
+    .author-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .author-info h4 {
+      margin-bottom: 0.25rem;
+      font-size: 1rem;
+    }
+
+    .author-info p {
+      font-size: 0.8rem;
+      color: var(--gray-600);
+      line-height: 1.5;
+    }
+
+    .related-articles {
+      margin-top: 2rem;
+    }
+
+    .related-articles h4 {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .related-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .related-links a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+
+    .related-links a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .article-container {
+        padding: 2rem 1.5rem 3rem 1.5rem;
+      }
+      .article-header h1 {
+        font-size: 1.8rem;
+      }
+      .article-meta {
+        gap: 0.75rem;
+        font-size: 0.75rem;
+      }
+      .share-section {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .author-bio {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+    @media print {
+      .navbar, .footer, .back-button, .share-section, .author-bio, .related-articles, #back-to-top-placeholder {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div id="navbar-placeholder"></div>
+
+<div class="article-container">
+  
+  <a href="../insights.html" class="back-button">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+    Back to Insights
+  </a>
+
+  <div class="article-header">
+    <span class="article-category">CASE STUDY</span>
+    <h1>CO₂ Flooding: Design, Implementation, and Economics</h1>
+    <div class="article-meta">
+      <span>✍️ Afaq Aslam, PE</span>
+      <span>📅 November 18, 2025</span>
+      <span>⏱️ 11 min read</span>
+    </div>
+  </div>
+
+  <div class="article-content">
+    
+    <h2>Introduction</h2>
+    <p>Carbon dioxide (CO₂) enhanced oil recovery (EOR) has emerged as one of the most effective tertiary recovery methods, capable of increasing ultimate recovery by 8-18% of original oil in place (OOIP) in suitable reservoirs. With over 50 years of commercial application and more than 150 active CO₂ floods worldwide — primarily in the Permian Basin — the technology is mature, proven, and increasingly relevant in the context of carbon capture and storage (CCS).</p>
+
+    <p>This article provides a comprehensive overview of CO₂ flooding: screening criteria, design considerations, operational challenges, and economic analysis. It also addresses the growing intersection of CO₂-EOR with carbon capture and sequestration (CCS).</p>
+
+    <blockquote>
+      CO₂-EOR not only recovers additional oil but can permanently store CO₂ — turning a greenhouse gas into a value-added resource.
+    </blockquote>
+
+    <h2>CO₂-EOR Screening Criteria</h2>
+    <p>Not all reservoirs are suitable for CO₂ flooding. The following criteria are used to identify good candidates:</p>
+
+    <h3>Reservoir Characteristics</h3>
+    <ul>
+      <li><strong>Oil Gravity:</strong> 22-45° API (optimal: 30-40° API)</li>
+      <li><strong>Oil Viscosity:</strong> &lt; 10 cP (preferably &lt; 5 cP)</li>
+      <li><strong>Minimum Miscibility Pressure (MMP):</strong> Must be achievable (typically 1,200-3,500 psi)</li>
+      <li><strong>Reservoir Depth:</strong> 2,500-10,000 ft (sufficient for MMP)</li>
+      <li><strong>Reservoir Temperature:</strong> &lt; 250°F (higher temperatures increase MMP)</li>
+      <li><strong>Permeability:</strong> &gt; 5 mD (preferably &gt; 10 mD)</li>
+      <li><strong>Porosity:</strong> &gt; 10%</li>
+      <li><strong>Remaining Oil Saturation:</strong> &gt; 30%</li>
+    </ul>
+
+    <h3>Reservoir Heterogeneity</h3>
+    <ul>
+      <li><strong>Dykstra-Parsons coefficient:</strong> &lt; 0.7 (moderate to low heterogeneity)</li>
+      <li><strong>Reservoir continuity:</strong> Laterally continuous, minimal faulting</li>
+      <li><strong>No significant natural fractures:</strong> Fractures cause early CO₂ breakthrough</li>
+    </ul>
+
+    <h3>CO₂ Source Considerations</h3>
+    <ul>
+      <li><strong>CO₂ purity:</strong> &gt; 90% CO₂ (less than 5% H₂S, N₂, CH₄)</li>
+      <li><strong>Reliable supply:</strong> 20+ years of CO₂ availability at adequate rate</li>
+      <li><strong>Distance from source:</strong> Pipeline economics favor &lt; 100 miles</li>
+      <li><strong>Cost of CO₂:</strong> Typically $10-40/ton depending on source (natural vs. anthropogenic)</li>
+    </ul>
+
+    <h2>Miscible vs. Immiscible Flooding</h2>
+    <p>CO₂ floods are classified as miscible or immiscible based on operating pressure relative to MMP:</p>
+
+    <h3>Miscible CO₂ Flooding (Preferred)</h3>
+    <ul>
+      <li>Operating pressure ≥ MMP</li>
+      <li>CO₂ extracts intermediate hydrocarbons, creating a miscible bank</li>
+      <li>Recovery factor: 12-18% OOIP incremental over waterflood</li>
+      <li>Requires higher reservoir pressure or early implementation</li>
+    </ul>
+
+    <h3>Immiscible CO₂ Flooding</h3>
+    <ul>
+      <li>Operating pressure &lt; MMP</li>
+      <li>CO₂ swells oil, reduces viscosity, but no miscible front</li>
+      <li>Recovery factor: 5-10% OOIP incremental</li>
+      <li>Applicable in shallower reservoirs where MMP cannot be achieved</li>
+    </ul>
+
+    <h2>Design Considerations</h2>
+
+    <h3>Pattern Design</h3>
+    <p>Common CO₂ flood patterns include:</p>
+    <ul>
+      <li><strong>5-spot:</strong> Most common for CO₂ floods (4 injectors per producer)</li>
+      <li><strong>Inverted 5-spot:</strong> 4 producers per injector</li>
+      <li><strong>Line drive:</strong> For anisotropic permeability</li>
+      <li><strong>Pattern size:</strong> Typically 20-80 acres per pattern</li>
+    </ul>
+
+    <h3>CO₂ Slug Size</h3>
+    <ul>
+      <li>Typical CO₂ slug: 20-60% hydrocarbon pore volume (HCPV)</li>
+      <li>Followed by water alternating gas (WAG) injection</li>
+      <li>WAG ratio: 1:1 to 3:1 (water:CO₂ by volume)</li>
+      <li>Total CO₂ injection: 3-8 Mscf/STB of oil recovered</li>
+    </ul>
+
+    <h3>Operational Parameters</h3>
+    <ul>
+      <li><strong>Injection pressure:</strong> Below fracture gradient, above MMP</li>
+      <li><strong>WAG cycle length:</strong> 30-180 days per cycle</li>
+      <li><strong>Monitoring:</strong> Tracers, 4D seismic, production logging</li>
+    </ul>
+
+    <h2>Implementation Workflow</h2>
+    <ol>
+      <li><strong>Screening & Laboratory Studies</strong>
+        <ul>
+          <li>MMP determination (slim tube tests, equation of state modeling)</li>
+          <li>CO₂-oil PVT (swelling tests, viscosity reduction)</li>
+          <li>Relative permeability (CO₂-oil, CO₂-water)</li>
+          <li>Core flood experiments</li>
+        </ul>
+      </li>
+      <li><strong>Reservoir Simulation</strong>
+        <ul>
+          <li>History match of primary and secondary recovery</li>
+          <li>CO₂ flood predictive modeling</li>
+          <li>Pattern optimization, WAG ratio sensitivity</li>
+          <li>Recovery forecasting and uncertainty assessment</li>
+        </ul>
+      </li>
+      <li><strong>Pilot Test</strong>
+        <ul>
+          <li>Single pattern or small area (1-5 patterns)</li>
+          <li>Typically 1-3 years of injection and monitoring</li>
+          <li>Validate recovery predictions and operational procedures</li>
+        </ul>
+      </li>
+      <li><strong>Full-Field Development</strong>
+        <ul>
+          <li>Facilities design (CO₂ compression, distribution, recycling)</li>
+          <li>Well conversions and new drilling</li>
+          <li>Monitoring and surveillance program</li>
+          <li>CO₂ sourcing and pipeline infrastructure</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h2>Operational Challenges & Mitigation</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Challenge</th>
+          <th>Cause</th>
+          <th>Mitigation Strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Early CO₂ breakthrough</td>
+          <td>Fractures, high-perm streaks, gravity override</td>
+          <td>WAG injection, gel treatments, conformance control</td>
+        </tr>
+        <tr>
+          <td>Asphaltene precipitation</td>
+          <td>Pressure drop near production wells</td>
+          <td>Maintain pressure, chemical inhibitors</td>
+        </tr>
+        <tr>
+          <td>Corrosion</td>
+          <td>CO₂ in produced fluids (carbonic acid)</td>
+          <td>Corrosion-resistant alloys (CRA), corrosion inhibitors, batch treating</td>
+        </tr>
+        <tr>
+          <td>CO₂ recycling requirements</td>
+          <td>Separating CO₂ from produced gas</td>
+          <td>Membrane separation, amine treating, reinjection</td>
+        </tr>
+        <tr>
+          <td>Water management</td>
+          <td>Increased water production</td>
+          <td>Water handling facilities, produced water reinjection</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Economics of CO₂-EOR</h2>
+
+    <h3>Capital Expenditures (CAPEX)</h3>
+    <ul>
+      <li><strong>CO₂ source and pipeline:</strong> $50,000-150,000 per mile + $10-30 million for source</li>
+      <li><strong>Injection facilities:</strong> $5-20 million (compression, metering, distribution)</li>
+      <li><strong>Production facilities:</strong> $10-30 million (CO₂ separation, recycling)</li>
+      <li><strong>Well conversions/drilling:</strong> $1-3 million per well</li>
+      <li><strong>Total project CAPEX:</strong> $50-200 million (depending on scale)</li>
+    </ul>
+
+    <h3>Operating Expenditures (OPEX)</h3>
+    <ul>
+      <li><strong>CO₂ purchase:</strong> $10-40/ton (natural CO₂) or $30-60/ton (anthropogenic)</li>
+      <li><strong>CO₂ recycling:</strong> $0.50-1.50/Mcf</li>
+      <li><strong>Chemical injection:</strong> $1-3/bbl oil produced</li>
+      <li><strong>Well workovers:</strong> $100-300K/year per well</li>
+      <li><strong>Total OPEX:</strong> $15-35/bbl incremental oil</li>
+    </ul>
+
+    <h3>Economic Metrics (Typical Project)</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Parameter</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>OOIP in project area</td>
+          <td>100 MMbbl</td>
+        </tr>
+        <tr>
+          <td>Incremental recovery factor</td>
+          <td>12%</td>
+        </tr>
+        <tr>
+          <td>Incremental oil recovered</td>
+          <td>12 MMbbl</td>
+        </tr>
+        <tr>
+          <td>CO₂ injected</td>
+          <td>50-100 Bcf (4-8 Mscf/bbl)</td>
+        </tr>
+        <tr>
+          <td>CO₂ purchased</td>
+          <td>50% of injected (balance recycled)</td>
+        </tr>
+        <tr>
+          <td>Project life</td>
+          <td>15-25 years</td>
+        </tr>
+        <tr>
+          <td>Break-even oil price</td>
+          <td>$40-60/bbl</td>
+        </tr>
+        <tr>
+          <td>IRR (at $70/bbl oil)</td>
+          <td>12-18%</td>
+        </tr>
+        <tr>
+          <td>NPV (at $70/bbl, 10% discount)</td>
+          <td>$100-300 million</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Case Example: Permian Basin CO₂ Flood</h2>
+    <p>A mature waterflood in the Permian Basin (San Andres formation) was evaluated for CO₂-EOR potential:</p>
+
+    <h3>Reservoir Characteristics:</h3>
+    <ul>
+      <li>Depth: 5,500 ft, Pressure: 2,400 psi, Temperature: 110°F</li>
+      <li>Oil gravity: 34° API, Viscosity: 2.5 cP</li>
+      <li>MMP: 1,800 psi (miscible flood achievable)</li>
+      <li>Porosity: 14%, Permeability: 25 mD</li>
+      <li>OOIP: 85 MMbbl, Remaining oil: 45 MMbbl (47% remaining)</li>
+    </ul>
+
+    <h3>Design:</h3>
+    <ul>
+      <li>Pattern: 40-acre inverted 5-spot (24 patterns)</li>
+      <li>CO₂ slug: 40% HCPV (21 Bcf CO₂)</li>
+      <li>WAG ratio: 1:1, 90-day cycles</li>
+      <li>Facilities: New CO₂ compression and recycling plant</li>
+      <li>CO₂ source: Natural CO₂ via pipeline (40 miles)</li>
+    </ul>
+
+    <h3>Results:</h3>
+    <ul>
+      <li>Incremental recovery: 11.5 MMbbl (13.5% of OOIP)</li>
+      <li>CO₂ utilization: 5.2 Mscf/bbl incremental oil</li>
+      <li>CO₂ purchased: 50% of injected (balance recycled)</li>
+      <li>Total CO₂ stored: 30 Bcf (1.6 million metric tons)</li>
+    </ul>
+
+    <h3>Economic Outcomes:</h3>
+    <ul>
+      <li>Total CAPEX: $95 million</li>
+      <li>Average OPEX: $24/bbl incremental oil</li>
+      <li>Break-even oil price: $52/bbl</li>
+      <li>At $70/bbl oil: IRR = 15.5%, NPV = $185 million</li>
+      <li>Payback period: 5.2 years</li>
+    </ul>
+
+    <h2>CO₂-EOR + CCS: The Carbon Negative Opportunity</h2>
+    <p>When CO₂ is sourced from anthropogenic sources (power plants, industrial facilities) and permanently stored in the reservoir, CO₂-EOR becomes carbon-negative. The 45Q tax credit (U.S.) provides significant incentives:</p>
+
+    <ul>
+      <li><strong>$85/ton</strong> for CO₂ captured and stored in saline formations (2026)</li>
+      <li><strong>$60/ton</strong> for CO₂ captured and utilized for EOR (2026)</li>
+      <li>Credits can stack with oil revenue, improving project economics by $5-15/bbl</li>
+    </ul>
+
+    <p>With 45Q credits, the break-even oil price can drop by $10-20/bbl, making CO₂-EOR viable at $40-50/bbl oil.</p>
+
+    <h2>Best Practices Summary</h2>
+    <ol>
+      <li><strong>Screen thoroughly:</strong> Not all reservoirs are good candidates — apply rigorous screening criteria</li>
+      <li><strong>Measure MMP accurately:</strong> Slim tube or rising bubble apparatus — EOS validated with PVT</li>
+      <li><strong>Start early:</strong> Implement CO₂ flood before reservoir pressure declines below MMP</li>
+      <li><strong>Pilot before full-field:</strong> Validate predictions and optimize design</li>
+      <li><strong>Design for WAG:</strong> Water alternating gas improves sweep efficiency</li>
+      <li><strong>Monitor continuously:</strong> Tracers, 4D seismic, production surveillance</li>
+      <li><strong>Plan for CO₂ recycling:</strong> Recycling facilities are essential for economic performance</li>
+      <li><strong>Integrate CCS incentives:</strong> 45Q credits can transform marginal projects into economic successes</li>
+    </ol>
+
+    <h2>Conclusion</h2>
+    <p>CO₂ flooding is a proven, mature EOR technology that can add 8-18% recovery in suitable reservoirs. Success requires careful screening, robust laboratory data, rigorous simulation, and thoughtful operational design. The economics are favorable at $60-80/bbl oil, and CCS incentives (45Q credits) make CO₂-EOR even more attractive — potentially carbon-negative and profitable.</p>
+
+    <p>As the energy transition accelerates, CO₂-EOR occupies a unique position: it recovers additional oil while permanently storing CO₂, offering a bridge between fossil fuel production and carbon management.</p>
+
+  </div>
+
+  <div class="article-footer">
+    
+    <div class="share-section">
+      <span class="share-label">Share this article:</span>
+      <div class="share-buttons">
+        <button class="share-btn linkedin" id="share-linkedin">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451c.979 0 1.771-.773 1.771-1.729V1.729C24 .774 23.204 0 22.225 0z"/>
+          </svg>
+          LinkedIn
+        </button>
+        <button class="share-btn twitter" id="share-twitter">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 0021.43-11.66c0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+          </svg>
+          Twitter
+        </button>
+        <button class="share-btn email" id="share-email">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          Email
+        </button>
+      </div>
+    </div>
+
+    <div class="author-bio">
+      <div class="author-avatar">
+        <img src="../afaq-avatar.jpg" alt="Afaq Aslam, PE">
+      </div>
+      <div class="author-info">
+        <h4>Afaq Aslam, PE</h4>
+        <p>Afaq Aslam, PE is the Founder and Principal Petroleum Engineer at TerraQuint with over 6 years of integrated experience across conventional, unconventional, and deepwater assets. He specializes in reservoir simulation, production optimization, flow assurance, and economic forecasting — delivering data-driven solutions that maximize recovery, reduce risk, and improve investment returns.</p>
+      </div>
+    </div>
+
+    <div class="related-articles">
+      <h4>Related Articles</h4>
+      <div class="related-links">
+        <a href="material-balance.html">← Material Balance vs. Simulation</a>
+        <a href="ai-production.html">AI in Production Optimization →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+<div id="back-to-top-placeholder"></div>
+
+<script>
+  const linkedinBtn = document.getElementById('share-linkedin');
+  const twitterBtn = document.getElementById('share-twitter');
+  const emailBtn = document.getElementById('share-email');
+
+  if (linkedinBtn) {
+    linkedinBtn.addEventListener('click', function() {
+      const url = encodeURIComponent(window.location.href);
+      const title = encodeURIComponent(document.title);
+      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'width=600,height=500');
+    });
+  }
+
+  if (twitterBtn) {
+    twitterBtn.addEventListener('click', function() {
+      const url = encodeURIComponent(window.location.href);
+      const title = encodeURIComponent(document.title);
+      window.open(`https://twitter.com/intent/tweet?text=${title}&url=${url}`, '_blank', 'width=600,height=400');
+    });
+  }
+
+  if (emailBtn) {
+    emailBtn.addEventListener('click', function() {
+      const subject = encodeURIComponent(document.title);
+      const body = encodeURIComponent(`Check out this article: ${window.location.href}`);
+      window.location.href = `mailto:?subject=${subject}&body=${body}`;
+    });
+  }
+</script>
+
+<script src="../components.js"></script>
+
+</body>
+</html>

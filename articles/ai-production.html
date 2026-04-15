@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>AI and Machine Learning in Production Optimization | TerraQuint Insights</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="../styles.css">
+  
+  <!-- Article-specific styles -->
+  <style>
+    .article-container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem 2rem;
+    }
+
+    .article-header {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .article-category {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      padding: 0.25rem 0.75rem;
+      background: rgba(0, 119, 182, 0.1);
+      border-radius: 20px;
+    }
+
+    .article-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      color: var(--gray-500);
+      font-size: 0.85rem;
+      margin-top: 1rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .article-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .article-content {
+      line-height: 1.7;
+      color: var(--gray-700);
+    }
+
+    .article-content h2 {
+      font-size: 1.6rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: var(--black);
+    }
+
+    .article-content h3 {
+      font-size: 1.3rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--black);
+    }
+
+    .article-content p {
+      margin-bottom: 1.25rem;
+      font-size: 1rem;
+    }
+
+    .article-content ul, 
+    .article-content ol {
+      margin: 1rem 0 1.5rem 1.5rem;
+    }
+
+    .article-content li {
+      margin-bottom: 0.5rem;
+    }
+
+    .article-content blockquote {
+      border-left: 3px solid var(--accent);
+      margin: 1.5rem 0;
+      padding: 0.75rem 0 0.75rem 1.5rem;
+      font-style: italic;
+      color: var(--gray-600);
+      background: var(--gray-100);
+      border-radius: 0 12px 12px 0;
+    }
+
+    .article-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.9rem;
+    }
+
+    .article-content th,
+    .article-content td {
+      border: 1px solid var(--gray-200);
+      padding: 0.75rem;
+      text-align: left;
+    }
+
+    .article-content th {
+      background: var(--gray-100);
+      font-weight: 600;
+    }
+
+    .article-footer {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--gray-200);
+    }
+
+    .share-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .share-label {
+      font-size: 0.85rem;
+      color: var(--gray-500);
+    }
+
+    .share-buttons {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .share-btn.linkedin {
+      background: #0077B5;
+      color: white;
+    }
+
+    .share-btn.twitter {
+      background: #1DA1F2;
+      color: white;
+    }
+
+    .share-btn.email {
+      background: var(--gray-700);
+      color: white;
+    }
+
+    .share-btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--gray-500);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+      margin-bottom: 1.5rem;
+    }
+
+    .back-button:hover {
+      color: var(--accent);
+    }
+
+    .author-bio {
+      background: var(--gray-100);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .author-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: var(--accent);
+    }
+
+    .author-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .author-info h4 {
+      margin-bottom: 0.25rem;
+      font-size: 1rem;
+    }
+
+    .author-info p {
+      font-size: 0.8rem;
+      color: var(--gray-600);
+      line-height: 1.5;
+    }
+
+    .related-articles {
+      margin-top: 2rem;
+    }
+
+    .related-articles h4 {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .related-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .related-links a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+
+    .related-links a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .article-container {
+        padding: 2rem 1.5rem 3rem 1.5rem;
+      }
+      .article-header h1 {
+        font-size: 1.8rem;
+      }
+      .article-meta {
+        gap: 0.75rem;
+        font-size: 0.75rem;
+      }
+      .share-section {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .author-bio {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+    @media print {
+      .navbar, .footer, .back-button, .share-section, .author-bio, .related-articles, #back-to-top-placeholder {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div id="navbar-placeholder"></div>
+
+<div class="article-container">
+  
+  <a href="../insights.html" class="back-button">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+    Back to Insights
+  </a>
+
+  <div class="article-header">
+    <span class="article-category">INDUSTRY INSIGHT</span>
+    <h1>AI and Machine Learning in Production Optimization</h1>
+    <div class="article-meta">
+      <span>✍️ Afaq Aslam, PE</span>
+      <span>📅 October 22, 2025</span>
+      <span>⏱️ 9 min read</span>
+    </div>
+  </div>
+
+  <div class="article-content">
+    
+    <h2>Introduction</h2>
+    <p>The oil and gas industry generates vast amounts of data — from downhole gauges, surface sensors, SCADA systems, and production logs. Yet historically, most of this data has been underutilized. Artificial Intelligence (AI) and Machine Learning (ML) are changing that, enabling operators to move from reactive to predictive operations, reduce downtime, optimize production, and lower costs.</p>
+
+    <p>This article explores practical applications of AI/ML in production optimization, the technical approaches involved, and the measurable business impact being achieved by early adopters.</p>
+
+    <blockquote>
+      AI doesn't replace petroleum engineers — it augments them. The best results come from combining physics-based models with data-driven insights.
+    </blockquote>
+
+    <h2>Why AI/ML for Production Optimization?</h2>
+    <p>Traditional production optimization relies on physics-based models (nodal analysis, reservoir simulation) that are accurate but computationally expensive and slow to update. AI/ML offers complementary capabilities:</p>
+
+    <ul>
+      <li><strong>Speed:</strong> ML models can make predictions in milliseconds</li>
+      <li><strong>Pattern recognition:</strong> Identify subtle precursors to equipment failure</li>
+      <li><strong>Scalability:</strong> Apply across thousands of wells simultaneously</li>
+      <li><strong>Continuous learning:</strong> Models improve as more data becomes available</li>
+      <li><strong>Anomaly detection:</strong> Flag deviations from expected behavior in real-time</li>
+    </ul>
+
+    <h2>Key Applications</h2>
+
+    <h3>1. ESP Failure Prediction</h3>
+    <p>Electrical Submersible Pump (ESP) failures are a major source of lost production and high workover costs. ML models can predict failures 7-30 days in advance with 85-95% accuracy.</p>
+    
+    <p><strong>Input features:</strong> Motor amperage, intake pressure, discharge pressure, temperature, vibration, runtime, production rate, GOR, water cut</p>
+    <p><strong>ML methods:</strong> Random Forest, XGBoost, LSTM (time series), Gradient Boosting</p>
+    <p><strong>Business impact:</strong> 30-50% reduction in unplanned ESP failures, 2-3x increase in mean time between failures (MTBF)</p>
+
+    <h3>2. Production Forecasting</h3>
+    <p>ML models can forecast production rates at well, pad, or field level, incorporating operational parameters (choke settings, pump speed) and historical performance.</p>
+    
+    <p><strong>Input features:</strong> Historical rates, pressures, choke settings, ESP frequency, downtime events, offset well performance</p>
+    <p><strong>ML methods:</strong> LSTM, GRU, Transformer (time series), XGBoost</p>
+    <p><strong>Business impact:</strong> Forecast accuracy improvement of 10-25% vs. traditional DCA for unconventional wells</p>
+
+    <h3>3. Virtual Metering</h3>
+    <p>Many wells lack individual flow measurement (e.g., pad wells sharing a test separator). ML models can estimate per-well rates using readily available sensor data.</p>
+    
+    <p><strong>Input features:</strong> Wellhead pressure, choke position, ESP parameters, separator pressure, offset well rates</p>
+    <p><strong>ML methods:</strong> Neural networks, Random Forest, Gradient Boosting</p>
+    <p><strong>Business impact:</strong> Continuous rate estimation without additional hardware; accuracy within 5-10% of test separator measurements</p>
+
+    <h3>4. Anomaly Detection</h3>
+    <p>ML models can identify unusual operating conditions in real-time, flagging issues before they become failures.</p>
+    
+    <p><strong>Applications:</strong> Hydrate formation precursors, scaling detection, flowline restriction, equipment degradation, sand production</p>
+    <p><strong>ML methods:</strong> Isolation Forest, Autoencoders, One-Class SVM</p>
+    <p><strong>Business impact:</strong> 50-70% reduction in false alarms, earlier detection of actual issues</p>
+
+    <h3>5. Production Allocation Optimization</h3>
+    <p>For fields with surface constraints (separator capacity, compression, water handling), ML can recommend optimal choke settings and well prioritization.</p>
+    
+    <p><strong>Input features:</strong> Well potentials, constraints, GOR, water cut, flowline pressures</p>
+    <p><strong>ML methods:</strong> Reinforcement learning, Bayesian optimization, genetic algorithms</p>
+    <p><strong>Business impact:</strong> 3-8% production uplift within existing constraints</p>
+
+    <h2>ML Methods Overview</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Method</th>
+          <th>Best For</th>
+          <th>Data Requirements</th>
+          <th>Interpretability</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Random Forest / XGBoost</td>
+          <td>Classification, regression (tabular data)</td>
+          <td>1,000+ labeled samples</td>
+          <td>Moderate (feature importance)</td>
+        </tr>
+        <tr>
+          <td>LSTM / GRU</td>
+          <td>Time series forecasting</td>
+          <td>Long continuous histories (6-12 months)</td>
+          <td>Low (black box)</td>
+        </tr>
+        <tr>
+          <td>Isolation Forest</td>
+          <td>Anomaly detection</td>
+           .=50+ samples per operating mode</td>
+          <td>Low</td>
+        </tr>
+        <tr>
+          <td>Neural Networks</td>
+          <td>Complex pattern recognition</td>
+          <td>5,000+ samples</td>
+          <td>Very low</td>
+        </tr>
+        <tr>
+          <td>Reinforcement Learning</td>
+          <td>Sequential decision making</td>
+           .=Simulation environment + 10,000+ episodes</td>
+          <td>Low</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Data Requirements & Preparation</h2>
+    <p>Successful AI/ML projects require quality data:</p>
+
+    <h3>Minimum Viable Dataset</h3>
+    <ul>
+      <li><strong>Time range:</strong> 12-24 months of historical data</li>
+      <li><strong>Frequency:</strong> Hourly or daily (for ESP failure prediction, higher frequency is better)</li>
+      <li><strong>Features:</strong> 10-50 relevant sensor and operational parameters</li>
+      <li><strong>Events:</strong> 50-100 failure events for classification (or 1,000+ wells for survival analysis)</li>
+    </ul>
+
+    <h3>Data Quality Challenges</h3>
+    <ul>
+      <li><strong>Missing data:</strong> Imputation (forward fill, interpolation, model-based)</li>
+      <li><strong>Outliers:</strong> Sensor drift, calibration issues — domain-based filtering</li>
+      <li><strong>Labeling:</strong> Failure events must be accurately identified and labeled</li>
+      <li><strong>Data alignment:</strong> Time synchronization across different data sources</li>
+    </ul>
+
+    <h2>Implementation Workflow</h2>
+    <ol>
+      <li><strong>Problem Definition & Feasibility Assessment</strong>
+        <ul>
+          <li>What decision will the model inform?</li>
+          <li>Is sufficient historical data available?</li>
+          <li>What's the expected business value?</li>
+        </ul>
+      </li>
+      <li><strong>Data Collection & Preparation</strong>
+        <ul>
+          <li>Extract from SCADA, production database, maintenance logs</li>
+          <li>Clean, align, and label data</li>
+          <li>Feature engineering (lag features, rolling statistics, domain-derived features)</li>
+        </ul>
+      </li>
+      <li><strong>Model Development</strong>
+        <ul>
+          <li>Train/validation/test split (typically 70/15/15 or time-based split)</li>
+          <li>Hyperparameter tuning (grid search, Bayesian optimization)</li>
+          <li>Cross-validation (k-fold or time series split)</li>
+        </ul>
+      </li>
+      <li><strong>Validation & Testing</strong>
+        <ul>
+          <li>Holdout test set evaluation</li>
+          <li>Backtesting on historical data</li>
+          <li>Pilot deployment on subset of assets</li>
+        </ul>
+      </li>
+      <li><strong>Deployment & Monitoring</strong>
+        <ul>
+          <li>Real-time or batch inference</li>
+          <li>Model performance monitoring (accuracy drift, data drift)</li>
+          <li>Retraining schedule (weekly/monthly/quarterly)</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h2>Case Example: ESP Failure Prediction</h2>
+    <p>A Permian Basin operator with 450 ESP-equipped wells implemented an ML-based ESP failure prediction system:</p>
+
+    <h3>Approach:</h3>
+    <ul>
+      <li>24 months of high-frequency data (15-minute intervals) across 450 wells</li>
+      <li>Features: 28 parameters including amperage, intake pressure, temperature, vibration, runtime</li>
+      <li>Labeled failure events: 187 ESP failures (confirmed by workover records)</li>
+      <li>Model: XGBoost classifier with time-series feature engineering</li>
+      <li>Training: 80% of wells, Validation: 10%, Test: 10% (well-blind split)</li>
+    </ul>
+
+    <h3>Results:</h3>
+    <ul>
+      <li><strong>Prediction accuracy:</strong> 89% (F1 score) at 14-day lead time</li>
+      <li><strong>Lead time:</strong> Average 12 days between model alert and actual failure</li>
+      <li><strong>False positive rate:</strong> 15% (optimized for precision)</li>
+      <li><strong>Wells with highest risk:</strong> Top 10% accounted for 45% of failures</li>
+    </ul>
+
+    <h3>Business Impact (12 months post-deployment):</h3>
+    <ul>
+      <li>Unplanned ESP failures reduced by 42%</li>
+      <li>Average ESP run life increased from 380 to 620 days (+63%)</li>
+      <li>Workover costs reduced by $8.5 million</li>
+      <li>Production loss from ESP failures reduced by 15,000 boe (value: $1.2 million)</li>
+      <li>Total annual benefit: $9.7 million</li>
+      <li>Implementation cost: $1.2 million (payback: 1.5 months)</li>
+    </ul>
+
+    <h2>Challenges & Limitations</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Challenge</th>
+          <th>Impact</th>
+          <th>Mitigation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Data quality/issues</td>
+          <td>Garbage in, garbage out</td>
+          <td>Invest in data governance, QA/QC processes</td>
+        </tr>
+        <tr>
+           .=Black box problem</td>
+          <td>Engineers don't trust model recommendations</td>
+          <td>Use interpretable models (XGBoost feature importance, SHAP values)</td>
+        </tr>
+        <tr>
+           .=Model drift</td>
+          <td>Performance degrades over time</td>
+          <td>Regular retraining, performance monitoring, automated alerts</td>
+        </tr>
+        <tr>
+           .=Generalizability</td>
+           .=Model trained on one basin/field may not work elsewhere</td>
+           .=Retrain for each asset; use domain adaptation techniques</td>
+        </tr>
+        <tr>
+           .=Labeling effort</td>
+           .=Failure events must be accurately identified</td>
+           .=Integrate with maintenance records; use domain experts for labeling</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Integration with Physics-Based Models</h2>
+    <p>The most successful AI implementations don't replace physics-based models — they integrate with them:</p>
+
+    <ul>
+      <li><strong>Hybrid modeling:</strong> Use ML to correct bias in physics-based models</li>
+      <li><strong>Surrogate modeling:</strong> Train ML to approximate slow physics-based simulations (speed-up of 1,000-10,000x)</li>
+      <li><strong>Feature engineering:</strong> Use physics-based model outputs (e.g., flowing bottomhole pressure from nodal analysis) as inputs to ML models</li>
+      <li><strong>Anomaly detection on model residuals:</strong> Flag when actual behavior deviates from physics-based predictions</li>
+    </ul>
+
+    <h2>Best Practices Summary</h2>
+    <ol>
+      <li><strong>Start with a clear business problem</strong> — Not "let's use AI" but "ESP failures cost us X, can ML help?"</li>
+      <li><strong>Invest in data infrastructure</strong> — ML is only as good as your data. Fix data quality first.</li>
+      <li><strong>Start simple, then iterate</strong> — XGBoost often outperforms deep learning on tabular data with less data</li>
+      <li><strong>Involve domain experts</strong> — Engineers must guide feature engineering and validate predictions</li>
+      <li><strong>Plan for deployment and monitoring</strong> — A model that never deploys delivers zero value</li>
+      <li><strong>Combine ML with physics</strong> — Hybrid approaches outperform pure data-driven or pure physics-based models</li>
+      <li><strong>Measure business impact</strong> — Track reduced failures, increased uptime, cost savings — not just model accuracy</li>
+    </ol>
+
+    <h2>Future Outlook</h2>
+    <p>AI/ML adoption in production optimization is accelerating. Emerging trends include:</p>
+    <ul>
+      <li><strong>Foundation models for time series:</strong> Pre-trained models that can be fine-tuned for specific assets</li>
+      <li><strong>Generative AI for operations:</strong> LLMs that provide natural language explanations of model predictions and recommended actions</li>
+      <li><strong>Edge AI:</strong> Running ML models on edge devices (ESP controllers, flow computers) for real-time inference without cloud connectivity</li>
+      <li><strong>Autonomous operations:</strong> Closed-loop control where ML recommendations are automatically implemented (with safeguards)</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>AI and Machine Learning are transforming production optimization, enabling predictive maintenance, real-time anomaly detection, and data-driven decision-making at scale. The business case is clear: 30-50% reduction in ESP failures, 10-25% improvement in forecast accuracy, and payback periods measured in months.</p>
+
+    <p>Success requires quality data, domain expertise, and thoughtful integration with existing physics-based workflows. The operators who embrace AI/ML today will have a significant competitive advantage in the years ahead.</p>
+
+  </div>
+
+  <div class="article-footer">
+    
+    <div class="share-section">
+      <span class="share-label">Share this article:</span>
+      <div class="share-buttons">
+        <button class="share-btn linkedin" id="share-linkedin">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451c.979 0 1.771-.773 1.771-1.729V1.729C24 .774 23.204 0 22.225 0z"/>
+          </svg>
+          LinkedIn
+        </button>
+        <button class="share-btn twitter" id="share-twitter">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 0021.43-11.66c0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+          </svg>
+          Twitter
+        </button>
+        <button class="share-btn email" id="share-email">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          Email
+        </button>
+      </div>
+    </div>
+
+    <div class="author-bio">
+      <div class="author-avatar">
+        <img src="../afaq-avatar.jpg" alt="Afaq Aslam, PE">
+      </div>
+      <div class="author-info">
+        <h4>Afaq Aslam, PE</h4>
+        <p>Afaq Aslam, PE is the Founder and Principal Petroleum Engineer at TerraQuint with over 6 years of integrated experience across conventional, unconventional, and deepwater assets. He specializes in reservoir simulation, production optimization, flow assurance, and economic forecasting — delivering data-driven solutions that maximize recovery, reduce risk, and improve investment returns.</p>
+      </div>
+    </div>
+
+    <div class="related-articles">
+      <h4>Related Articles</h4>
+      <div class="related-links">
+        <a href="co2-flooding.html">← CO₂ Flooding: Design & Economics</a>
+        <a href="esp-optimization.html">ESP Optimization Case Study →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+<div id="back-to-top-placeholder"></div>
+
+<script>
+  const linkedinBtn = document.getElementById('share-linkedin');
+  const twitterBtn = document.getElementById('share-twitter');
+  const emailBtn = document.getElementById('share-email');
+
+  if (linkedinBtn) {
+    linkedinBtn.addEventListener('click', function() {
+      const url = encodeURIComponent(window.location.href);
+      const title = encodeURIComponent(document.title);
+      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'width=600,height=500');
+    });
+  }
+
+  if (twitterBtn) {
+    twitterBtn.addEventListener('click', function() {
+      const url = encodeURIComponent(window.location.href);
+      const title = encodeURIComponent(document.title);
+      window.open(`https://twitter.com/intent/tweet?text=${title}&url=${url}`, '_blank', 'width=600,height=400');
+    });
+  }
+
+  if (emailBtn) {
+    emailBtn.addEventListener('click', function() {
+      const subject = encodeURIComponent(document.title);
+      const body = encodeURIComponent(`Check out this article: ${window.location.href}`);
+      window.location.href = `mailto:?subject=${subject}&body=${body}`;
+    });
+  }
+</script>
+
+<script src="../components.js"></script>
+
+</body>
+</html>
