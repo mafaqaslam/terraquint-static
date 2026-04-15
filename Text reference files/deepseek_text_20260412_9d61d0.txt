@@ -1,0 +1,17 @@
+Terraquint/                          ← Your main folder (already exists)
+│
+├── index.html                       ✅ Keep
+├── services.html                    ✅ Keep
+├── methodology.html                 ✅ Keep
+├── contact.html                     ✅ Keep
+├── insights.html                    🆕 NEW (simplified listing page)
+├── styles.css                       ✅ Keep
+├── components.js                    ✅ Keep
+│
+├── articles/                        🆕 CREATE THIS FOLDER
+│   ├── template.html                🆕 NEW (copy this for each new article)
+│   ├── esp-optimization.html        🆕 NEW (sample article)
+│   ├── decline-curve-analysis.html  🆕 NEW (sample article)
+│   └── (future articles here)
+│
+└── (all your existing files remain)

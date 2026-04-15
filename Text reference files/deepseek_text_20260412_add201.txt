@@ -1,0 +1,73 @@
+=== ARTICLE INFORMATION ===
+
+ARTICLE TITLE: Optimizing ESP Performance in Unconventional Wells
+
+CATEGORY: CASE STUDY
+
+AUTHOR NAME: Sarah Chen, PE
+
+AUTHOR INITIALS: SC
+
+AUTHOR BIO: Sarah is a Senior Production Engineer at TerraQuint with 12 years of experience in artificial lift design and optimization. She has successfully deployed ESP optimization programs across the Permian, Eagle Ford, and Bakken basins.
+
+DATE: March 15, 2026
+
+READ TIME: 6
+
+=== ARTICLE BODY ===
+
+h2. The Challenge
+
+A Permian Basin operator was experiencing frequent ESP failures across a 12-well pad. Production downtime averaged 8 days per month per well, with replacement costs exceeding $150,000 per failure.
+
+Key pain points identified:
+- Rapid gas interference causing pump-off conditions
+- Inconsistent fluid properties due to changing GOR
+- No real-time monitoring or automated control
+- Reactive maintenance instead of predictive
+
+h2. Our Approach
+
+TerraQuint deployed a three-phase solution.
+
+h3. Phase 1: Data Diagnostics
+
+We installed real-time sensors and collected 90 days of operational data including pump intake pressure, motor amperage, discharge pressure, fluid temperature, and vibration data.
+
+h3. Phase 2: Nodal Analysis Integration
+
+Using Petroleum Experts IPM and WellFlo, we built a complete system model from reservoir to sales. The model identified optimal operating frequency range of 52-58 Hz, critical minimum intake pressure of 280 psi, and gas interference threshold of 15% free gas at pump intake.
+
+h3. Phase 3: Real-time Control Implementation
+
+We implemented an automated control system that adjusts VFD frequency based on intake pressure, triggers alarms when parameters deviate, and provides daily optimization recommendations.
+
+h2. The Results
+
+After 6 months of operation:
+
+Production Uptime: 73% before, 96% after = +23% improvement
+ESP Failure Rate: 4 per year before, 1 per year after = -75% improvement
+Average Run Life: 214 days before, 412 days after = +93% improvement
+Operating Cost: $42,000/month before, $31,000/month after = -26% improvement
+
+h2. Key Takeaways
+
+1. Real-time data is essential for ESP optimization
+2. Nodal analysis helps identify root causes
+3. Automated control pays for itself within 3-4 months
+4. Regular monitoring prevents catastrophic failures
+
+h2. Conclusion
+
+This case study demonstrates that a data-driven approach to ESP optimization delivers substantial improvements in uptime, reliability, and operating costs.
+
+=== RELATED ARTICLES ===
+
+RELATED ARTICLE 1 NAME: Modern Decline Curve Analysis
+RELATED ARTICLE 1 FILE: decline-curve-analysis.html
+
+RELATED ARTICLE 2 NAME: Flow Assurance in Deepwater
+RELATED ARTICLE 2 FILE: flow-assurance.html
+
+=== END ===

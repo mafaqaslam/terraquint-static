@@ -1,0 +1,60 @@
+============================================
+NEW VIDEO REQUEST FORM
+============================================
+Fill out the fields below and send to me.
+I will update videos-data.js for you.
+============================================
+
+VIDEO 1:
+--------
+YouTube ID: (from URL: https://youtube.com/watch?v=XXXXX)
+Title: 
+Category: (pick one from list below)
+Duration: (MM:SS format, e.g., 14:32)
+Description: (1-2 sentences)
+Date: (Month DD, YYYY)
+Views: (number, or leave 0 for new video)
+
+VIDEO 2:
+--------
+YouTube ID: 
+Title: 
+Category: 
+Duration: 
+Description: 
+Date: 
+Views: 
+
+VIDEO 3:
+--------
+YouTube ID: 
+Title: 
+Category: 
+Duration: 
+Description: 
+Date: 
+Views: 
+
+(Add more videos as needed)
+
+============================================
+CATEGORY OPTIONS:
+============================================
+□ RESERVOIR ENGINEERING
+□ PRODUCTION OPTIMIZATION
+□ PRODUCTION FORECASTING
+□ EOR & CCS
+□ FLOW ASSURANCE
+□ ECONOMICS
+□ PODCASTS
+□ OTHERS
+
+============================================
+ACTION REQUIRED:
+============================================
+□ Add to top of array (newest first)
+□ Add to bottom of array
+□ Replace all existing videos
+□ Delete specific video (ID: _______)
+
+============================================

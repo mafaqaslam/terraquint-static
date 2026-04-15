@@ -1,0 +1,30 @@
+============================================
+NEW VIDEO REQUEST FORM
+============================================
+
+VIDEO 1:
+--------
+YouTube ID: xYz789AbC
+Title: Advanced History Matching Techniques
+Category: RESERVOIR ENGINEERING
+Duration: 24:18
+Description: Learn advanced manual and assisted history matching methods to improve forecast accuracy in complex reservoirs.
+Date: April 15, 2026
+Views: 0
+
+VIDEO 2:
+--------
+YouTube ID: pQr456DeF
+Title: ESP Failure Analysis Case Study
+Category: PRODUCTION OPTIMIZATION
+Duration: 18:45
+Description: Real-world case study analyzing ESP failures in the Permian Basin with actionable recommendations.
+Date: April 14, 2026
+Views: 0
+
+============================================
+ACTION REQUIRED:
+============================================
+□ Add to top of array (newest first) ✓
+
+============================================

@@ -1,0 +1,13 @@
+Terraquint/
+├── index.html
+├── services.html
+├── methodology.html
+├── contact.html
+├── insights.html          🆕
+├── styles.css
+├── components.js
+│
+└── articles/              🆕
+    ├── template.html      🆕
+    ├── esp-optimization.html   🆕
+    └── decline-curve-analysis.html  🆕

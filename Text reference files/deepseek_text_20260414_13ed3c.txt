@@ -1,0 +1,17 @@
+/
+├── index.html
+├── services.html
+├── methodology.html
+├── about.html
+├── insights.html
+├── videos.html
+├── contact.html
+├── styles.css
+├── components.js
+├── footer.js
+├── afaq-avatar.jpg
+├── sitemap.xml          ← NEW FILE (create this)
+├── robots.txt           ← NEW FILE (create this)
+└── articles/
+    ├── esp-optimization.html
+    └── (5 more articles)

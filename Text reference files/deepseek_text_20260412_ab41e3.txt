@@ -1,0 +1,48 @@
+=== ARTICLE INFORMATION ===
+
+ARTICLE TITLE: [Your title here]
+
+CATEGORY: [Choose one: CASE STUDY / TECHNICAL BRIEF / INDUSTRY INSIGHT / WHITEPAPER]
+
+AUTHOR NAME: [Full name and credentials, e.g., "Sarah Chen, PE"]
+
+AUTHOR INITIALS: [Two letters, e.g., "SC"]
+
+AUTHOR BIO: [Brief bio, 1-2 sentences about their experience and expertise]
+
+DATE: [Month DD, YYYY, e.g., "April 15, 2026"]
+
+READ TIME: [Number in minutes, e.g., "5"]
+
+=== ARTICLE BODY ===
+
+[Write your article content here. You can use simple formatting like:]
+
+h2. Introduction
+[Your intro paragraph here.]
+
+h2. Section Title
+[Your content here.]
+
+h3. Subsection Title
+[Your content here.]
+
+- Bullet point one
+- Bullet point two
+- Bullet point three
+
+1. Numbered point one
+2. Numbered point two
+3. Numbered point three
+
+> This is a blockquote for important quotes.
+
+=== RELATED ARTICLES (Optional) ===
+
+RELATED ARTICLE 1 NAME: [Name of related article]
+RELATED ARTICLE 1 FILE: [filename.html]
+
+RELATED ARTICLE 2 NAME: [Name of related article]
+RELATED ARTICLE 2 FILE: [filename.html]
+
+=== END ===
