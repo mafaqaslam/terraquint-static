@@ -58,7 +58,7 @@
                         <div class="footer-col">
                             <div class="footer-logo">TERRAQUINT</div>
                             <p class="footer-tagline">Petroleum Engineering Services<br>and Consultancy</p>
-                            <p class="footer-locations">📍 Dallas · Midland · Houston</p>
+                            <p class="footer-locations">📍 Dallas · Midland · Houston · Tulsa</p>
                         </div>
                         
                         <!-- COLUMN 2: SERVICES (6 links with scroll-to functionality) -->
@@ -78,7 +78,7 @@
                         <div class="footer-col">
                             <h4 class="footer-heading">Contact</h4>
                             <ul class="footer-links">
-                                <li><a href="mailto:afaq.aslam@terraquint.com">✉️ afaq.aslam@terraquint.com</a></li>
+                                <li><a href="mailto:afaqaslam@terraquint.com">✉️ afaqaslam@terraquint.com</a></li>
                                 <li><a href="tel:+19186252549">📞 +1 918 625 2549</a></li>
                                 <li class="footer-social">
                                     <a href="https://www.linkedin.com/in/afaqaslam/" target="_blank" rel="noopener noreferrer">🔗 LinkedIn</a> · 
