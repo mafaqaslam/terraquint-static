@@ -26,7 +26,8 @@ const decode = (s) => s.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&g
 function readArticle(slug) {
   const file = join(ROOT, 'articles', slug + '.html');
   const html = readFileSync(file, 'utf8');
-  const pick = (re) => { const m = html.match(re); return m ? decode(m[1]) : ''; };
+  // values still in [brackets] (template placeholders) are treated as empty
+  const pick = (re) => { const m = html.match(re); const v = m ? decode(m[1]) : ''; return /\[.*\]/.test(v) ? '' : v; };
   const title = pick(/<h1[^>]*>([\s\S]*?)<\/h1>/);
   const cat = pick(/class="article-category"[^>]*>([\s\S]*?)<\/span>/);
   const read = pick(/⏱️\s*([^<]+)</);
@@ -62,7 +63,7 @@ const articles = slugs.map((slug) => ({ slug, ...readArticle(slug) }));
 for (const a of articles) {
   const out = join(ROOT, 'og', 'articles', a.slug + '.jpg');
   if (force || !existsSync(out)) {
-    if (!a.title) { console.warn(`  ! ${a.slug}: no <h1> found, skipped`); continue; }
+    if (!a.title) { console.warn(`  ! ${a.slug}: no title in <h1> yet, card skipped`); continue; }
     jobs.push({ ...a, out });
   }
 }

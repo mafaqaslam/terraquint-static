@@ -43,6 +43,8 @@ h1{font-size:54px;line-height:1.08;font-weight:700;letter-spacing:-.02em;margin-
   document.getElementById('globe').src = 'globes/' + (q.get('region') || 'americas') + '.webp';
   document.getElementById('cat').textContent = q.get('cat') || '';
   document.getElementById('read').textContent = q.get('read') || '';
+  if (!q.get('cat')) document.getElementById('cat').style.display = 'none';
+  if (!q.get('read')) document.getElementById('read').style.display = 'none';
   const h = document.getElementById('title');
   const t = q.get('title') || '';
   h.textContent = t;

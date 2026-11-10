@@ -34,6 +34,48 @@
   <meta property="article:author" content="Afaq Aslam">
   <!-- Region used for the automatic share card (americas, usa, north-america, gulf-of-mexico, middle-east, north-sea, asia, asia-pacific, africa) -->
   <meta name="tq:region" content="usa">
+  <!-- Structured data for Google (article + breadcrumb). Replace the [BRACKETED] values;
+       "image" is switched to the article's own card automatically. -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "[Article Title]",
+      "description": "[Same description as above.]",
+      "image": "https://www.terraquint.com/og/regions/usa.jpg",
+      "datePublished": "[YYYY-MM-DD]",
+      "dateModified": "[YYYY-MM-DD]",
+      "url": "https://www.terraquint.com/articles/[your-article-slug]",
+      "mainEntityOfPage": "https://www.terraquint.com/articles/[your-article-slug]",
+      "author": {
+        "@type": "Person",
+        "@id": "https://www.terraquint.com/#founder",
+        "name": "Afaq Aslam",
+        "url": "https://www.terraquint.com/about"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://www.terraquint.com/#organization",
+        "name": "TerraQuint",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.terraquint.com/icon-512.png"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.terraquint.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://www.terraquint.com/insights" },
+        { "@type": "ListItem", "position": 3, "name": "[Article Title]", "item": "https://www.terraquint.com/articles/[your-article-slug]" }
+      ]
+    }
+  ]
+}
+</script>
   <!-- SEO:END -->
   <!-- FAVICONS & APP ICONS -->
   <link rel="icon" href="/favicon.ico" sizes="32x32">
