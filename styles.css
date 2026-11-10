@@ -763,3 +763,34 @@ h3 {
   margin: 0;
   min-width: 480px;
 }
+
+/* ---------- ILLUSTRATIVE EXAMPLE TAG ----------
+   Marks sample data panels so visitors don't read them as client results. */
+.example-tag {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.4rem;
+  padding: 0.12rem 0.55rem;
+  border-radius: 20px;
+  border: 1px solid var(--gray-200);
+  background: var(--gray-100);
+  color: var(--gray-500);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.example-note {
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+  padding: 1rem 0;
+  font-size: 0.8rem;
+  color: var(--gray-500);
+  text-align: center;
+}
+
+.example-note .example-tag {
+  margin: 0 0.5rem 0 0;
+}
