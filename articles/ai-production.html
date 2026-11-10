@@ -372,6 +372,7 @@
 
     <h2>ML Methods Overview</h2>
 
+    <div class="table-wrap">
     <table>
       <thead>
         <tr>
@@ -397,7 +398,7 @@
         <tr>
           <td>Isolation Forest</td>
           <td>Anomaly detection</td>
-           .=50+ samples per operating mode</td>
+          <td>50+ samples per operating mode</td>
           <td>Low</td>
         </tr>
         <tr>
@@ -409,11 +410,12 @@
         <tr>
           <td>Reinforcement Learning</td>
           <td>Sequential decision making</td>
-           .=Simulation environment + 10,000+ episodes</td>
+          <td>Simulation environment + 10,000+ episodes</td>
           <td>Low</td>
         </tr>
       </tbody>
     </table>
+    </div>
 
     <h2>Data Requirements & Preparation</h2>
     <p>Successful AI/ML projects require quality data:</p>
@@ -505,6 +507,7 @@
 
     <h2>Challenges & Limitations</h2>
 
+    <div class="table-wrap">
     <table>
       <thead>
         <tr>
@@ -520,27 +523,28 @@
           <td>Invest in data governance, QA/QC processes</td>
         </tr>
         <tr>
-           .=Black box problem</td>
+          <td>Black box problem</td>
           <td>Engineers don't trust model recommendations</td>
           <td>Use interpretable models (XGBoost feature importance, SHAP values)</td>
         </tr>
         <tr>
-           .=Model drift</td>
+          <td>Model drift</td>
           <td>Performance degrades over time</td>
           <td>Regular retraining, performance monitoring, automated alerts</td>
         </tr>
         <tr>
-           .=Generalizability</td>
-           .=Model trained on one basin/field may not work elsewhere</td>
-           .=Retrain for each asset; use domain adaptation techniques</td>
+          <td>Generalizability</td>
+          <td>Model trained on one basin/field may not work elsewhere</td>
+          <td>Retrain for each asset; use domain adaptation techniques</td>
         </tr>
         <tr>
-           .=Labeling effort</td>
-           .=Failure events must be accurately identified</td>
-           .=Integrate with maintenance records; use domain experts for labeling</td>
+          <td>Labeling effort</td>
+          <td>Failure events must be accurately identified</td>
+          <td>Integrate with maintenance records; use domain experts for labeling</td>
         </tr>
       </tbody>
     </table>
+    </div>
 
     <h2>Integration with Physics-Based Models</h2>
     <p>The most successful AI implementations don't replace physics-based models — they integrate with them:</p>

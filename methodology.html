@@ -386,7 +386,8 @@
 
     .risk-matrix {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: auto repeat(3, 1fr);
+      align-items: stretch;
       gap: 0.25rem;
       margin: 1rem 0;
     }
@@ -396,6 +397,18 @@
       padding: 0.5rem;
       border-radius: 8px;
       font-size: 0.65rem;
+    }
+
+    .risk-head {
+      font-weight: 700;
+    }
+
+    .risk-axis {
+      font-size: 0.55rem;
+      color: var(--gray-500);
+      align-self: center;
+      line-height: 1.2;
+      padding-right: 0.25rem;
     }
 
     .risk-high {
@@ -970,16 +983,16 @@
         <div class="qa-card">
           <div class="qa-card-title">⚠️ RISK MATRIX</div>
           <div class="risk-matrix">
-            <div></div><div class="risk-cell" style="font-weight: 700;">Low</div><div class="risk-cell" style="font-weight: 700;">Med</div><div class="risk-cell" style="font-weight: 700;">High</div>
-            <div class="risk-cell" style="font-weight: 700;">High</div><div class="risk-cell risk-low"></div><div class="risk-cell risk-med"></div><div class="risk-cell risk-high">GEO</div>
-            <div class="risk-cell" style="font-weight: 700;">Med</div><div class="risk-cell risk-low"></div><div class="risk-cell risk-med">ECO</div><div class="risk-cell risk-med"></div>
-            <div class="risk-cell" style="font-weight: 700;">Low</div><div class="risk-cell risk-low">OP</div><div class="risk-cell risk-low"></div><div class="risk-cell risk-low"></div>
+            <div class="risk-axis">Prob. ↓ / Impact →</div><div class="risk-cell risk-head">Low</div><div class="risk-cell risk-head">Med</div><div class="risk-cell risk-head">High</div>
+            <div class="risk-cell risk-head">High</div><div class="risk-cell risk-med"></div><div class="risk-cell risk-high">PRICE</div><div class="risk-cell risk-high"></div>
+            <div class="risk-cell risk-head">Med</div><div class="risk-cell risk-low"></div><div class="risk-cell risk-med">CAPEX</div><div class="risk-cell risk-high">GEO</div>
+            <div class="risk-cell risk-head">Low</div><div class="risk-cell risk-low"></div><div class="risk-cell risk-low"></div><div class="risk-cell risk-med"></div>
           </div>
           <div style="margin-top: 1rem;">
             <div style="font-weight: 600; font-size: 0.7rem; margin-bottom: 0.5rem;">TOP 3 RISKS & MITIGATION</div>
-            <div class="checklist-item">🔸 Compartmentalization — Med/High: Seismic reprocessing + interference test</div>
-            <div class="checklist-item">🔸 CAPEX Overrun — Med/Med: 30% contingency + phased development</div>
-            <div class="checklist-item">🔸 Oil Price Volatility — High/Med: Hedging strategy + breakeven analysis</div>
+            <div class="checklist-item">🔸 Compartmentalization (GEO) — Med/High: Seismic reprocessing + interference test</div>
+            <div class="checklist-item">🔸 CAPEX Overrun (CAPEX) — Med/Med: 30% contingency + phased development</div>
+            <div class="checklist-item">🔸 Oil Price Volatility (PRICE) — High/Med: Hedging strategy + breakeven analysis</div>
           </div>
         </div>
       </div>

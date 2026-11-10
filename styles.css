@@ -28,6 +28,7 @@ body {
   --gray-700: #333333;
   --accent: #0077B6;
   --accent-hover: #005f8c;
+  --gray-600: #555555;
 }
 
 /* ---------- TYPOGRAPHY ---------- */
@@ -270,23 +271,57 @@ h3 {
   border-bottom: 1px solid #222;
   overflow: hidden;
   min-height: 100vh;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
 }
 
+/* ---------- HERO GLOBE ----------
+   1. .hero-stars + .hero-globe-still show instantly (and are the fallback).
+   2. hero-globe.js fades the 3D canvas in by adding .globe-live to .hero.
+   3. If the device can't run it smoothly, .globe-static keeps the still image. */
+.hero-stars {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url('assets/globe/stars-tile.webp') repeat;
+  background-size: 512px 512px;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.hero-globe-still,
 #hero-canvas {
   position: absolute;
   top: 0;
+  z-index: 0;
+  pointer-events: none;
+  /* must match the size formula in assets/js/hero-globe.js */
+  height: var(--globe-h, min(100%, max(100vh, 560px), 125vw));
+}
+
+.hero-globe-still {
+  left: 50%;
+  width: auto;
+  aspect-ratio: 1 / 1;
+  transform: translateX(-50%);
+  opacity: 0.7;
+  transition: opacity 0.8s ease;
+}
+
+#hero-canvas {
   left: 0;
   width: 100%;
-  height: 100%;
   display: block;
-  z-index: 0;
-  opacity: 0.7;
-  pointer-events: none;
-  transform: translateZ(0);
-  will-change: transform;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.hero.globe-live #hero-canvas { opacity: 0.7; }
+.hero.globe-live .hero-globe-still { opacity: 0; }
+/* 3D stars cover the globe area; static stars fill the rest of a tall (phone) hero */
+.hero.globe-live .hero-stars { top: var(--globe-h, 100vh); }
+.hero.globe-static #hero-canvas { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-globe-still, #hero-canvas { transition: none; }
 }
 
 .hero .container {
@@ -697,6 +732,8 @@ h3 {
 }
 
 @media (max-width: 800px) {
+  /* frosted blur over the moving globe is very expensive on phones */
+  .stat-card { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(17,17,17,0.55); }
   .hero-grid { flex-direction: column; text-align: center; }
   .hero-stats { align-items: center; width: 100%; }
   .stat-row { justify-content: center; flex-wrap: wrap; }
@@ -710,4 +747,19 @@ h3 {
 @media (max-width: 550px) {
   .workflow-grid { grid-template-columns: 1fr; }
   .tools-grid { grid-template-columns: 1fr 1fr; }
+}
+/* ---------- ARTICLE TABLES ----------
+   Wide tables scroll sideways inside their own box on phones
+   instead of making the whole page wider than the screen. */
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.5rem 0;
+}
+
+.article-content .table-wrap table,
+.table-wrap table {
+  margin: 0;
+  min-width: 480px;
 }

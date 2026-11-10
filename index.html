@@ -18,15 +18,10 @@
   <!-- Global Styles -->
   <link rel="stylesheet" href="styles.css">
   
-  <!-- Three.js core library for 3D globe -->
-  <script type="importmap">
-    {
-      "imports": {
-        "three": "https://unpkg.com/three@0.128.0/build/three.module.js"
-      }
-    }
-  </script>
-  
+  <!-- Globe still image: load early so it appears with the page -->
+  <link rel="preload" as="image" href="assets/globe/globe-still-1200.webp" media="(min-width: 801px)">
+  <link rel="preload" as="image" href="assets/globe/globe-still-700.webp" media="(max-width: 800px)">
+
   <!-- Page-specific styles (only for index.html) -->
   <style>
     /* Categorized Services with Subtitles - unique to homepage */
@@ -789,6 +784,26 @@
       text-align: center;
     }
 
+    /* Phones: keep the showcase cards inside the screen */
+    @media (max-width: 800px) {
+      .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 550px) {
+      .recovery-stats-grid {
+        grid-template-columns: 1fr;
+      }
+      .bridge-label {
+        width: 88px;
+        font-size: 0.7rem;
+      }
+      .bridge-segment {
+        font-size: 0.6rem;
+      }
+    }
+
     /* ========= OUR TARGET PARTNERS SECTION (6 cards per row) ========= */
     .partners-section {
       padding: 4rem 0;
@@ -910,7 +925,11 @@
 <div id="navbar-placeholder"></div>
 
 <section class="hero">
-  <canvas id="hero-canvas"></canvas>
+  <div class="hero-stars" aria-hidden="true"></div>
+  <img class="hero-globe-still" src="assets/globe/globe-still-1200.webp"
+       srcset="assets/globe/globe-still-700.webp 700w, assets/globe/globe-still-1200.webp 1200w"
+       sizes="(max-width: 800px) 125vw, 100vh" alt="" aria-hidden="true" decoding="async" fetchpriority="high">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
   <div class="container hero-grid">
     <div class="hero-content">
       <div class="section-subhead blinking-text" style="color:#aaa; font-weight: 700;">PETROLEUM ENGINEERING SERVICES & CONSULTANCY</div>
@@ -1176,7 +1195,7 @@
             <div class="recovery-stat-label">CUMULATIVE PRODUCED</div>
           </div>
           <div class="recovery-stat-card">
-            <div class="recovery-stat-number">52.5 MMbbl</div>
+            <div class="recovery-stat-number">30 MMbbl</div>
             <div class="recovery-stat-label">REMAINING OPPORTUNITY</div>
           </div>
         </div>
@@ -1414,178 +1433,8 @@
 
 <div id="back-to-top-placeholder"></div>
 
-<!-- Three.js Clean Globe with Starfield Only -->
-<script type="module">
-  import * as THREE from 'three';
-
-  const canvas = document.getElementById('hero-canvas');
-  const heroSection = document.querySelector('.hero');
-  
-  let renderer, camera, scene, earthGroup, cloudMesh, stars, bgStars;
-  let time = 0;
-  
-  function initThreeJS() {
-    scene = new THREE.Scene();
-    scene.background = null;
-    
-    camera = new THREE.PerspectiveCamera(42, 1, 0.1, 1000);
-    camera.position.set(0, 0.1, 4.2);
-    camera.lookAt(0, 0, 0);
-    
-    renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setClearColor(0x000000, 0);
-    
-    earthGroup = new THREE.Group();
-    const earthRadius = 1.25;
-    
-    const textureLoader = new THREE.TextureLoader();
-    const earthMap = textureLoader.load('https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg');
-    const earthSpecularMap = textureLoader.load('https://threejs.org/examples/textures/planets/earth_specular_2048.jpg');
-    const earthNormalMap = textureLoader.load('https://threejs.org/examples/textures/planets/earth_normal_2048.jpg');
-    const cloudMap = textureLoader.load('https://threejs.org/examples/textures/planets/earth_clouds_1024.png');
-    
-    const earthGeometry = new THREE.SphereGeometry(earthRadius, 128, 128);
-    const earthMaterial = new THREE.MeshPhongMaterial({
-      map: earthMap,
-      specularMap: earthSpecularMap,
-      specular: new THREE.Color('grey'),
-      shininess: 8,
-      normalMap: earthNormalMap,
-      normalScale: new THREE.Vector2(0.9, 0.9)
-    });
-    const earthMesh = new THREE.Mesh(earthGeometry, earthMaterial);
-    earthGroup.add(earthMesh);
-    
-    const cloudGeometry = new THREE.SphereGeometry(earthRadius + 0.012, 128, 128);
-    const cloudMaterial = new THREE.MeshPhongMaterial({
-      map: cloudMap,
-      transparent: true,
-      opacity: 0.12,
-      blending: THREE.AdditiveBlending
-    });
-    cloudMesh = new THREE.Mesh(cloudGeometry, cloudMaterial);
-    earthGroup.add(cloudMesh);
-    
-    const glowMaterial = new THREE.MeshBasicMaterial({
-      color: 0x0077b6,
-      transparent: true,
-      opacity: 0.05,
-      side: THREE.BackSide
-    });
-    const atmosphereGlow = new THREE.Mesh(new THREE.SphereGeometry(earthRadius + 0.06, 64, 64), glowMaterial);
-    earthGroup.add(atmosphereGlow);
-    
-    scene.add(earthGroup);
-    
-    const starCount = 2800;
-    const starGeo = new THREE.BufferGeometry();
-    const starPositionsArray = new Float32Array(starCount * 3);
-    const starColorsArray = new Float32Array(starCount * 3);
-    
-    for (let i = 0; i < starCount; i++) {
-      const radius = 55 + Math.random() * 45;
-      const theta = Math.random() * Math.PI * 2;
-      const phi = Math.acos(2 * Math.random() - 1);
-      starPositionsArray[i*3] = radius * Math.sin(phi) * Math.cos(theta);
-      starPositionsArray[i*3+1] = radius * Math.sin(phi) * Math.sin(theta);
-      starPositionsArray[i*3+2] = radius * Math.cos(phi);
-      
-      const colorChoice = Math.random();
-      if (colorChoice < 0.75) {
-        starColorsArray[i*3] = 1;
-        starColorsArray[i*3+1] = 1;
-        starColorsArray[i*3+2] = 1;
-      } else if (colorChoice < 0.88) {
-        starColorsArray[i*3] = 0.7;
-        starColorsArray[i*3+1] = 0.8;
-        starColorsArray[i*3+2] = 1;
-      } else {
-        starColorsArray[i*3] = 1;
-        starColorsArray[i*3+1] = 0.75;
-        starColorsArray[i*3+2] = 0.55;
-      }
-    }
-    starGeo.setAttribute('position', new THREE.BufferAttribute(starPositionsArray, 3));
-    starGeo.setAttribute('color', new THREE.BufferAttribute(starColorsArray, 3));
-    const starMat = new THREE.PointsMaterial({ size: 0.065, vertexColors: true, transparent: true, opacity: 0.7, blending: THREE.AdditiveBlending });
-    stars = new THREE.Points(starGeo, starMat);
-    scene.add(stars);
-    
-    const bgStarCount = 2000;
-    const bgStarGeo = new THREE.BufferGeometry();
-    const bgStarPositions = new Float32Array(bgStarCount * 3);
-    for (let i = 0; i < bgStarCount; i++) {
-      bgStarPositions[i*3] = (Math.random() - 0.5) * 400;
-      bgStarPositions[i*3+1] = (Math.random() - 0.5) * 250;
-      bgStarPositions[i*3+2] = (Math.random() - 0.5) * 250 - 100;
-    }
-    bgStarGeo.setAttribute('position', new THREE.BufferAttribute(bgStarPositions, 3));
-    const bgStarMat = new THREE.PointsMaterial({ color: 0xaabbdd, size: 0.025, transparent: true, opacity: 0.3 });
-    bgStars = new THREE.Points(bgStarGeo, bgStarMat);
-    scene.add(bgStars);
-    
-    const ambientLight = new THREE.AmbientLight(0x222222);
-    scene.add(ambientLight);
-    const mainLight = new THREE.DirectionalLight(0xffffff, 1.3);
-    mainLight.position.set(5, 3, 4);
-    scene.add(mainLight);
-    const fillLight = new THREE.PointLight(0x3366aa, 0.3);
-    fillLight.position.set(-2, 1, 3);
-    scene.add(fillLight);
-    const backLight = new THREE.PointLight(0x4488aa, 0.2);
-    backLight.position.set(0, 2, -3.5);
-    scene.add(backLight);
-    const rimLight = new THREE.PointLight(0x88aaff, 0.25);
-    rimLight.position.set(1.5, 1, -2.5);
-    scene.add(rimLight);
-    
-    setCanvasSize();
-  }
-  
-  function setCanvasSize() {
-    if (!heroSection) return;
-    const rect = heroSection.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    
-    if (width === 0 || height === 0) return;
-    
-    canvas.width = width;
-    canvas.height = height;
-    if (renderer) renderer.setSize(width, height);
-    
-    if (camera) {
-      const aspect = width / height;
-      camera.aspect = aspect;
-      camera.updateProjectionMatrix();
-    }
-  }
-  
-  function animate() {
-    requestAnimationFrame(animate);
-    time += 0.003;
-    
-    if (earthGroup) earthGroup.rotation.y += 0.0018;
-    if (earthGroup) earthGroup.rotation.x = Math.sin(time * 0.12) * 0.02;
-    if (earthGroup) earthGroup.rotation.z = Math.cos(time * 0.1) * 0.012;
-    if (cloudMesh) cloudMesh.rotation.y += 0.0021;
-    if (stars) stars.rotation.y += 0.00004;
-    if (stars) stars.rotation.x += 0.00002;
-    if (bgStars) bgStars.rotation.y -= 0.00003;
-    
-    if (renderer && scene && camera) renderer.render(scene, camera);
-  }
-  
-  window.addEventListener('resize', () => {
-    setCanvasSize();
-  });
-  
-  setTimeout(() => {
-    initThreeJS();
-    animate();
-  }, 100);
-</script>
+<!-- Homepage globe: still image first, 3D when the device can handle it -->
+<script type="module" src="assets/js/hero-globe.js"></script>
 
 <!-- Home Page Cards -->
 <script>

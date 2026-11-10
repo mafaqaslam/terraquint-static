@@ -479,8 +479,7 @@
 
 <!-- Main Videos JavaScript -->
 <script>
-  // YouTube channel URL (for reference)
-  const YOUTUBE_CHANNEL_URL = 'https://www.youtube.com/@afaqaslammm';
+  // YOUTUBE_CHANNEL_URL and videosData come from videos-data.js
   
   // DOM Elements
   const videosGrid = document.getElementById('videosGrid');
@@ -684,9 +683,13 @@
   
   // Initialize page when videosData is loaded
   function initVideoPage() {
-    if (typeof videosData !== 'undefined' && videosData.length > 0) {
-      buildFilterButtons();
-      renderVideos();
+    if (typeof videosData !== 'undefined') {
+      if (videosData.length > 0) {
+        buildFilterButtons();
+      } else if (filterSection) {
+        filterSection.style.display = 'none';   // no categories yet
+      }
+      renderVideos();                           // shows "Coming Soon" when empty
     } else {
       if (videosGrid) {
         videosGrid.innerHTML = `
