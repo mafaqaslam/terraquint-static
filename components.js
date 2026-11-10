@@ -22,7 +22,7 @@
         return `
             <nav class="navbar">
                 <div class="container nav-container">
-                    <a href="../index.html" class="logo">
+                    <a href="/" class="logo">
                         <span class="logo-terra">Terra</span><span class="logo-quint">Quint</span>
                     </a>
                     <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
@@ -31,13 +31,13 @@
                         <span></span>
                     </button>
                     <div class="nav-links" id="navLinks">
-                        <a href="../index.html" data-page="index">Home</a>
-                        <a href="../services.html" data-page="services">Services</a>
-                        <a href="../methodology.html" data-page="methodology">Methodology</a>
-                        <a href="../about.html" data-page="about">About</a>
-                        <a href="../insights.html" data-page="insights">Insights</a>
-                        <a href="../videos.html" data-page="videos">Media</a>
-                        <a href="../contact.html" data-page="contact" class="btn-outline">Contact</a>
+                        <a href="/" data-page="index">Home</a>
+                        <a href="/services" data-page="services">Services</a>
+                        <a href="/methodology" data-page="methodology">Methodology</a>
+                        <a href="/about" data-page="about">About</a>
+                        <a href="/insights" data-page="insights">Insights</a>
+                        <a href="/videos" data-page="videos">Media</a>
+                        <a href="/contact" data-page="contact" class="btn-outline">Contact</a>
                     </div>
                 </div>
             </nav>
@@ -65,12 +65,12 @@
                         <div class="footer-col">
                             <h4 class="footer-heading">Services</h4>
                             <ul class="footer-links">
-                                <li><a href="../services.html" class="footer-service-link" data-service="reservoir">Reservoir Simulation</a></li>
-                                <li><a href="../services.html" class="footer-service-link" data-service="production">Production Optimization</a></li>
-                                <li><a href="../services.html" class="footer-service-link" data-service="eor">Enhanced Oil Recovery (EOR)</a></li>
-                                <li><a href="../services.html" class="footer-service-link" data-service="decline">Decline Curve Analysis</a></li>
-                                <li><a href="../services.html" class="footer-service-link" data-service="flow">Flow Assurance</a></li>
-                                <li><a href="../services.html" class="footer-service-link" data-service="economic">Economic Forecasting</a></li>
+                                <li><a href="/services" class="footer-service-link" data-service="reservoir">Reservoir Simulation</a></li>
+                                <li><a href="/services" class="footer-service-link" data-service="production">Production Optimization</a></li>
+                                <li><a href="/services" class="footer-service-link" data-service="eor">Enhanced Oil Recovery (EOR)</a></li>
+                                <li><a href="/services" class="footer-service-link" data-service="decline">Decline Curve Analysis</a></li>
+                                <li><a href="/services" class="footer-service-link" data-service="flow">Flow Assurance</a></li>
+                                <li><a href="/services" class="footer-service-link" data-service="economic">Economic Forecasting</a></li>
                             </ul>
                         </div>
                         
@@ -200,12 +200,19 @@
     // ============================================
     
     function highlightActivePage() {
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        // Works with clean URLs (/services) and old ones (/services.html)
+        const norm = (p) => {
+            const seg = p.split('?')[0].split('#')[0].replace(/\/+$/, '').split('/').pop().replace(/\.html$/, '');
+            return seg === '' || seg === 'index' ? 'index' : seg;
+        };
+        const path = window.location.pathname;
+        // article pages highlight "Insights"
+        const currentPage = path.includes('/articles/') ? 'insights' : norm(path);
         const navLinks = document.querySelectorAll('.nav-links a');
         
         navLinks.forEach(link => {
             const href = link.getAttribute('href');
-            const cleanHref = href.split('?')[0].split('#')[0].split('/').pop();
+            const cleanHref = norm(href);
             if (cleanHref === currentPage) {
                 link.style.color = 'var(--accent, #0077B6)';
                 if (link.classList.contains('btn-outline')) {

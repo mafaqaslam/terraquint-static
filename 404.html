@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Page Not Found | TerraQuint</title>
+  <meta name="robots" content="noindex">
+  <!-- FAVICONS & APP ICONS -->
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#111111">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+
+  <!-- Absolute paths: this page can be shown at any address -->
+  <link rel="stylesheet" href="/styles.css">
+
+  <style>
+    .notfound {
+      position: relative;
+      background: var(--black) url('/assets/globe/stars-tile.webp') repeat;
+      background-size: 512px 512px;
+      color: var(--white);
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      border-bottom: 1px solid #222;
+    }
+
+    .notfound-globe {
+      position: absolute;
+      right: -12%;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 120%;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .notfound::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 40%, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.7) 100%);
+      pointer-events: none;
+    }
+
+    .notfound .container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+
+    .notfound-code {
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      color: #6EB2FA;
+      margin-bottom: 1rem;
+    }
+
+    .notfound h1 {
+      max-width: 640px;
+    }
+
+    .notfound p {
+      color: #cccccc;
+      max-width: 560px;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      margin-bottom: 2rem;
+    }
+
+    .notfound-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .notfound-links .btn-outline {
+      padding: 0.8rem 1.6rem;
+      border-radius: 40px;
+    }
+
+    @media (max-width: 800px) {
+      .notfound-globe { right: -45%; opacity: 0.25; }
+      .notfound { min-height: 60vh; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="navbar-placeholder"></div>
+
+<section class="notfound">
+  <img class="notfound-globe" src="/assets/globe/globe-still-1200.webp" alt="" aria-hidden="true">
+  <div class="container">
+    <div class="notfound-code">ERROR 404</div>
+    <h1>This page has gone off the map.</h1>
+    <p>The page you're looking for may have moved or no longer exists. Let's get you back on course.</p>
+    <div class="notfound-links">
+      <a href="/" class="btn-primary">Back to Home</a>
+      <a href="/services" class="btn-outline">Our Services</a>
+      <a href="/insights" class="btn-outline">Insights</a>
+      <a href="/contact" class="btn-outline">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<div id="back-to-top-placeholder"></div>
+
+<script src="/components.js"></script>
+</body>
+</html>

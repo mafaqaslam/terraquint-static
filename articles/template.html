@@ -3,7 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Article Title | TerraQuint Insights</title>
+  <!-- SEO:START (titles, descriptions, share cards, structured data) -->
+  <!-- ============================================================
+       HOW TO USE THIS TEMPLATE FOR A NEW ARTICLE
+       1. Copy this file to articles/your-article-slug.html (lowercase, hyphens).
+       2. Replace every [BRACKETED] value below and in the article header.
+       3. Pick a region for the share card from:
+          americas, usa, north-america, gulf-of-mexico, middle-east,
+          north-sea, asia, asia-pacific, africa
+       4. Push. GitHub automatically creates the article's own share card
+          (title + region globe) within ~2 minutes and switches og:image to it.
+          Until then the regional card below is used, so shares are never blank.
+       ============================================================ -->
+  <title>[Article Title] | TerraQuint</title>
+  <meta name="description" content="[One or two sentences, under 160 characters, describing the article.]">
+  <link rel="canonical" href="https://www.terraquint.com/articles/[your-article-slug]">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TerraQuint">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="[Article Title] | TerraQuint">
+  <meta property="og:description" content="[Same description as above.]">
+  <meta property="og:url" content="https://www.terraquint.com/articles/[your-article-slug]">
+  <meta property="og:image" content="https://www.terraquint.com/og/regions/usa.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="[Article Title]">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@11Afaq">
+  <meta property="article:published_time" content="[YYYY-MM-DD]">
+  <meta property="article:author" content="Afaq Aslam">
+  <!-- Region used for the automatic share card (americas, usa, north-america, gulf-of-mexico, middle-east, north-sea, asia, asia-pacific, africa) -->
+  <meta name="tq:region" content="usa">
+  <!-- SEO:END -->
   <!-- FAVICONS & APP ICONS -->
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -14,7 +45,9 @@
   <meta name="theme-color" content="#111111">
   
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   
   <!-- Global Styles -->
   <link rel="stylesheet" href="../styles.css">
@@ -241,6 +274,13 @@
       flex-shrink: 0;
     }
 
+    .author-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
     .author-info h4 {
       margin-bottom: 0.25rem;
       font-size: 1rem;
@@ -322,7 +362,7 @@
 <div class="article-container">
   
   <!-- Back to Insights Button -->
-  <a href="../insights.html" class="back-button" id="back-to-insights">
+  <a href="/insights" class="back-button" id="back-to-insights">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="15 18 9 12 15 6"></polyline>
     </svg>
@@ -331,12 +371,12 @@
 
   <!-- Article Header -->
   <div class="article-header">
-    <span class="article-category" id="article-category">CASE STUDY</span>
-    <h1 id="article-title">Article Title: Replace This With Your Title</h1>
+    <span class="article-category" id="article-category">[CASE STUDY / TECHNICAL BRIEF / INDUSTRY INSIGHT / WHITEPAPER]</span>
+    <h1 id="article-title">[Article Title]</h1>
     <div class="article-meta" id="article-meta">
-      <span class="article-author">✍️ Author Name</span>
-      <span class="article-date">📅 Month DD, YYYY</span>
-      <span class="article-read-time">⏱️ X min read</span>
+      <span class="article-author">✍️ Afaq Aslam</span>
+      <span class="article-date">📅 [Month DD, YYYY]</span>
+      <span class="article-read-time">⏱️ [X] min read</span>
     </div>
   </div>
 
@@ -411,10 +451,12 @@
 
     <!-- Author Bio Section - EDIT THIS -->
     <div class="author-bio">
-      <div class="author-avatar">SC</div>
+      <div class="author-avatar">
+        <img src="../afaq-avatar.webp" alt="Afaq Aslam, Founder of TerraQuint" width="60" height="60" loading="lazy" decoding="async">
+      </div>
       <div class="author-info">
-        <h4>Author Name, Credentials</h4>
-        <p>Brief bio of the author. Include their role at TerraQuint, years of experience, and areas of expertise. This builds credibility and trust with readers.</p>
+        <h4>Afaq Aslam &middot; Founder &amp; Principal Petroleum Engineer</h4>
+        <p>Afaq Aslam is the Founder and Principal Petroleum Engineer at TerraQuint with over 6 years of integrated experience across conventional, unconventional, and deepwater assets. He specializes in reservoir simulation, production optimization, flow assurance, and economic forecasting — delivering data-driven solutions that maximize recovery, reduce risk, and improve investment returns.</p>
       </div>
     </div>
 
@@ -422,8 +464,8 @@
     <div class="related-articles">
       <h4>Related Articles</h4>
       <div class="related-links">
-        <a href="esp-optimization.html">← Optimizing ESP Performance</a>
-        <a href="decline-curve-analysis.html">Modern Decline Curve Analysis →</a>
+        <a href="/articles/esp-optimization">← Optimizing ESP Performance</a>
+        <a href="/articles/decline-curve-analysis">Modern Decline Curve Analysis →</a>
       </div>
     </div>
 

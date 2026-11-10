@@ -1,0 +1,8 @@
+{
+  "name": "terraquint-og",
+  "private": true,
+  "description": "Generates TerraQuint article share cards and sitemap.xml",
+  "type": "module",
+  "scripts": { "generate": "node generate.mjs" },
+  "dependencies": { "playwright-core": "1.49.1" }
+}

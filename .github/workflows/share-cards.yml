@@ -1,0 +1,55 @@
+# Creates share cards for new articles and refreshes sitemap.xml.
+# Runs on GitHub whenever articles (or the card design) change.
+# The script lives in tools/og/ and works with any host, not only Vercel.
+name: Share cards & sitemap
+
+on:
+  push:
+    branches: [main, preview]
+    paths:
+      - 'articles/**'
+      - 'tools/og/**'
+      - '*.html'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: share-cards-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  cards:
+    # don't react to the bot's own commit
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install generator
+        working-directory: tools/og
+        run: npm ci
+
+      - name: Generate share cards and sitemap
+        run: node tools/og/generate.mjs
+        env:
+          CHROME_PATH: /usr/bin/google-chrome
+
+      - name: Commit changes (if any)
+        run: |
+          if [ -n "$(git status --porcelain og articles sitemap.xml)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add og articles sitemap.xml
+            git commit -m "Auto: share cards and sitemap"
+            git push
+          else
+            echo "Nothing to update"
+          fi

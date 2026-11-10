@@ -1,4 +1,6 @@
-# Files kept in the repo for reference but NOT published on terraquint.com
+# Files kept in the repo but NOT published on terraquint.com
 Text reference files/
 articles/template.html
 README.md
+tools/
+.github/

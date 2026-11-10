@@ -16,7 +16,7 @@
 // ============================================
 // YOUTUBE CHANNEL URL
 // ============================================
-const YOUTUBE_CHANNEL_URL = 'https://www.youtube.com/@afaqaslammm';
+const YOUTUBE_CHANNEL_URL = 'https://www.youtube.com/@afaqaslamm';
 
 // ============================================
 // VIDEO DATA ARRAY (EMPTY - READY FOR YOUR VIDEOS)
