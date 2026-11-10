@@ -167,7 +167,9 @@ h3 {
   .nav-links {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: 0;
+    transform: translateX(100%);
+    visibility: hidden;
     width: 70%;
     max-width: 300px;
     height: 100vh;
@@ -176,13 +178,14 @@ h3 {
     justify-content: center;
     gap: 2rem;
     padding: 2rem;
-    transition: right 0.3s ease;
+    transition: transform 0.3s ease, visibility 0.3s;
     z-index: 100;
     box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
   }
   
   .nav-links.active {
-    right: 0;
+    transform: translateX(0);
+    visibility: visible;
   }
   
   .nav-links a {
@@ -353,10 +356,13 @@ h3 {
   flex: 1.2;
 }
 
+/* 2 x 2 grid with equal columns, so the four cards always line up
+   no matter how long each label is */
 .hero-stats {
   flex: 0.8;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 1fr;   /* both rows the same height */
   gap: 1rem;
 }
 
@@ -370,9 +376,7 @@ h3 {
 
 /* ---------- STAT CARDS ---------- */
 .stat-row {
-  display: flex;
-  gap: 1rem;
-  justify-content: flex-end;
+  display: contents;   /* rows are just markup groups; the grid above does the layout */
 }
 
 .stat-card {
@@ -380,8 +384,7 @@ h3 {
   backdrop-filter: blur(2px);
   padding: 1rem 1.5rem;
   border-left: 3px solid var(--accent);
-  flex: 1;
-  min-width: 130px;
+  min-width: 0;
 }
 
 .stat-number {
@@ -735,8 +738,8 @@ h3 {
   /* frosted blur over the moving globe is very expensive on phones */
   .stat-card { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(17,17,17,0.55); }
   .hero-grid { flex-direction: column; text-align: center; }
-  .hero-stats { align-items: center; width: 100%; }
-  .stat-row { justify-content: center; flex-wrap: wrap; }
+  .hero-stats { width: 100%; max-width: 520px; margin: 0 auto; }
+  .stat-card { padding: 1rem 0.75rem; }
   .cards-grid { grid-template-columns: 1fr; }
 }
 
@@ -793,4 +796,24 @@ h3 {
 
 .example-note .example-tag {
   margin: 0 0.5rem 0 0;
+}
+
+/* ---------- SMALL PHONES ----------
+   Lets boxes shrink to the screen instead of pushing the page wider
+   than the phone (older/smaller phones, ~320-380px wide). */
+.insights-grid > *,
+.insight-card,
+.insight-card-content {
+  min-width: 0;
+}
+@media (max-width: 800px) {
+  .split-layout > * { flex: 1 1 100%; min-width: 0; }
+}
+@media (max-width: 480px) {
+  .qa-card-title,
+  .insights-title { flex-wrap: wrap; }
+  .share-section .share-buttons { flex-wrap: wrap; }
+}
+@media (max-width: 360px) {
+  .page-header h1 { font-size: 1.9rem; overflow-wrap: break-word; }
 }
