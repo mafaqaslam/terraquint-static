@@ -255,6 +255,27 @@
     }
 
     // ============================================
+    // ARTICLE "GET IN TOUCH" BOX FALLBACK
+    // If a new article's box was left blank or still has [placeholders],
+    // show the standard text (GitHub also writes this into the file).
+    // ============================================
+
+    function fillArticleCta() {
+        const box = document.querySelector('.article-cta');
+        if (!box) return;
+        const unfilled = (t) => !t || !t.trim() || /\[[^\]]*\]/.test(t);
+        const h3 = box.querySelector('h3');
+        const p = box.querySelector('p');
+        const a = box.querySelector('a');
+        if (h3 && unfilled(h3.textContent)) h3.textContent = 'Have a similar challenge?';
+        if (p && unfilled(p.textContent)) p.textContent = 'Get in touch for a free initial assessment call.';
+        if (a) {
+            const svc = new URL(a.href, location.href).searchParams.get('service');
+            if (svc !== null && unfilled(svc)) a.setAttribute('href', '/contact#enquiry');
+        }
+    }
+
+    // ============================================
     // ACTIVE PAGE HIGHLIGHTING
     // ============================================
     
@@ -458,6 +479,7 @@
 
         // Initialize all features
         initBackToTop();
+        fillArticleCta();
         highlightActivePage();
         updateCopyrightYear();
         initServiceScrollLinks();

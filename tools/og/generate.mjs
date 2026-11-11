@@ -70,14 +70,31 @@ for (const a of articles) {
 console.log(`Share cards: ${jobs.length} to create`);
 await renderCards(jobs);
 
-// point og:image + JSON-LD image at the article's own card (once it exists)
+// Closing "Get in touch" box: any blank or [bracketed] part gets the standard text
+const CTA_DEFAULT = {
+  h3: 'Have a similar challenge?',
+  p: 'Get in touch for a free initial assessment call.',
+  href: '/contact#enquiry',
+};
+const unfilled = (v) => !v.replace(/<[^>]+>/g, '').trim() || /\[[^\]]*\]/.test(v);
+function fillCta(html) {
+  return html.replace(/<div class="article-cta">[\s\S]*?<\/div>/, (box) => box
+    .replace(/(<h3>)([\s\S]*?)(<\/h3>)/, (m, a, v, b) => unfilled(v) ? a + CTA_DEFAULT.h3 + b : m)
+    .replace(/(<p>)([\s\S]*?)(<\/p>)/, (m, a, v, b) => unfilled(v) ? a + CTA_DEFAULT.p + b : m)
+    .replace(/href="\/contact\?service=([^"#]*)(#enquiry)?"/, (m, v) => unfilled(v) ? `href="${CTA_DEFAULT.href}"` : m));
+}
+
+// point og:image + JSON-LD image at the article's own card (once it exists), fill the CTA box
 for (const a of articles) {
-  if (!existsSync(join(ROOT, 'og', 'articles', a.slug + '.jpg'))) continue;
-  const own = `${SITE}/og/articles/${a.slug}.jpg`;
-  let html = a.html
-    .replace(/(<meta property="og:image" content=")[^"]*(")/, `$1${own}$2`)
-    .replace(/("image":\s*")[^"]*(")/, `$1${own}$2`);
-  if (html !== a.html) { writeFileSync(a.file, html); console.log('  og:image ->', own); }
+  let html = a.html;
+  if (existsSync(join(ROOT, 'og', 'articles', a.slug + '.jpg'))) {
+    const own = `${SITE}/og/articles/${a.slug}.jpg`;
+    html = html
+      .replace(/(<meta property="og:image" content=")[^"]*(")/, `$1${own}$2`)
+      .replace(/("image":\s*")[^"]*(")/, `$1${own}$2`);
+  }
+  html = fillCta(html);
+  if (html !== a.html) { writeFileSync(a.file, html); console.log('  updated:', a.slug); }
 }
 
 // ---------- sitemap ----------
