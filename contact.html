@@ -181,6 +181,10 @@
 
     .contact-icon {
       font-size: 1.8rem;
+      width: 2.4rem;          /* same slot for every icon so the text lines up */
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
     }
 
     .contact-detail h3 {
@@ -326,11 +330,11 @@
           </div>
         </div>
         
-        <!-- X (Twitter) Card - Separate Card -->
-        <div class="contact-detail social-card" id="twitterCard">
-          <div class="contact-icon">🐦</div>
+        <!-- X Card -->
+        <div class="contact-detail social-card" id="xCard">
+          <div class="contact-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:block;margin-top:0.4rem"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></div>
           <div>
-            <h3>X (Twitter)</h3>
+            <h3>X</h3>
             <p>Follow us for industry updates</p>
           </div>
         </div>
@@ -392,10 +396,10 @@
     });
   }
 
-  // X (Twitter) card click - opens X profile
-  const twitterCard = document.getElementById('twitterCard');
-  if (twitterCard) {
-    twitterCard.addEventListener('click', function() {
+  // X card click - opens X profile
+  const xCard = document.getElementById('xCard');
+  if (xCard) {
+    xCard.addEventListener('click', function() {
       window.open('https://x.com/11Afaq', '_blank', 'noopener,noreferrer');
     });
   }
