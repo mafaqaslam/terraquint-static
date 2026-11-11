@@ -30,12 +30,13 @@ Every push also runs a small GitHub automation (see [What happens automatically]
 | `assets/css/article.css`, `assets/js/article.js` | Styles and share buttons shared by all articles |
 | `assets/js/service-cards.js` | The 9 expandable service cards shown on Home and Services. Edit once, both pages update. |
 | `assets/icons/sprite.svg` | All icons (line icons from Lucide, plus LinkedIn / YouTube / WhatsApp / X logos) |
+| `assets/fonts/` | The Inter font, hosted on this site (no Google Fonts). `inter.css` loads it. |
 | `assets/js/hero-globe.js`, `assets/js/three-globe.min.js`, `assets/globe/` | The 3D globe on the home page and its still image |
 | `videos-data.js` | The list of videos on the Media page |
 | `og/` | Share-card images (pages, articles, regions). Article cards are made automatically. |
 | `sitemap.xml` | Rebuilt automatically, so don't edit it by hand |
 | `robots.txt`, favicons, `site.webmanifest` | Search engine and browser icon files |
-| `vercel.json` | Clean addresses (`/services` not `/services.html`) and the `terraquint.com` → `www` redirect |
+| `vercel.json` | Clean addresses (`/services` not `/services.html`), the `terraquint.com` → `www` redirect, security headers and caching rules |
 | `.vercelignore` | Files kept in the repo but **not** published (template, README, tools) |
 | `tools/og/` | The share-card generator used by the GitHub automation |
 | `.github/workflows/share-cards.yml` | The GitHub automation itself |
@@ -147,5 +148,9 @@ If anything changed, it commits the result as **"Auto: share cards, Insights lis
 
 ## Notes
 
+- **Caching:** browsers keep fonts for a year, and the globe images and 3D script for 30 days. Share images, icons and favicons are kept for 7 days. Pages, CSS and JS are always re-checked, so edits show up immediately. **If you replace a font, globe image or `three-globe.min.js`, give the new file a new name** (and update the reference); otherwise returning visitors keep the old one.
+- **Security headers** (in `vercel.json`): https-only, no framing by other sites, no MIME sniffing, limited referrer, camera/mic/location disabled.
+- **Without JavaScript** (rare), pages show a simple menu and contact line (`<noscript>` blocks).
+
 - With clean addresses, double-clicking an HTML file on the PC opens it, but links between pages won't work there. Use the preview or live site to check pages.
-- Credits: icons from Lucide (ISC licence); 3D globe built with Three.js (MIT licence); font Inter (OFL).
+- Credits: icons from Lucide (ISC licence); 3D globe built with Three.js (MIT licence); font Inter (SIL Open Font License, see `assets/fonts/OFL-LICENSE.txt`).

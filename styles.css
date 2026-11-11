@@ -1039,3 +1039,13 @@ main { display: block; }
 @media (max-width: 480px) {
   .insights-grid .insight-card { flex-direction: column; gap: 0.6rem; }
 }
+
+/* ---------- WITHOUT JAVASCRIPT (rare): simple menu and contact line ---------- */
+.noscript-nav {
+  display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; align-items: center;
+  padding: 1rem 1.5rem; background: var(--black); border-bottom: 1px solid #2a2a2a;
+}
+.noscript-nav a { color: var(--white); text-decoration: none; font-weight: 500; padding: 0.4rem 0; }
+.noscript-nav .noscript-logo { font-weight: 800; font-size: 1.3rem; margin-right: auto; }
+.noscript-footer { background: var(--black); color: #A8A8A8; padding: 2rem 1.5rem; text-align: center; font-size: 0.9rem; }
+.noscript-footer a { color: var(--white); }
