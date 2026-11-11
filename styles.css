@@ -456,33 +456,8 @@ h3 {
 }
 
 /* Icon container - fully transparent */
-.card-icon {
-  margin-bottom: 1.25rem;
-  height: 64px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent !important;
-}
-
-.card-icon svg {
-  display: block;
-  background: transparent !important;
-}
 
 /* Remove greyish background from all SVG icons */
-.card-icon svg rect[fill="#F0F4F8"],
-.card-icon svg rect[fill="#f0f4f8"],
-.card-icon svg rect:first-child {
-  fill: transparent !important;
-  fill-opacity: 0 !important;
-}
-
-.card-icon-emoji {
-  font-size: 2.5rem;
-  background: transparent;
-}
 
 .service-card h3 {
   color: var(--black);
@@ -578,19 +553,6 @@ h3 {
   border-radius: 24px;
   padding: 1.5rem;
   border: 1px solid var(--gray-200);
-}
-
-.chart-title {
-  font-weight: 500;
-  margin-bottom: 1rem;
-  font-size: 0.8rem;
-  color: var(--gray-500);
-}
-
-.decline-canvas {
-  background: white;
-  border-radius: 12px;
-  padding: 1rem;
 }
 
 .insight-stats {
@@ -884,7 +846,6 @@ h3 {
   font-size: 0.8rem;
 }
 
-
 /* ============================================================
    PHASE 6: ICONS, CARD LAYOUT (icon left of title), ACCESSIBILITY
    ============================================================ */
@@ -958,7 +919,6 @@ body .location-card p { padding-left: calc(40px + 0.75rem); margin: 0; }
 .metric-name .i { color: var(--accent); margin-right: 0.15em; }
 
 /* Blue text on black backgrounds uses the lighter logo blue */
-.navbar .nav-links a.active-page { color: var(--accent-on-dark) !important; }
 .hero .category-title, .hero .section-subhead { color: var(--accent-on-dark); }
 
 /* Keyboard focus: clear ring for keyboard users only */

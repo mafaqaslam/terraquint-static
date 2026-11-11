@@ -9,7 +9,9 @@
  *      tools/og/card.html using the article's title, category, read time and
  *      <meta name="tq:region">.
  *   2. Point the article's og:image (and structured-data image) at that card.
- * Then rebuild sitemap.xml with clean URLs and last-changed dates.
+ *   3. Fill any blank parts of the closing "Get in touch" box.
+ *   4. Rebuild the article's "Related articles" links (same category first, then newest).
+ * Then rebuild the Insights page article list (newest first) and sitemap.xml.
  */
 import { readFileSync, writeFileSync, existsSync, readdirSync, mkdirSync } from 'node:fs';
 import { execSync } from 'node:child_process';
@@ -30,10 +32,13 @@ function readArticle(slug) {
   const pick = (re) => { const m = html.match(re); const v = m ? decode(m[1]) : ''; return /\[.*\]/.test(v) ? '' : v; };
   const title = pick(/<h1[^>]*>([\s\S]*?)<\/h1>/);
   const cat = pick(/class="article-category"[^>]*>([\s\S]*?)<\/span>/);
-  const read = pick(/⏱️\s*([^<]+)</);
+  // read time sits after the clock icon (was an emoji before Phase 6)
+  const read = pick(/#clock"><\/use><\/svg>\s*([^<]+)</) || pick(/⏱️\s*([^<]+)</);
+  const desc = pick(/<meta name="description" content="([^"]*)"/);
+  const date = pick(/<meta property="article:published_time" content="([^"]*)"/);
   let region = pick(/<meta name="tq:region" content="([^"]+)"/) || 'americas';
   if (!REGIONS.includes(region)) { console.warn(`  ! ${slug}: unknown region "${region}", using americas`); region = 'americas'; }
-  return { file, html, title, cat, read, region };
+  return { file, html, title, cat, read, region, desc, date };
 }
 
 async function renderCards(jobs) {
@@ -70,6 +75,24 @@ for (const a of articles) {
 console.log(`Share cards: ${jobs.length} to create`);
 await renderCards(jobs);
 
+// Articles that are ready to list (title filled in), newest first
+const esc = (t) => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const monthYear = (d) => { const m = /^(\d{4})-(\d{2})/.exec(d || ''); return m ? `${MONTHS[+m[2] - 1]} ${m[1]}` : ''; };
+const published = articles.filter((a) => a.title)
+  .sort((x, y) => (y.date || '').localeCompare(x.date || '') || x.slug.localeCompare(y.slug));
+
+// "Related articles": two others, same category first, then the newest
+function fillRelated(html, a) {
+  if (!/<!-- RELATED:START[^>]*-->/.test(html)) return html;
+  const others = published.filter((o) => o.slug !== a.slug);
+  const pick = [...others.filter((o) => o.cat && o.cat === a.cat), ...others.filter((o) => !(o.cat && o.cat === a.cat))].slice(0, 2);
+  const links = pick.map((o, i) => i === 0
+    ? `        <a href="/articles/${o.slug}">← ${esc(o.title)}</a>`
+    : `        <a href="/articles/${o.slug}">${esc(o.title)} →</a>`).join('\n');
+  return html.replace(/(<!-- RELATED:START[^>]*-->)[\s\S]*?(<!-- RELATED:END -->)/, `$1\n${links}\n        $2`);
+}
+
 // Closing "Get in touch" box: any blank or [bracketed] part gets the standard text
 const CTA_DEFAULT = {
   h3: 'Have a similar challenge?',
@@ -94,7 +117,32 @@ for (const a of articles) {
       .replace(/("image":\s*")[^"]*(")/, `$1${own}$2`);
   }
   html = fillCta(html);
+  html = fillRelated(html, a);
   if (html !== a.html) { writeFileSync(a.file, html); console.log('  updated:', a.slug); }
+}
+
+// ---------- Insights page list (newest first) ----------
+function insightsCards() {
+  const icon = (n) => `<svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#${n}"></use></svg>`;
+  return published.map((a) => `
+      <a href="/articles/${a.slug}" class="insight-card" data-category="${esc(a.cat)}">
+        <div class="card-content">
+          <span class="card-category">${esc(a.cat)}</span>
+          <h2>${esc(a.title)}</h2>
+          <p class="card-excerpt">${esc(a.desc)}</p>
+          <div class="card-meta">
+            <span>${icon('pen-line')} Afaq Aslam</span>${monthYear(a.date) ? `
+            <span>${icon('calendar')} ${monthYear(a.date)}</span>` : ''}
+          </div>
+          <div class="read-more">Read full article <span>→</span></div>
+        </div>
+      </a>`).join('\n') + '\n      ';
+}
+const insPath = join(ROOT, 'insights.html');
+if (existsSync(insPath)) {
+  const ins = readFileSync(insPath, 'utf8');
+  const out = ins.replace(/(<!-- INSIGHTS:START[^>]*-->)[\s\S]*?(<!-- INSIGHTS:END -->)/, (m, a, b) => a + insightsCards() + b);
+  if (out !== ins) { writeFileSync(insPath, out); console.log('insights.html updated'); } else console.log('insights.html unchanged');
 }
 
 // ---------- sitemap ----------

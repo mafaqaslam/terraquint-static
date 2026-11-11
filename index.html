@@ -174,10 +174,6 @@
       cursor: pointer;
     }
 
-    .expand-indicator {
-      display: none;
-    }
-
     /* Responsive adjustments for categories on mobile */
     @media (max-width: 800px) {
       .category-items span {
@@ -243,11 +239,6 @@
       border-color: var(--accent);
       transform: translateY(-4px);
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-    }
-
-    .pillar-icon {
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
     }
 
     .pillar-card h3 {
@@ -841,10 +832,6 @@
       color: #1F7A4D;
     }
 
-    .trend-down {
-      color: #9A6200;
-    }
-
     .trend-stable {
       color: var(--accent);
     }
@@ -913,113 +900,8 @@
     }
 
     /* ========= OUR TARGET PARTNERS SECTION (6 cards per row) ========= */
-    .partners-section {
-      padding: 4rem 0;
-      background-color: var(--gray-100);
-    }
-
-    .partners-header {
-      text-align: center;
-      margin-bottom: 2.5rem;
-    }
-
-    .partners-title {
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--accent);
-      display: block;
-      margin-bottom: 0.25rem;
-    }
-
-    .partners-subtitle {
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: var(--black);
-      margin-bottom: 0.5rem;
-    }
-
-    .partners-description {
-      font-size: 0.9rem;
-      color: var(--gray-500);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .partners-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 1rem;
-    }
-
-    .partner-card {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: 16px;
-      padding: 1.25rem 0.75rem;
-      text-align: center;
-      transition: all 0.2s ease;
-    }
-
-    .partner-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-    }
-
-    .partner-name {
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--black);
-      margin-bottom: 0.25rem;
-    }
-
-    .partner-type {
-      font-size: 0.65rem;
-      color: var(--gray-500);
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-    }
 
     /* Stat Card Special Style */
-    .partner-card.stat-card {
-      background: linear-gradient(135deg, var(--white) 0%, var(--gray-100) 100%);
-      border-color: var(--accent);
-    }
-
-    .partner-card.stat-card .partner-name {
-      font-size: 1.8rem;
-      color: var(--accent);
-      font-weight: 800;
-    }
-
-    .partner-card.stat-card .partner-type {
-      font-size: 0.7rem;
-      color: var(--gray-600);
-      text-transform: none;
-    }
-
-    @media (max-width: 1200px) {
-      .partners-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    @media (max-width: 800px) {
-      .partners-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      .partners-subtitle {
-        font-size: 1.4rem;
-      }
-    }
-
-    @media (max-width: 550px) {
-      .partners-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
 
     .split-visual {
       display: flex;
@@ -1548,37 +1430,9 @@
 <script type="module" src="assets/js/hero-globe.js"></script>
 
 <!-- Home Page Cards -->
+<script src="/assets/js/service-cards.js"></script>
 <script>
-  const cardsData = [
-    { icon: "layers",
-      title: "Reservoir Engineering & Simulation",
-      shortDesc: "Finite-difference and streamline simulation with history matching and uncertainty quantification for full-field dynamic reservoir modeling.",
-      techBadge: "ECLIPSE · CMG · COMSOL · The Kingdom Software"
-    },
-    { icon: "gauge",
-      title: "Production Engineering & Field Optimization",
-      shortDesc: "Nodal analysis, artificial lift design for ESP, gas lift, and rod pump systems with production forecasting from sandface to sales.",
-      techBadge: "Petroleum Experts IPM · WellFlo"
-    },
-    { icon: "droplets",
-      title: "Enhanced Oil Recovery (EOR)",
-      shortDesc: "Waterflood, CO₂ injection, thermal recovery, chemical flooding, and SAGD programs for heavy oil production.",
-      techBadge: "CMG · ECLIPSE · Aspen · COMSOL"
-    },
-    { icon: "trending-down",
-      title: "Decline Curve Analysis",
-      shortDesc: "Arps, Duong, and Stretched Exponential methods with probabilistic EUR assessment (P10, P50, P90) and RTA integration.",
-      techBadge: "IPM · Petra · Surfer · PHDWIN"
-    },
-    { icon: "factory", title: "Facilities Bottleneck Diagnostics", shortDesc: "Production system optimization and debottlenecking across separators, compressors, pumps, and flowlines.", techBadge: "IPM · Aspen · DWSIM · COMSOL" },
-    { icon: "circle-dollar-sign", title: "Economic Forecasting", shortDesc: "NPV, IRR, sensitivity analysis, Monte Carlo simulation, and portfolio optimization for upstream investments.", techBadge: "Wolfram Mathematica · Matlab · IPM · PHDWIN" },
-    { icon: "waves",
-      title: "Flow Assurance", shortDesc: "Hydrate management, wax and asphaltene deposition modeling, thermal-hydraulic analysis, and subsea integrity.", techBadge: "PIPESIM · COMSOL · Aspen" },
-    { icon: "activity",
-      title: "Well Testing", shortDesc: "Pressure transient analysis, deliverability testing, skin and permeability determination, and fracture characterization.", techBadge: "Ecrin · PHDWIN · IPM · WellFlo" },
-    { icon: "drafting-compass",
-      title: "Equipment Design", shortDesc: "3D CAD modeling, FEA structural analysis, thermal simulation, and pressure vessel design.", techBadge: "Siemens NX · Solidworks · COMSOL · Femap" }
-  ];
+  const cardsData = window.TQ_SERVICE_CARDS;
 
   const grid = document.getElementById('cardsGrid');
 
