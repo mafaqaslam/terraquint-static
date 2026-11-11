@@ -385,7 +385,7 @@
 
     /* Print Styles */
     @media print {
-      .navbar, .footer, .back-button, .share-section, .author-bio, .related-articles, #back-to-top-placeholder {
+      .navbar, .footer, .back-button, .share-section, .article-cta, .author-bio, .related-articles, #back-to-top-placeholder {
         display: none;
       }
       .article-container {
@@ -463,6 +463,15 @@
   </div>
 
   <!-- Article Footer -->
+  <!-- Closing call to action: set the service to one of the service slugs on /services
+       (e.g. reservoir-simulation-and-dynamic-modeling, eor-feasibility-and-design) -->
+  <div class="article-cta">
+    <h3>[Question your reader is facing?]</h3>
+    <p>[One sentence on how TerraQuint helps with it.]</p>
+    <a href="/contact?service=[service-slug]#enquiry" class="btn-primary">Get in touch →</a>
+    <small>Free initial assessment call · We respond within 24 hours</small>
+  </div>
+
   <div class="article-footer">
     
     <!-- Share Section -->

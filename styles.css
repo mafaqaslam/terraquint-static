@@ -817,3 +817,67 @@ h3 {
 @media (max-width: 360px) {
   .page-header h1 { font-size: 1.9rem; overflow-wrap: break-word; }
 }
+
+/* ---------- PHASE 5: CALLS TO ACTION ---------- */
+.hero-buttons {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.btn-outline-light {
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  color: #ffffff;
+  padding: 0.75rem 1.8rem;
+  border-radius: 40px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.2s;
+}
+.btn-outline-light:hover {
+  background: #ffffff;
+  color: #111111;
+}
+.stat-card-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s;
+}
+.stat-card-link:hover {
+  transform: translateY(-2px);
+  background: rgba(0, 119, 182, 0.18);
+}
+@media (max-width: 800px) {
+  .hero-buttons { justify-content: center; }
+}
+
+/* Article closing call to action */
+.article-cta {
+  margin: 3rem 0 2rem;
+  padding: 2rem;
+  border-radius: 16px;
+  background: #111111;
+  color: #ffffff;
+  border-left: 4px solid var(--accent);
+}
+.article-cta h3 {
+  color: #ffffff;
+  font-size: 1.3rem;
+  margin: 0 0 0.5rem;
+}
+.article-cta p {
+  color: #cccccc;
+  margin: 0 0 1.25rem;
+  line-height: 1.6;
+}
+.article-cta .btn-primary { margin-right: 0.5rem; }
+.article-cta small {
+  display: block;
+  margin-top: 1rem;
+  color: #999999;
+  font-size: 0.8rem;
+}

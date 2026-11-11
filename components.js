@@ -37,7 +37,7 @@
                         <a href="/about" data-page="about">About</a>
                         <a href="/insights" data-page="insights">Insights</a>
                         <a href="/videos" data-page="videos">Media</a>
-                        <a href="/contact" data-page="contact" class="btn-outline">Contact</a>
+                        <a href="/contact" data-page="contact" class="btn-outline">Get in touch</a>
                     </div>
                 </div>
             </nav>
@@ -195,6 +195,65 @@
         toggleBackToTop();
     }
     
+    // ============================================
+    // PHONE ACTION BAR (Call · WhatsApp · Get in touch)
+    // Shown only on screens up to 800px wide.
+    // ============================================
+
+    const TQ_PHONE = '+19186252549';
+    const TQ_WHATSAPP = 'https://wa.me/19186252549?text=' + encodeURIComponent("Hi TerraQuint, I'd like to discuss a project.");
+
+    function getActionBarHTML() {
+        return `
+            <nav class="tq-action-bar" aria-label="Quick contact">
+                <a href="tel:${TQ_PHONE}" class="tq-act">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span>Call</span>
+                </a>
+                <a href="${TQ_WHATSAPP}" class="tq-act" target="_blank" rel="noopener noreferrer">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35M12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.9-9.89 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 7c0 5.45-4.44 9.88-9.89 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="/contact#enquiry" class="tq-act tq-act-main">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <span>Get in touch</span>
+                </a>
+            </nav>
+        `;
+    }
+
+    function injectActionBarStyles() {
+        const style = document.createElement('style');
+        style.textContent = `
+            .tq-action-bar { display: none; }
+            @media (max-width: 800px) {
+                .tq-action-bar {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1.3fr;
+                    position: fixed;
+                    left: 0; right: 0; bottom: 0;
+                    z-index: 90;               /* below the open mobile menu */
+                    background: #111111;
+                    border-top: 1px solid #2a2a2a;
+                    padding: 0.45rem 0.5rem calc(0.45rem + env(safe-area-inset-bottom));
+                    gap: 0.4rem;
+                }
+                .tq-act {
+                    display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+                    color: #ffffff; text-decoration: none;
+                    font-size: 0.85rem; font-weight: 600;
+                    padding: 0.6rem 0.25rem; border-radius: 10px;
+                }
+                .tq-act:active { background: #222; }
+                .tq-act-main { background: var(--accent, #0077B6); }
+                .tq-act-main:active { background: var(--accent-hover, #005f8c); }
+                body { padding-bottom: calc(3.6rem + env(safe-area-inset-bottom)); }
+                .back-to-top { bottom: calc(4.6rem + env(safe-area-inset-bottom)) !important; }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
     // ============================================
     // ACTIVE PAGE HIGHLIGHTING
     // ============================================
@@ -391,6 +450,12 @@
             }
         }
         
+        // Phone action bar
+        injectActionBarStyles();
+        const barWrap = document.createElement('div');
+        barWrap.innerHTML = getActionBarHTML();
+        document.body.appendChild(barWrap.firstElementChild);
+
         // Initialize all features
         initBackToTop();
         highlightActivePage();
