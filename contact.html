@@ -149,7 +149,7 @@
     /* Contact Details Cards */
     .contact-detail {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       gap: 1rem;
       margin-bottom: 2rem;
       padding: 1rem;
@@ -180,14 +180,12 @@
     }
 
     .contact-icon {
-      font-size: 1.8rem;
-      width: 2.4rem;          /* same slot for every icon so the text lines up */
       flex-shrink: 0;
       display: flex;
-      justify-content: center;
+      line-height: 0;
     }
 
-    .contact-detail h3 {
+    .contact-detail h2, .contact-detail h3 {
       font-size: 1.1rem;
       margin-bottom: 0.25rem;
       font-weight: 600;
@@ -211,7 +209,7 @@
       border-radius: 12px;
     }
 
-    .office-hours h3 {
+    .office-hours h2, .office-hours h3 {
       font-size: 1.1rem;
       margin-bottom: 0.75rem;
       font-weight: 600;
@@ -295,6 +293,7 @@
 
 <!-- Navbar will be injected here by components.js -->
 <div id="navbar-placeholder"></div>
+<main id="main">
 
 <!-- Page Header -->
 <section class="page-header">
@@ -313,55 +312,55 @@
       <!-- Left: Contact Information -->
       <div class="contact-info">
         <div class="contact-detail">
-          <div class="contact-icon">📍</div>
+          <div class="contact-icon"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#map-pin"></use></svg></span></div>
           <div>
-            <h3>Locations</h3>
+            <h2>Locations</h2>
             <p>Dallas · Midland · Houston · Tulsa</p>
           </div>
         </div>
 
         <a class="contact-detail clickable" href="tel:+19186252549">
-          <div class="contact-icon">📞</div>
+          <div class="contact-icon"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#phone"></use></svg></span></div>
           <div>
-            <h3>Phone</h3>
+            <h2>Phone</h2>
             <p>+1 (918) 625-2549</p>
           </div>
         </a>
 
         <a class="contact-detail clickable" href="https://wa.me/19186252549?text=Hi%20TerraQuint%2C%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer">
-          <div class="contact-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="#25D366" aria-hidden="true" style="display:block;margin-top:0.35rem"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35M12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.9-9.89 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 7c0 5.45-4.44 9.88-9.89 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg></div>
+          <div class="contact-icon"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#whatsapp"></use></svg></span></div>
           <div>
-            <h3>WhatsApp</h3>
+            <h2>WhatsApp</h2>
             <p>Message us on WhatsApp</p>
           </div>
         </a>
 
         <a class="contact-detail clickable" href="mailto:afaqaslam@terraquint.com">
-          <div class="contact-icon">✉️</div>
+          <div class="contact-icon"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#mail"></use></svg></span></div>
           <div>
-            <h3>Email</h3>
+            <h2>Email</h2>
             <p>afaqaslam@terraquint.com</p>
           </div>
         </a>
 
         <a class="contact-detail clickable" href="https://www.linkedin.com/in/afaqaslam/" target="_blank" rel="noopener noreferrer">
-          <div class="contact-icon">🔗</div>
+          <div class="contact-icon"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#linkedin"></use></svg></span></div>
           <div>
-            <h3>LinkedIn</h3>
+            <h2>LinkedIn</h2>
             <p>Connect with us on LinkedIn</p>
           </div>
         </a>
 
         <a class="contact-detail clickable" href="https://x.com/11Afaq" target="_blank" rel="noopener noreferrer">
-          <div class="contact-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:block;margin-top:0.4rem"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></div>
+          <div class="contact-icon"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#x-logo"></use></svg></span></div>
           <div>
-            <h3>X</h3>
+            <h2>X</h2>
             <p>Follow us for industry updates</p>
           </div>
         </a>
 
         <div class="office-hours">
-          <h3>Office Hours</h3>
+          <h2>Office Hours</h2>
           <p>Monday – Sunday: 8:00 AM – 6:00 PM, Central Time (US)</p>
           <p>We respond within 24 hours.</p>
         </div>
@@ -446,6 +445,7 @@
     </div>
   </div>
 </section>
+</main>
 
 <!-- Footer placeholder (dynamic footer will be injected here) -->
 <div id="footer-placeholder"></div>

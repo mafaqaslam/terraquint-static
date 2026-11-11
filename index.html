@@ -558,10 +558,11 @@
 
     .segment-infill {
       background-color: #E8A735;
+      color: #111111;   /* dark text on amber for readability */
     }
 
     .segment-eor {
-      background-color: #0077B6;
+      background-color: var(--accent);
     }
 
     .segment-optimization {
@@ -837,15 +838,15 @@
     }
 
     .trend-up {
-      color: #2E8B57;
+      color: #1F7A4D;
     }
 
     .trend-down {
-      color: #E8A735;
+      color: #9A6200;
     }
 
     .trend-stable {
-      color: #0077B6;
+      color: var(--accent);
     }
 
     .dashboard-alerts {
@@ -1030,6 +1031,7 @@
 
 <!-- Navbar will be injected here by components.js -->
 <div id="navbar-placeholder"></div>
+<main id="main">
 
 <section class="hero">
   <div class="hero-stars" aria-hidden="true"></div>
@@ -1117,8 +1119,8 @@
     <div class="pillars-grid">
       <!-- Pillar 1: Maximize Recovery Factor -->
       <div class="pillar-card">
-        <div class="pillar-icon">📈</div>
-        <h3>Maximize Recovery Factor</h3>
+        <div class="card-head"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#trending-up"></use></svg></span>
+        <h3>Maximize Recovery Factor</h3></div>
         <div class="pillar-description">
           Advanced reservoir simulation, history matching, and EOR screening to unlock bypassed hydrocarbons.
         </div>
@@ -1127,8 +1129,8 @@
 
       <!-- Pillar 2: Reduce OPEX & Maximize Uptime -->
       <div class="pillar-card">
-        <div class="pillar-icon">⚡</div>
-        <h3>Reduce OPEX & Maximize Uptime</h3>
+        <div class="card-head"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#zap"></use></svg></span>
+        <h3>Reduce OPEX & Maximize Uptime</h3></div>
         <div class="pillar-description">
           Production optimization, ESP design, and bottleneck diagnostics to stop downtime before it hits your bottom line.
         </div>
@@ -1137,8 +1139,8 @@
 
       <!-- Pillar 3: Improve Investment Returns -->
       <div class="pillar-card">
-        <div class="pillar-icon">💰</div>
-        <h3>Improve Investment Returns</h3>
+        <div class="card-head"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#circle-dollar-sign"></use></svg></span>
+        <h3>Improve Investment Returns</h3></div>
         <div class="pillar-description">
           Probabilistic economic forecasts (P10/P50/P90) and Monte Carlo analysis for confident capital allocation.
         </div>
@@ -1147,8 +1149,8 @@
 
       <!-- Pillar 4: Reduce Technical Risk -->
       <div class="pillar-card">
-        <div class="pillar-icon">🛡️</div>
-        <h3>Reduce Technical Risk</h3>
+        <div class="card-head"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#shield-check"></use></svg></span>
+        <h3>Reduce Technical Risk</h3></div>
         <div class="pillar-description">
           Flow assurance studies, well testing, and uncertainty quantification to expose hidden risks before they become problems.
         </div>
@@ -1158,7 +1160,7 @@
 
     <div class="why-buttons">
       <a href="/contact#enquiry" class="btn-primary">Get in touch →</a>
-      <a href="/services#servicesSection" class="btn-primary-outline">🔍 Explore our services</a>
+      <a href="/services#servicesSection" class="btn-primary-outline">Explore our services</a>
     </div>
   </div>
 </section>
@@ -1197,13 +1199,13 @@
     <div class="split-visual">
       <div class="scorecard-container">
         <div class="scorecard-header">
-          <span class="scorecard-title">📊 RESERVOIR QUALITY INDEX <span class="example-tag">Illustrative example</span></span>
+          <span class="scorecard-title"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#chart-column"></use></svg> RESERVOIR QUALITY INDEX <span class="example-tag">Illustrative example</span></span>
           <span class="scorecard-badge">Based on SPE PRMS Standards</span>
         </div>
         
         <div class="score-row">
           <div class="score-metric">
-            <span class="metric-name">🔬 Porosity (ϕ)</span>
+            <span class="metric-name"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#microscope"></use></svg> Porosity (ϕ)</span>
             <span class="metric-value">19% · 4/5</span>
           </div>
           <div class="progress-bar-container">
@@ -1213,7 +1215,7 @@
         
         <div class="score-row">
           <div class="score-metric">
-            <span class="metric-name">💨 Permeability (kh)</span>
+            <span class="metric-name"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#wind"></use></svg> Permeability (kh)</span>
             <span class="metric-value">245 mD · 3/5</span>
           </div>
           <div class="progress-bar-container">
@@ -1223,7 +1225,7 @@
         
         <div class="score-row">
           <div class="score-metric">
-            <span class="metric-name">📐 Net-to-Gross (NTG)</span>
+            <span class="metric-name"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#ruler"></use></svg> Net-to-Gross (NTG)</span>
             <span class="metric-value">0.72 · 4/5</span>
           </div>
           <div class="progress-bar-container">
@@ -1233,7 +1235,7 @@
         
         <div class="score-row">
           <div class="score-metric">
-            <span class="metric-name">🛢️ Oil Saturation (So)</span>
+            <span class="metric-name"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#droplet"></use></svg> Oil Saturation (So)</span>
             <span class="metric-value">68% · 3.5/5</span>
           </div>
           <div class="progress-bar-container">
@@ -1243,7 +1245,7 @@
         
         <div class="score-row">
           <div class="score-metric">
-            <span class="metric-name">🌊 Aquifer Support</span>
+            <span class="metric-name"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#waves"></use></svg> Aquifer Support</span>
             <span class="metric-value">Strong · 5/5</span>
           </div>
           <div class="progress-bar-container">
@@ -1253,7 +1255,7 @@
         
         <div class="score-row">
           <div class="score-metric">
-            <span class="metric-name">🧩 Compartmentalization Risk</span>
+            <span class="metric-name"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#puzzle"></use></svg> Compartmentalization Risk</span>
             <span class="metric-value">Moderate · 3/5</span>
           </div>
           <div class="progress-bar-container">
@@ -1277,7 +1279,7 @@
         </div>
         
         <div class="scorecard-insight">
-          <p><span class="insight-icon">🎯</span> <strong>Key Insight:</strong> Compartmentalization is the primary uncertainty. Recommended: Seismic reprocessing + pressure interference test to confirm connectivity. Upside potential: +12 MMbbl.</p>
+          <p><span class="insight-icon"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#target"></use></svg></span> <strong>Key Insight:</strong> Compartmentalization is the primary uncertainty. Recommended: Seismic reprocessing + pressure interference test to confirm connectivity. Upside potential: +12 MMbbl.</p>
         </div>
       </div>
     </div>
@@ -1329,7 +1331,7 @@
       <div class="split-visual">
         <div class="recovery-container">
           <div class="recovery-header">
-            <span class="recovery-title">📈 RECOVERY FACTOR BRIDGE <span class="example-tag">Illustrative example</span></span>
+            <span class="recovery-title"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#trending-up"></use></svg> RECOVERY FACTOR BRIDGE <span class="example-tag">Illustrative example</span></span>
             <span class="recovery-subtitle">From Current to Target Recovery</span>
           </div>
           
@@ -1380,12 +1382,12 @@
           <div class="recovery-upside-grid">
             <div class="upside-item">
               <div class="upside-label">INFILL DRILLING</div>
-              <div class="upside-value" style="color: #E8A735;">+8%</div>
+              <div class="upside-value" style="color: #9A6200;">+8%</div>
               <div style="font-size: 0.65rem; color: var(--gray-500);">10 MMbbl</div>
             </div>
             <div class="upside-item">
               <div class="upside-label">EOR (WATERFLOOD)</div>
-              <div class="upside-value" style="color: #0077B6;">+12%</div>
+              <div class="upside-value" style="color: var(--accent);">+12%</div>
               <div style="font-size: 0.65rem; color: var(--gray-500);">15 MMbbl</div>
             </div>
             <div class="upside-item">
@@ -1396,7 +1398,7 @@
           </div>
           
           <div class="recovery-insight">
-            <p><span class="insight-icon">🎯</span> <strong>Key Insight:</strong> Current recovery factor is 18% of 125 MMbbl OOIP (22.5 MMbbl produced). Infill drilling (+8% / 10 MMbbl) and EOR waterflood (+12% / 15 MMbbl) offer the largest upside. Optimization adds +4% (5 MMbbl). Total upside: 30 MMbbl additional recovery. Target RF: 42% (52.5 MMbbl total).</p>
+            <p><span class="insight-icon"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#target"></use></svg></span> <strong>Key Insight:</strong> Current recovery factor is 18% of 125 MMbbl OOIP (22.5 MMbbl produced). Infill drilling (+8% / 10 MMbbl) and EOR waterflood (+12% / 15 MMbbl) offer the largest upside. Optimization adds +4% (5 MMbbl). Total upside: 30 MMbbl additional recovery. Target RF: 42% (52.5 MMbbl total).</p>
           </div>
         </div>
       </div>
@@ -1409,13 +1411,13 @@
   <div class="container">
     <div class="insights-container">
       <div class="insights-header">
-        <span class="insights-title">🔍 ACTIONABLE INSIGHTS <span class="example-tag">Illustrative example</span></span>
+        <span class="insights-title"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#search"></use></svg> ACTIONABLE INSIGHTS <span class="example-tag">Illustrative example</span></span>
         <span class="insights-subtitle">Data-Driven Recommendations</span>
       </div>
       
       <div class="insights-grid">
         <div class="insight-card">
-          <div class="insight-card-icon">🌊</div>
+          <div class="insight-card-icon"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#waves"></use></svg></span></div>
           <div class="insight-card-content">
             <div class="insight-card-title">Strong Aquifer Support Detected</div>
             <div class="insight-card-text">Water influx is contributing 55% of reservoir energy. Water breakthrough expected in Year 3.</div>
@@ -1424,7 +1426,7 @@
         </div>
         
         <div class="insight-card">
-          <div class="insight-card-icon">⛽</div>
+          <div class="insight-card-icon"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#fuel"></use></svg></span></div>
           <div class="insight-card-content">
             <div class="insight-card-title">Gas Cap Drive Active</div>
             <div class="insight-card-text">Gas cap contributes 25% of drive energy. Crestal wells should be prioritized.</div>
@@ -1433,7 +1435,7 @@
         </div>
         
         <div class="insight-card">
-          <div class="insight-card-icon">🧩</div>
+          <div class="insight-card-icon"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#puzzle"></use></svg></span></div>
           <div class="insight-card-content">
             <div class="insight-card-title">Compartmentalization Risk Identified</div>
             <div class="insight-card-text">Seismic and pressure data indicate potential fault compartments.</div>
@@ -1442,7 +1444,7 @@
         </div>
         
         <div class="insight-card">
-          <div class="insight-card-icon">📍</div>
+          <div class="insight-card-icon"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#map-pin"></use></svg></span></div>
           <div class="insight-card-content">
             <div class="insight-card-title">Infill Drilling Opportunity</div>
             <div class="insight-card-text">Undrained attic oil identified between existing producers.</div>
@@ -1451,7 +1453,7 @@
         </div>
         
         <div class="insight-card">
-          <div class="insight-card-icon">💧</div>
+          <div class="insight-card-icon"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#droplets"></use></svg></span></div>
           <div class="insight-card-content">
             <div class="insight-card-title">EOR Waterflood Feasible</div>
             <div class="insight-card-text">Reservoir characteristics suitable for pattern waterflood.</div>
@@ -1460,7 +1462,7 @@
         </div>
         
         <div class="insight-card">
-          <div class="insight-card-icon">⚙️</div>
+          <div class="insight-card-icon"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#settings"></use></svg></span></div>
           <div class="insight-card-content">
             <div class="insight-card-title">Production System Optimization</div>
             <div class="insight-card-text">Current ESP operating below peak efficiency.</div>
@@ -1481,34 +1483,34 @@
   <div class="container">
     <div class="dashboard-container">
       <div class="dashboard-header">
-        <span class="dashboard-title">📊 RESERVOIR DASHBOARD <span class="example-tag">Illustrative example</span></span>
+        <span class="dashboard-title"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#chart-column"></use></svg> RESERVOIR DASHBOARD <span class="example-tag">Illustrative example</span></span>
         <span class="dashboard-subtitle">The Performance Metrics We Track</span>
       </div>
       
       <div class="dashboard-grid">
         <div class="dashboard-metric-card">
-          <div class="dashboard-metric-icon">🛢️</div>
+          <div class="dashboard-metric-icon"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#droplet"></use></svg></span></div>
           <div class="dashboard-metric-value">125</div>
           <div class="dashboard-metric-label">OOIP (MMbbl)</div>
           <div class="dashboard-metric-trend trend-stable">✓ Verified</div>
         </div>
         
         <div class="dashboard-metric-card">
-          <div class="dashboard-metric-icon">📈</div>
+          <div class="dashboard-metric-icon"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#trending-up"></use></svg></span></div>
           <div class="dashboard-metric-value">18%</div>
           <div class="dashboard-metric-label">CURRENT RF</div>
           <div class="dashboard-metric-trend trend-up">↑ +24% upside</div>
         </div>
         
         <div class="dashboard-metric-card">
-          <div class="dashboard-metric-icon">💧</div>
+          <div class="dashboard-metric-icon"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#droplets"></use></svg></span></div>
           <div class="dashboard-metric-value">12%</div>
           <div class="dashboard-metric-label">WATER CUT</div>
           <div class="dashboard-metric-trend trend-up">↑ +3% vs forecast</div>
         </div>
         
         <div class="dashboard-metric-card">
-          <div class="dashboard-metric-icon">⛽</div>
+          <div class="dashboard-metric-icon"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#fuel"></use></svg></span></div>
           <div class="dashboard-metric-value">850</div>
           <div class="dashboard-metric-label">GOR (scf/bbl)</div>
           <div class="dashboard-metric-trend trend-stable">○ Stable</div>
@@ -1517,7 +1519,7 @@
       
       <div class="dashboard-alerts">
         <div class="dashboard-alerts-title">
-          <span>🚨</span> ACTIVE ALERTS (2)
+          <svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#siren"></use></svg> ACTIVE ALERTS (2)
         </div>
         <div class="dashboard-alerts-list">
           <div class="dashboard-alert-item">
@@ -1535,6 +1537,7 @@
     </div>
   </div>
 </section>
+</main>
 
 <!-- Footer placeholder (dynamic footer will be injected here) -->
 <div id="footer-placeholder"></div>
@@ -1547,33 +1550,33 @@
 <!-- Home Page Cards -->
 <script>
   const cardsData = [
-    { iconType: "svg", iconSvg: `<svg width="64" height="64" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="120" rx="8" fill="transparent" stroke="none"/><path d="M10 90 Q100 20 190 90" stroke="#0077B6" stroke-width="2.5" fill="none"/><path d="M10 70 Q100 10 190 70" stroke="#0077B6" stroke-width="2.5" fill="none"/><path d="M10 50 Q100 0 190 50" stroke="#0077B6" stroke-width="2.5" fill="none"/><path d="M45 70 Q100 30 155 70 Q100 55 45 70 Z" fill="rgba(0,119,182,0.12)"/><line x1="100" y1="5" x2="100" y2="90" stroke="#0077B6" stroke-width="2" stroke-dasharray="5 4"/></svg>`,
+    { icon: "layers",
       title: "Reservoir Engineering & Simulation",
       shortDesc: "Finite-difference and streamline simulation with history matching and uncertainty quantification for full-field dynamic reservoir modeling.",
       techBadge: "ECLIPSE · CMG · COMSOL · The Kingdom Software"
     },
-    { iconType: "svg", iconSvg: `<svg width="64" height="64" viewBox="0 0 180 220" xmlns="http://www.w3.org/2000/svg"><rect width="180" height="220" rx="8" fill="transparent" stroke="none"/><line x1="90" y1="200" x2="90" y2="30" stroke="#0077B6" stroke-width="2.5" fill="none"/><rect x="65" y="200" width="50" height="8" rx="2" fill="#0077B6"/><line x1="50" y1="155" x2="130" y2="155" stroke="#0077B6" stroke-width="2.5" fill="none"/><circle cx="50" cy="155" r="5" fill="#0077B6"/><circle cx="130" cy="155" r="5" fill="#0077B6"/><line x1="130" y1="155" x2="158" y2="155" stroke="#0077B6" stroke-width="1.5" fill="none"/><circle cx="162" cy="155" r="4" fill="#0077B6"/><line x1="50" y1="155" x2="22" y2="155" stroke="#0077B6" stroke-width="1.5" fill="none"/><circle cx="18" cy="155" r="4" fill="#0077B6"/><line x1="55" y1="120" x2="125" y2="120" stroke="#0077B6" stroke-width="2.5" fill="none"/><circle cx="55" cy="120" r="5" fill="#0077B6"/><circle cx="125" cy="120" r="5" fill="#0077B6"/><line x1="125" y1="120" x2="158" y2="120" stroke="#0077B6" stroke-width="1.5" fill="none"/><circle cx="164" cy="120" r="6" stroke="#0077B6" stroke-width="2" fill="none"/><line x1="60" y1="90" x2="120" y2="90" stroke="#0077B6" stroke-width="2.5" fill="none"/><circle cx="60" cy="90" r="5" fill="#0077B6"/><circle cx="120" cy="90" r="5" fill="#0077B6"/><line x1="90" y1="30" x2="90" y2="15" stroke="#0077B6" stroke-width="2.5" fill="none"/><circle cx="90" cy="12" r="6" fill="#0077B6"/><line x1="60" y1="48" x2="120" y2="48" stroke="#0077B6" stroke-width="2.5" fill="none"/><circle cx="60" cy="48" r="5" fill="#0077B6"/><circle cx="120" cy="48" r="5" fill="#0077B6"/><line x1="120" y1="48" x2="158" y2="48" stroke="#0077B6" stroke-width="1.5" fill="none"/><circle cx="164" cy="48" r="7" stroke="#0077B6" stroke-width="2" fill="none"/></svg>`,
+    { icon: "gauge",
       title: "Production Engineering & Field Optimization",
       shortDesc: "Nodal analysis, artificial lift design for ESP, gas lift, and rod pump systems with production forecasting from sandface to sales.",
       techBadge: "Petroleum Experts IPM · WellFlo"
     },
-    { iconType: "svg", iconSvg: `<svg width="64" height="64" viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg"><defs><marker id="a3" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><polygon points="0 0,6 3,0 6" fill="#0077B6"/></marker></defs><rect width="220" height="140" rx="8" fill="transparent" stroke="none"/><line x1="10" y1="40" x2="210" y2="40" stroke="#0077B6" stroke-width="2" fill="none"/><line x1="60" y1="40" x2="60" y2="100" stroke="#0077B6" stroke-width="2.5" fill="none"/><circle cx="60" cy="38" r="4" fill="#0077B6"/><line x1="160" y1="40" x2="160" y2="100" stroke="#0077B6" stroke-width="2.5" fill="none"/><circle cx="160" cy="38" r="4" fill="#0077B6"/><rect x="25" y="80" width="170" height="25" rx="4" fill="rgba(0,119,182,0.12)"/><path d="M70 90 Q110 70 150 90" stroke="#0077B6" stroke-width="2" fill="none" marker-end="url(#a3)"/><path d="M70 100 Q110 80 150 100" stroke="#0077B6" stroke-width="2" fill="none" marker-end="url(#a3)"/><line x1="60" y1="55" x2="60" y2="75" stroke="#0077B6" stroke-width="2" marker-end="url(#a3)"/><line x1="160" y1="75" x2="160" y2="55" stroke="#0077B6" stroke-width="2" marker-end="url(#a3)"/></svg>`,
+    { icon: "droplets",
       title: "Enhanced Oil Recovery (EOR)",
       shortDesc: "Waterflood, CO₂ injection, thermal recovery, chemical flooding, and SAGD programs for heavy oil production.",
       techBadge: "CMG · ECLIPSE · Aspen · COMSOL"
     },
-    { iconType: "svg", iconSvg: `<svg width="64" height="64" viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="140" rx="8" fill="transparent" stroke="none"/><line x1="30" y1="10" x2="30" y2="120" stroke="#0077B6" stroke-width="2"/><line x1="30" y1="120" x2="190" y2="120" stroke="#0077B6" stroke-width="2"/><text x="15" y="70" fill="#0077B6" font-family="Inter" font-size="8" font-weight="500" transform="rotate(-90,15,70)" text-anchor="middle">Rate</text><text x="110" y="135" fill="#0077B6" font-family="Inter" font-size="8" font-weight="500" text-anchor="middle">Time</text><path d="M35 40 C80 60,120 90,130 95" stroke="#0077B6" stroke-width="2.5" fill="none"/><path d="M130 95 C150 105,170 110,190 115" stroke="#0077B6" stroke-width="1.8" fill="none" opacity="0.5"/><circle cx="50" cy="50" r="3.5" fill="#0077B6"/><circle cx="80" cy="65" r="3.5" fill="#0077B6"/><circle cx="110" cy="85" r="3.5" fill="#0077B6"/></svg>`,
+    { icon: "trending-down",
       title: "Decline Curve Analysis",
       shortDesc: "Arps, Duong, and Stretched Exponential methods with probabilistic EUR assessment (P10, P50, P90) and RTA integration.",
       techBadge: "IPM · Petra · Surfer · PHDWIN"
     },
-    { iconType: "emoji", iconEmoji: "🏭", title: "Facilities Bottleneck Diagnostics", shortDesc: "Production system optimization and debottlenecking across separators, compressors, pumps, and flowlines.", techBadge: "IPM · Aspen · DWSIM · COMSOL" },
-    { iconType: "emoji", iconEmoji: "💰", title: "Economic Forecasting", shortDesc: "NPV, IRR, sensitivity analysis, Monte Carlo simulation, and portfolio optimization for upstream investments.", techBadge: "Wolfram Mathematica · Matlab · IPM · PHDWIN" },
-    { iconType: "svg", iconSvg: `<svg width="64" height="64" viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg"><defs><marker id="a7" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><polygon points="0 0,6 3,0 6" fill="#0077B6"/></marker></defs><rect width="220" height="120" rx="8" fill="transparent" stroke="none"/><line x1="20" y1="60" x2="200" y2="60" stroke="#0077B6" stroke-width="3" fill="none"/><line x1="40" y1="60" x2="70" y2="60" stroke="#0077B6" stroke-width="1.8" fill="none" marker-end="url(#a7)"/><line x1="115" y1="60" x2="145" y2="60" stroke="#0077B6" stroke-width="1.8" fill="none" marker-end="url(#a7)"/><circle cx="100" cy="60" r="14" stroke="#0077B6" stroke-width="2" fill="none"/><circle cx="100" cy="60" r="14" fill="rgba(0,119,182,0.1)"/><line x1="91" y1="51" x2="109" y2="69" stroke="#0077B6" stroke-width="1.2" fill="none" opacity="0.6"/><line x1="109" y1="51" x2="91" y2="69" stroke="#0077B6" stroke-width="1.2" fill="none" opacity="0.6"/><line x1="100" y1="46" x2="100" y2="30" stroke="#0077B6" stroke-width="1.2" fill="none" opacity="0.6"/><circle cx="100" cy="24" r="6" stroke="#0077B6" stroke-width="2" fill="none"/><circle cx="100" cy="24" r="3" fill="rgba(0,119,182,0.1)"/><line x1="100" y1="24" x2="104" y2="21" stroke="#0077B6" stroke-width="1.2"/></svg>`,
+    { icon: "factory", title: "Facilities Bottleneck Diagnostics", shortDesc: "Production system optimization and debottlenecking across separators, compressors, pumps, and flowlines.", techBadge: "IPM · Aspen · DWSIM · COMSOL" },
+    { icon: "circle-dollar-sign", title: "Economic Forecasting", shortDesc: "NPV, IRR, sensitivity analysis, Monte Carlo simulation, and portfolio optimization for upstream investments.", techBadge: "Wolfram Mathematica · Matlab · IPM · PHDWIN" },
+    { icon: "waves",
       title: "Flow Assurance", shortDesc: "Hydrate management, wax and asphaltene deposition modeling, thermal-hydraulic analysis, and subsea integrity.", techBadge: "PIPESIM · COMSOL · Aspen" },
-    { iconType: "svg", iconSvg: `<svg width="64" height="64" viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg"><rect width="240" height="140" rx="8" fill="transparent" stroke="none"/><line x1="10" y1="90" x2="230" y2="90" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="50" y1="90" x2="50" y2="50" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="35" y1="60" x2="65" y2="60" stroke="#0077B6" stroke-width="2.5" fill="none"/><circle cx="35" cy="60" r="4" fill="#0077B6"/><circle cx="65" cy="60" r="4" fill="#0077B6"/><line x1="65" y1="60" x2="130" y2="60" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="80" y1="60" x2="100" y2="60" stroke="#0077B6" stroke-width="1.5" fill="none" opacity="0.6"/><line x1="100" y1="60" x2="120" y2="60" stroke="#0077B6" stroke-width="1.5" fill="none" opacity="0.6"/><rect x="130" y="35" width="50" height="50" rx="4" stroke="#0077B6" stroke-width="2.5" fill="none"/><rect x="130" y="35" width="50" height="50" rx="4" fill="rgba(0,119,182,0.08)"/><line x1="130" y1="50" x2="180" y2="50" stroke="#0077B6" stroke-width="1.5" fill="none" opacity="0.6"/><line x1="130" y1="65" x2="180" y2="65" stroke="#0077B6" stroke-width="1.5" fill="none" opacity="0.6"/><text x="145" y="47" fill="#0077B6" font-family="Inter" font-size="7" font-weight="600">G</text><text x="145" y="62" fill="#0077B6" font-family="Inter" font-size="7" font-weight="600">O</text><text x="145" y="77" fill="#0077B6" font-family="Inter" font-size="7" font-weight="600">W</text><line x1="180" y1="60" x2="210" y2="60" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="155" y1="35" x2="155" y2="18" stroke="#0077B6" stroke-width="1.5" fill="none" opacity="0.6"/><circle cx="155" cy="13" r="7" stroke="#0077B6" stroke-width="2.5" fill="none"/><circle cx="155" cy="13" r="3" fill="#0077B6"/><line x1="155" y1="13" x2="159" y2="10" stroke="#0077B6" stroke-width="1.2"/></svg>`,
+    { icon: "activity",
       title: "Well Testing", shortDesc: "Pressure transient analysis, deliverability testing, skin and permeability determination, and fracture characterization.", techBadge: "Ecrin · PHDWIN · IPM · WellFlo" },
-    { iconType: "svg", iconSvg: `<svg width="64" height="64" viewBox="0 0 200 170" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="170" rx="8" fill="transparent" stroke="none"/><circle cx="100" cy="80" r="45" stroke="#0077B6" stroke-width="1" fill="none" opacity="0.3" stroke-dasharray="4 4"/><circle cx="100" cy="80" r="35" stroke="#0077B6" stroke-width="2.5" fill="none"/><circle cx="100" cy="80" r="35" fill="rgba(0,119,182,0.05)"/><circle cx="100" cy="80" r="14" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="100" y1="20" x2="100" y2="140" stroke="#0077B6" stroke-width="1" fill="none" opacity="0.3" stroke-dasharray="4 4"/><line x1="40" y1="80" x2="160" y2="80" stroke="#0077B6" stroke-width="1" fill="none" opacity="0.3" stroke-dasharray="4 4"/><line x1="100" y1="45" x2="100" y2="30" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="100" y1="115" x2="100" y2="130" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="65" y1="80" x2="50" y2="80" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="135" y1="80" x2="150" y2="80" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="75" y1="55" x2="65" y2="45" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="125" y1="55" x2="135" y2="45" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="75" y1="105" x2="65" y2="115" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="125" y1="105" x2="135" y2="115" stroke="#0077B6" stroke-width="2.5" fill="none"/><line x1="60" y1="150" x2="140" y2="150" stroke="#0077B6" stroke-width="1.2" fill="none" opacity="0.6"/><line x1="60" y1="145" x2="60" y2="155" stroke="#0077B6" stroke-width="1.2" fill="none" opacity="0.6"/><line x1="140" y1="145" x2="140" y2="155" stroke="#0077B6" stroke-width="1.2" fill="none" opacity="0.6"/><polygon points="60,150 65,147 65,153" fill="#0077B6"/><polygon points="140,150 135,147 135,153" fill="#0077B6"/><line x1="80" y1="147" x2="80" y2="153" stroke="#0077B6" stroke-width="1.2" fill="none" opacity="0.6"/><line x1="120" y1="147" x2="120" y2="153" stroke="#0077B6" stroke-width="1.2" fill="none" opacity="0.6"/><text x="100" y="165" fill="#0077B6" font-family="Inter" font-size="7" font-weight="500" text-anchor="middle">Ø</text></svg>`,
+    { icon: "drafting-compass",
       title: "Equipment Design", shortDesc: "3D CAD modeling, FEA structural analysis, thermal simulation, and pressure vessel design.", techBadge: "Siemens NX · Solidworks · COMSOL · Femap" }
   ];
 
@@ -1583,12 +1586,11 @@
     const cardDiv = document.createElement('div');
     cardDiv.className = 'service-card';
     
-    const iconHtml = card.iconType === 'svg' ? card.iconSvg : `<span class="card-icon-emoji">${card.iconEmoji}</span>`;
+    const iconHtml = `<span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#${card.icon}"></use></svg></span>`;
     
     cardDiv.innerHTML = `
       <div class="card-inner">
-        <div class="card-icon">${iconHtml}</div>
-        <h3>${card.title}</h3>
+        <div class="card-head">${iconHtml}<h3>${card.title}</h3></div>
         <div class="short-desc">${card.shortDesc}</div>
         <div class="tech-badge">${card.techBadge}</div>
       </div>

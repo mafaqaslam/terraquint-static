@@ -395,7 +395,7 @@
       margin-bottom: 0.75rem;
     }
 
-    .location-card h4 {
+    .location-card h3, .location-card h4 {
       font-size: 1.1rem;
       margin-bottom: 0.25rem;
     }
@@ -457,6 +457,7 @@
 
 <!-- Navbar will be injected here by components.js -->
 <div id="navbar-placeholder"></div>
+<main id="main">
 
 <!-- Page Header -->
 <section class="page-header">
@@ -510,9 +511,9 @@
           </div>
           <p style="color: var(--gray-700); line-height: 1.6; margin-bottom: 1rem;">Afaq brings over 6 years of integrated petroleum engineering experience across conventional, unconventional, and deepwater assets. He has led reservoir studies, production optimization projects, and field development plans for operators worldwide.</p>
           <div class="tech-badges">
-            <span class="tech-badge">🗻 Reservoir Engineering & Simulation</span>
-            <span class="tech-badge">📈 Production Optimization & Forecasting</span>
-            <span class="tech-badge">🌊 Flow Assurance</span>
+            <span class="tech-badge"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#layers"></use></svg> Reservoir Engineering & Simulation</span>
+            <span class="tech-badge"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#trending-up"></use></svg> Production Optimization & Forecasting</span>
+            <span class="tech-badge"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#waves"></use></svg> Flow Assurance</span>
           </div>
         </div>
       </div>
@@ -565,18 +566,18 @@
     
     <div class="values-grid">
       <div class="value-card">
-        <div class="value-icon">🎯</div>
-        <h3>Technical Rigor</h3>
+        <div class="card-head"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#target"></use></svg></span>
+        <h3>Technical Rigor</h3></div>
         <p>Every recommendation is grounded in physics-based modeling, validated by production data, and optimized for economic return.</p>
       </div>
       <div class="value-card">
-        <div class="value-icon">🤝</div>
-        <h3>Practical Solutions</h3>
+        <div class="card-head"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#handshake"></use></svg></span>
+        <h3>Practical Solutions</h3></div>
         <p>We don't just analyze — we solve. Our recommendations are actionable, implementable, and designed for real-world operations.</p>
       </div>
       <div class="value-card">
-        <div class="value-icon">🔓</div>
-        <h3>Radical Transparency</h3>
+        <div class="card-head"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#eye"></use></svg></span>
+        <h3>Radical Transparency</h3></div>
         <p>Full documentation of workflows, assumptions, and uncertainties. You'll always know exactly how we reached our conclusions.</p>
       </div>
     </div>
@@ -594,23 +595,23 @@
     
     <div class="locations-grid">
       <div class="location-card">
-        <div class="location-icon">📍</div>
-        <h4>Dallas</h4>
+        <div class="card-head"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#map-pin"></use></svg></span>
+        <h3>Dallas</h3></div>
         <p>Texas</p>
       </div>
       <div class="location-card">
-        <div class="location-icon">📍</div>
-        <h4>Midland</h4>
+        <div class="card-head"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#map-pin"></use></svg></span>
+        <h3>Midland</h3></div>
         <p>Texas</p>
       </div>
       <div class="location-card">
-        <div class="location-icon">📍</div>
-        <h4>Houston</h4>
+        <div class="card-head"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#map-pin"></use></svg></span>
+        <h3>Houston</h3></div>
         <p>Texas</p>
       </div>
       <div class="location-card">
-        <div class="location-icon">📍</div>
-        <h4>Tulsa</h4>
+        <div class="card-head"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#map-pin"></use></svg></span>
+        <h3>Tulsa</h3></div>
         <p>Oklahoma</p>
       </div>
     </div>
@@ -627,6 +628,7 @@
     </div>
   </div>
 </section>
+</main>
 
 <!-- Footer placeholder -->
 <div id="footer-placeholder"></div>

@@ -24,10 +24,12 @@ body {
   --white: #FFFFFF;
   --gray-100: #F5F5F5;
   --gray-200: #E8E8E8;
-  --gray-500: #888888;
+  --gray-500: #6B6B6B;   /* was #888: darker so small grey text is readable */
   --gray-700: #333333;
-  --accent: #0077B6;
-  --accent-hover: #005f8c;
+  --accent: #006EA8;     /* was #0077B6: slightly deeper so blue text passes contrast */
+  --accent-hover: #005A8A;
+  --accent-on-dark: #6EB2FA;  /* logo blue, for blue text on black backgrounds */
+  --accent-tint: #E6F1F8;
   --gray-600: #555555;
 }
 
@@ -660,7 +662,7 @@ h3 {
 }
 
 .footer-locations {
-  color: #666;
+  color: #9A9A9A;
   font-size: 0.8rem;
 }
 
@@ -683,7 +685,7 @@ h3 {
 }
 
 .footer-links a {
-  color: #888;
+  color: #A8A8A8;
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -694,11 +696,11 @@ h3 {
 
 .footer-social {
   margin-top: 0.5rem;
-  color: #666;
+  color: #9A9A9A;
 }
 
 .footer-social a {
-  color: #888;
+  color: #A8A8A8;
 }
 
 .footer-social a:hover {
@@ -710,7 +712,7 @@ h3 {
   padding-top: 1.5rem;
   border-top: 1px solid #2a2a2a;
   font-size: 0.75rem;
-  color: #666;
+  color: #9A9A9A;
 }
 
 /* ---------- RESPONSIVE BREAKPOINTS ---------- */
@@ -880,4 +882,116 @@ h3 {
   margin-top: 1rem;
   color: #999999;
   font-size: 0.8rem;
+}
+
+
+/* ============================================================
+   PHASE 6: ICONS, CARD LAYOUT (icon left of title), ACCESSIBILITY
+   ============================================================ */
+
+/* Line icons from /assets/icons/sprite.svg (Lucide) */
+.i {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  vertical-align: -0.14em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Icon in a soft blue rounded tile */
+.tq-tile {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--accent-tint);
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.tq-tile .i { width: 24px; height: 24px; vertical-align: 0; }
+
+/* Option B: icon on the left, next to the title; text reads from the left */
+.card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 0.9rem;
+  text-align: left;
+}
+.card-head h3, .card-head h4, .card-head .service-card-title {
+  margin: 0 !important;
+  text-align: left !important;
+}
+html body .pillar-card, html body .pillar-card *,
+html body .value-card, html body .value-card *,
+html body .service-card-detail > .card-head,
+html body .service-card .card-inner, html body .service-card .card-inner *,
+html body .service-card .drawer, html body .service-card .drawer * {
+  text-align: left;
+}
+body .pillar-card .pillar-metric,
+body .service-card .tech-badge { display: inline-block; }
+body .service-card .expand-indicator { justify-content: flex-start; }
+html body .location-card, html body .location-card * { text-align: left; }
+body .location-card .card-head { margin-bottom: 0.3rem; gap: 0.75rem; }
+body .location-card .tq-tile { width: 40px; height: 40px; border-radius: 10px; }
+body .location-card .tq-tile .i { width: 20px; height: 20px; }
+body .location-card p { padding-left: calc(40px + 0.75rem); margin: 0; }
+
+/* Small tiles inside the example dashboards and insight cards */
+.insight-card-icon .tq-tile,
+.dashboard-metric-icon .tq-tile { width: 40px; height: 40px; border-radius: 10px; }
+.insight-card-icon .tq-tile .i,
+.dashboard-metric-icon .tq-tile .i { width: 20px; height: 20px; }
+.insight-card-icon, .dashboard-metric-icon { font-size: inherit !important; line-height: 0; }
+
+/* Icons in headings and labels pick up the blue */
+.scorecard-title .i, .recovery-title .i, .insights-title .i, .dashboard-title .i,
+.qa-card-title .i, .tech-badge .i, .insight-icon .i { color: var(--accent); }
+.checklist-item .i { color: var(--accent); width: 0.9em; height: 0.9em; }
+.metric-name .i { color: var(--accent); margin-right: 0.15em; }
+
+/* Blue text on black backgrounds uses the lighter logo blue */
+.navbar .nav-links a.active-page { color: var(--accent-on-dark) !important; }
+.hero .category-title, .hero .section-subhead { color: var(--accent-on-dark); }
+
+/* Keyboard focus: clear ring for keyboard users only */
+:focus-visible {
+  outline: 3px solid var(--accent-on-dark);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+:focus:not(:focus-visible) { outline: none; }
+
+/* "Skip to content" link: hidden until focused with the keyboard */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 2000;
+  background: var(--white);
+  color: var(--black);
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+}
+.skip-link:focus { top: 0.75rem; }
+main { display: block; }
+
+.footer-heading { margin-top: 0; }
+@media (max-width: 420px) {
+  body .locations-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
+  body .location-card { padding: 1rem 0.85rem; min-width: 0; }
+  body .location-card .card-head { gap: 0.5rem; }
+  body .location-card .tq-tile { width: 32px; height: 32px; border-radius: 8px; }
+  body .location-card .tq-tile .i { width: 16px; height: 16px; }
+  body .location-card p { padding-left: calc(32px + 0.5rem); }
 }

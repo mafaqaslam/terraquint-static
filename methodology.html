@@ -251,7 +251,7 @@
     }
 
     .data-section .section-subhead {
-      color: var(--gray-500);
+      color: #9A9A9A;
     }
 
     .data-grid {
@@ -271,7 +271,7 @@
     .data-number {
       font-size: 2.5rem;
       font-weight: 700;
-      color: var(--accent);
+      color: var(--accent-on-dark);
       margin-bottom: 0.5rem;
     }
 
@@ -279,7 +279,7 @@
       font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--gray-500);
+      color: #9A9A9A;
     }
 
     /* ============================================
@@ -386,7 +386,7 @@
 
     .checklist-item.checked::before {
       content: "✓";
-      color: #2E8B57;
+      color: #1F7A4D;
       font-weight: 700;
     }
 
@@ -521,6 +521,7 @@
 
 <!-- Navbar will be injected here by components.js -->
 <div id="navbar-placeholder"></div>
+<main id="main">
 
 <!-- Page Header -->
 <section class="page-header">
@@ -579,8 +580,8 @@
       <div class="pillar-category-title">RESERVOIR & PRODUCTION</div>
       <div class="pillars-grid">
         <div class="pillar-card">
-          <div class="pillar-icon">🗻</div>
-          <h3>Reservoir Engineering & Simulation</h3>
+          <div class="card-head"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#layers"></use></svg></span>
+          <h3>Reservoir Engineering & Simulation</h3></div>
           <p>Full-field dynamic reservoir modeling, history matching, and uncertainty quantification for conventional and unconventional assets.</p>
           <ul class="pillar-list">
             <li>Finite-difference & streamline simulation</li>
@@ -590,8 +591,8 @@
         </div>
         
         <div class="pillar-card">
-          <div class="pillar-icon">⚙️</div>
-          <h3>Production Engineering & Field Optimization</h3>
+          <div class="card-head"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#gauge"></use></svg></span>
+          <h3>Production Engineering & Field Optimization</h3></div>
           <p>Nodal analysis, artificial lift design, and integrated production system modeling from sandface to sales.</p>
           <ul class="pillar-list">
             <li>ESP / Gas lift / Rod pump design</li>
@@ -601,8 +602,8 @@
         </div>
         
         <div class="pillar-card">
-          <div class="pillar-icon">💧</div>
-          <h3>Enhanced Oil Recovery (EOR)</h3>
+          <div class="card-head"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#droplets"></use></svg></span>
+          <h3>Enhanced Oil Recovery (EOR)</h3></div>
           <p>Design and evaluation of waterflood, CO₂ injection, thermal recovery, and chemical flooding programs.</p>
           <ul class="pillar-list">
             <li>CO₂ flood design & evaluation</li>
@@ -618,8 +619,8 @@
       <div class="pillar-category-title">ANALYSIS & DIAGNOSTICS</div>
       <div class="pillars-grid">
         <div class="pillar-card">
-          <div class="pillar-icon">📉</div>
-          <h3>Decline Curve Analysis</h3>
+          <div class="card-head"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#trending-down"></use></svg></span>
+          <h3>Decline Curve Analysis</h3></div>
           <p>Advanced production forecasting with probabilistic EUR assessment and rate-transient analysis integration.</p>
           <ul class="pillar-list">
             <li>Arps / Duong / SEPD methods</li>
@@ -629,8 +630,8 @@
         </div>
         
         <div class="pillar-card">
-          <div class="pillar-icon">🏭</div>
-          <h3>Facilities Bottleneck Diagnostics</h3>
+          <div class="card-head"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#factory"></use></svg></span>
+          <h3>Facilities Bottleneck Diagnostics</h3></div>
           <p>Production system optimization and debottlenecking across separators, compressors, pumps, and flowlines.</p>
           <ul class="pillar-list">
             <li>Integrated network modeling</li>
@@ -640,8 +641,8 @@
         </div>
         
         <div class="pillar-card">
-          <div class="pillar-icon">💰</div>
-          <h3>Economic Forecasting</h3>
+          <div class="card-head"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#circle-dollar-sign"></use></svg></span>
+          <h3>Economic Forecasting</h3></div>
           <p>NPV, IRR, sensitivity analysis, and Monte Carlo simulation for upstream investment decisions.</p>
           <ul class="pillar-list">
             <li>Risk-adjusted valuation</li>
@@ -657,8 +658,8 @@
       <div class="pillar-category-title">OPERATIONS & TESTING</div>
       <div class="pillars-grid">
         <div class="pillar-card">
-          <div class="pillar-icon">🌊</div>
-          <h3>Flow Assurance</h3>
+          <div class="card-head"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#waves"></use></svg></span>
+          <h3>Flow Assurance</h3></div>
           <p>Hydrate management, wax and asphaltene deposition modeling, thermal-hydraulic analysis, and subsea integrity.</p>
           <ul class="pillar-list">
             <li>Hydrate prevention strategies</li>
@@ -668,8 +669,8 @@
         </div>
         
         <div class="pillar-card">
-          <div class="pillar-icon">🔬</div>
-          <h3>Well Testing</h3>
+          <div class="card-head"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#activity"></use></svg></span>
+          <h3>Well Testing</h3></div>
           <p>Pressure transient analysis, deliverability testing, skin and permeability determination, and fracture characterization.</p>
           <ul class="pillar-list">
             <li>Pressure transient analysis (PTA)</li>
@@ -679,8 +680,8 @@
         </div>
         
         <div class="pillar-card">
-          <div class="pillar-icon">📐</div>
-          <h3>Equipment Design</h3>
+          <div class="card-head"><span class="tq-tile" aria-hidden="true"><svg class="i"><use href="/assets/icons/sprite.svg#drafting-compass"></use></svg></span>
+          <h3>Equipment Design</h3></div>
           <p>3D CAD modeling, FEA structural analysis, thermal simulation, and pressure vessel design for oil & gas facilities.</p>
           <ul class="pillar-list">
             <li>Siemens NX / Solidworks</li>
@@ -745,7 +746,7 @@
         <p style="font-size: 0.7rem; margin-top: 0.5rem; color: #888;">Through integrated field development planning</p>
       </div>
     </div>
-    <p style="text-align: center; font-size: 0.7rem; color: #777; margin-top: 1.5rem;">Typical ranges reported in industry case studies; actual results depend on the asset.</p>
+    <p style="text-align: center; font-size: 0.7rem; color: #9A9A9A; margin-top: 1.5rem;">Typical ranges reported in industry case studies; actual results depend on the asset.</p>
   </div>
 </section>
 
@@ -768,7 +769,7 @@
       </div>
       <div class="qa-visual">
         <div class="qa-card">
-          <div class="qa-card-title">📊 VALIDATION METRICS <span class="example-tag">Illustrative example</span></div>
+          <div class="qa-card-title"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#chart-column"></use></svg> VALIDATION METRICS <span class="example-tag">Illustrative example</span></div>
           <div class="metric-row">
             <span class="metric-label">History Match Quality</span>
             <span class="metric-value">92%</span>
@@ -815,7 +816,7 @@
       </div>
       <div class="qa-visual">
         <div class="qa-card">
-          <div class="qa-card-title">🔄 UNCERTAINTY WORKFLOW <span class="example-tag">Illustrative example</span></div>
+          <div class="qa-card-title"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#refresh-cw"></use></svg> UNCERTAINTY WORKFLOW <span class="example-tag">Illustrative example</span></div>
           <div class="flowchart-step">
             <div class="step-circle">1</div>
             <div class="step-line"></div>
@@ -871,7 +872,7 @@
       </div>
       <div class="qa-visual">
         <div class="qa-card">
-          <div class="qa-card-title">🚦 5-GATE QUALITY PROCESS <span class="example-tag">Illustrative example</span></div>
+          <div class="qa-card-title"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#list-checks"></use></svg> 5-GATE QUALITY PROCESS <span class="example-tag">Illustrative example</span></div>
           <div class="checklist-item checked" style="justify-content: space-between;">
             <span>GATE 1: Data Validation</span>
             <span class="badge">✓ COMPLETE</span>
@@ -922,7 +923,7 @@
       </div>
       <div class="qa-visual">
         <div class="qa-card">
-          <div class="qa-card-title">📐 STANDARDS &amp; CROSS-CHECKS</div>
+          <div class="qa-card-title"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#ruler"></use></svg> STANDARDS &amp; CROSS-CHECKS</div>
           <div style="margin-bottom: 1rem;">
             <div style="font-weight: 600; font-size: 0.75rem; margin-bottom: 0.5rem;">FRAMEWORKS WE WORK TO</div>
             <div class="checklist-item checked">SPE-PRMS reserves &amp; resources classification</div>
@@ -962,7 +963,7 @@
       </div>
       <div class="qa-visual">
         <div class="qa-card">
-          <div class="qa-card-title">📈 BENCHMARK COMPARISON <span class="example-tag">Illustrative example</span></div>
+          <div class="qa-card-title"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#trending-up"></use></svg> BENCHMARK COMPARISON <span class="example-tag">Illustrative example</span></div>
           <div style="margin-bottom: 1rem;">
             <div style="font-weight: 600; font-size: 0.75rem; margin-bottom: 0.5rem;">RECOVERY FACTOR vs BASIN AVG</div>
             <div class="metric-row"><span>Our Estimate</span><span>42%</span></div>
@@ -1003,7 +1004,7 @@
       </div>
       <div class="qa-visual">
         <div class="qa-card">
-          <div class="qa-card-title">⚠️ RISK MATRIX <span class="example-tag">Illustrative example</span></div>
+          <div class="qa-card-title"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#triangle-alert"></use></svg> RISK MATRIX <span class="example-tag">Illustrative example</span></div>
           <div class="risk-matrix">
             <div class="risk-axis">Prob. ↓ / Impact →</div><div class="risk-cell risk-head">Low</div><div class="risk-cell risk-head">Med</div><div class="risk-cell risk-head">High</div>
             <div class="risk-cell risk-head">High</div><div class="risk-cell risk-med"></div><div class="risk-cell risk-high">PRICE</div><div class="risk-cell risk-high"></div>
@@ -1012,9 +1013,9 @@
           </div>
           <div style="margin-top: 1rem;">
             <div style="font-weight: 600; font-size: 0.7rem; margin-bottom: 0.5rem;">TOP 3 RISKS & MITIGATION</div>
-            <div class="checklist-item">🔸 Compartmentalization (GEO) — Med/High: Seismic reprocessing + interference test</div>
-            <div class="checklist-item">🔸 CAPEX Overrun (CAPEX) — Med/Med: 30% contingency + phased development</div>
-            <div class="checklist-item">🔸 Oil Price Volatility (PRICE) — High/Med: Hedging strategy + breakeven analysis</div>
+            <div class="checklist-item"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#chevron-right"></use></svg> Compartmentalization (GEO) — Med/High: Seismic reprocessing + interference test</div>
+            <div class="checklist-item"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#chevron-right"></use></svg> CAPEX Overrun (CAPEX) — Med/Med: 30% contingency + phased development</div>
+            <div class="checklist-item"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#chevron-right"></use></svg> Oil Price Volatility (PRICE) — High/Med: Hedging strategy + breakeven analysis</div>
           </div>
         </div>
       </div>
@@ -1037,7 +1038,7 @@
       </div>
       <div class="qa-visual">
         <div class="qa-card">
-          <div class="qa-card-title">🔒 HOW WE HANDLE YOUR DATA</div>
+          <div class="qa-card-title"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#lock"></use></svg> HOW WE HANDLE YOUR DATA</div>
           <div class="checklist-item checked">NDA signed before any data is shared</div>
           <div class="checklist-item checked">Used only for your project &mdash; never shared or reused</div>
           <div class="checklist-item checked">Exchanged via your preferred secure platform</div>
@@ -1065,7 +1066,7 @@
       </div>
       <div class="qa-visual">
         <div class="qa-card">
-          <div class="qa-card-title">👥 HOW WE STAFF A PROJECT</div>
+          <div class="qa-card-title"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#users"></use></svg> HOW WE STAFF A PROJECT</div>
           <div style="margin-bottom: 1rem;">
             <div style="font-weight: 600; font-size: 0.75rem; margin-bottom: 0.5rem;">ENGAGEMENT MODEL</div>
             <div class="checklist-item checked">Senior engineer leads every project</div>
@@ -1107,7 +1108,7 @@
       </div>
       <div class="qa-visual">
         <div class="qa-card">
-          <div class="qa-card-title">📦 DELIVERABLE PACKAGE</div>
+          <div class="qa-card-title"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#package"></use></svg> DELIVERABLE PACKAGE</div>
           <div class="checklist-item checked" style="justify-content: space-between;">
             <span>✓ TECHNICAL REPORT</span>
             <span class="badge">Standard</span>
@@ -1158,9 +1159,9 @@
       </div>
       <div class="qa-visual">
         <div class="qa-card">
-          <div class="qa-card-title">🤝 POST-ENGAGEMENT SUPPORT</div>
+          <div class="qa-card-title"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#handshake"></use></svg> POST-ENGAGEMENT SUPPORT</div>
           <div style="margin-bottom: 1rem;">
-            <div style="font-weight: 600; font-size: 0.75rem; margin-bottom: 0.5rem; color: #2E8B57;">✓ STANDARD (INCLUDED)</div>
+            <div style="font-weight: 600; font-size: 0.75rem; margin-bottom: 0.5rem; color: #1F7A4D;">✓ STANDARD (INCLUDED)</div>
             <div class="checklist-item checked">30-day warranty — questions & clarifications</div>
             <div class="checklist-item checked">Minor model adjustments & bug fixes</div>
             <div class="checklist-item checked">2-hour knowledge transfer session</div>
@@ -1182,6 +1183,7 @@
     </div>
   </div>
 </section>
+</main>
 
 <!-- Footer placeholder (dynamic footer will be injected here) -->
 <div id="footer-placeholder"></div>

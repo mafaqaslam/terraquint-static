@@ -325,7 +325,7 @@
       color: var(--accent);
     }
 
-    .no-videos h3 {
+    .no-videos h2, .no-videos h3 {
       color: var(--black);
     }
 
@@ -355,7 +355,7 @@
       align-items: center;
       gap: 0.75rem;
       background: white;
-      color: #FF0000;
+      color: #CC0000;
       padding: 0.8rem 2rem;
       border-radius: 40px;
       font-weight: 600;
@@ -461,6 +461,7 @@
 
 <!-- Navbar will be injected here by components.js -->
 <div id="navbar-placeholder"></div>
+<main id="main">
 
 <!-- Page Header -->
 <section class="page-header">
@@ -492,7 +493,7 @@
 
     <!-- YouTube Subscribe CTA -->
     <div class="youtube-cta">
-      <h3>🎬 Subscribe to Our YouTube Channel</h3>
+      <h3><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#clapperboard"></use></svg> Subscribe to Our YouTube Channel</h3>
       <p>Get notified when we release new technical videos, case studies, and tutorials.</p>
       <a href="https://www.youtube.com/@afaqaslamm" class="youtube-btn" id="youtubeSubscribeBtn" target="_blank" rel="noopener noreferrer">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -504,6 +505,7 @@
 
   </div>
 </section>
+</main>
 
 <!-- Footer placeholder -->
 <div id="footer-placeholder"></div>
@@ -597,7 +599,7 @@
             <rect x="2" y="4" width="20" height="16" rx="2"/>
             <path d="M10 9l5 3-5 3V9z"/>
           </svg>
-          <h3 style="margin-top: 1rem;">Coming Soon</h3>
+          <h2 style="margin-top: 1rem; font-size: 1.25rem;">Coming Soon</h2>
           <p>We're currently creating technical videos, case studies, and tutorials. Check back soon for new content!</p>
         </div>
       `;
@@ -616,7 +618,7 @@
             onerror="handleThumbnailError(this)"
             loading="lazy"
           >
-          <div class="duration-badge">🎬 ${video.duration}</div>
+          <div class="duration-badge"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#clapperboard"></use></svg> ${video.duration}</div>
           <div class="play-overlay">
             <svg viewBox="0 0 24 24">
               <path d="M8 5v14l11-7z"/>
@@ -628,8 +630,8 @@
           <h3>${video.title}</h3>
           <div class="card-description">${video.description}</div>
           <div class="card-meta">
-            <span>📅 ${video.date}</span>
-            <span>👁️ ${formatViewCount(video.views)} views</span>
+            <span><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#calendar"></use></svg> ${video.date}</span>
+            <span><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#eye"></use></svg> ${formatViewCount(video.views)} views</span>
           </div>
         </div>
       </a>
@@ -736,7 +738,7 @@
               <line x1="12" y1="8" x2="12" y2="12"/>
               <line x1="12" y1="16" x2="12.01" y2="16"/>
             </svg>
-            <h3 style="margin-top: 1rem;">Data Loading Issue</h3>
+            <h2 style="margin-top: 1rem; font-size: 1.25rem;">Data Loading Issue</h2>
             <p>Please ensure videos-data.js is properly loaded.</p>
           </div>
         `;

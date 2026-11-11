@@ -20,12 +20,12 @@
     
     function getNavbarHTML() {
         return `
-            <nav class="navbar">
+            <nav class="navbar" aria-label="Main">
                 <div class="container nav-container">
                     <a href="/" class="logo">
                         <span class="logo-terra">Terra</span><span class="logo-quint">Quint</span>
                     </a>
-                    <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+                    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
                         <span></span>
                         <span></span>
                         <span></span>
@@ -58,12 +58,12 @@
                         <div class="footer-col">
                             <div class="footer-logo">TERRAQUINT</div>
                             <p class="footer-tagline">Petroleum Engineering Services<br>and Consultancy</p>
-                            <p class="footer-locations">📍 Dallas · Midland · Houston · Tulsa</p>
+                            <p class="footer-locations"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#map-pin"></use></svg> Dallas · Midland · Houston · Tulsa</p>
                         </div>
                         
                         <!-- COLUMN 2: SERVICES (6 links with scroll-to functionality) -->
                         <div class="footer-col">
-                            <h4 class="footer-heading">Services</h4>
+                            <h2 class="footer-heading">Services</h2>
                             <ul class="footer-links">
                                 <li><a href="/services" class="footer-service-link" data-service="reservoir">Reservoir Simulation</a></li>
                                 <li><a href="/services" class="footer-service-link" data-service="production">Production Optimization</a></li>
@@ -76,13 +76,13 @@
                         
                         <!-- COLUMN 3: CONTACT -->
                         <div class="footer-col">
-                            <h4 class="footer-heading">Contact</h4>
+                            <h2 class="footer-heading">Contact</h2>
                             <ul class="footer-links">
-                                <li><a href="mailto:afaqaslam@terraquint.com">✉️ afaqaslam@terraquint.com</a></li>
-                                <li><a href="tel:+19186252549">📞 +1 918 625 2549</a></li>
+                                <li><a href="mailto:afaqaslam@terraquint.com"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#mail"></use></svg> afaqaslam@terraquint.com</a></li>
+                                <li><a href="tel:+19186252549"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#phone"></use></svg> +1 (918) 625-2549</a></li>
                                 <li class="footer-social">
-                                    <a href="https://www.linkedin.com/in/afaqaslam/" target="_blank" rel="noopener noreferrer">🔗 LinkedIn</a> · 
-                                    <a href="https://x.com/11Afaq" target="_blank" rel="noopener noreferrer"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="vertical-align:-1px;margin-right:4px"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>X</a>
+                                    <a href="https://www.linkedin.com/in/afaqaslam/" target="_blank" rel="noopener noreferrer"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#linkedin"></use></svg> LinkedIn</a> · 
+                                    <a href="https://x.com/11Afaq" target="_blank" rel="noopener noreferrer"><svg class="i" aria-hidden="true"><use href="/assets/icons/sprite.svg#x-logo"></use></svg> X</a>
                                 </li>
                             </ul>
                         </div>
@@ -294,9 +294,9 @@
             const href = link.getAttribute('href');
             const cleanHref = norm(href);
             if (cleanHref === currentPage) {
-                link.style.color = 'var(--accent, #0077B6)';
+                link.style.color = 'var(--accent-on-dark, #6EB2FA)';
                 if (link.classList.contains('btn-outline')) {
-                    link.style.borderColor = 'var(--accent, #0077B6)';
+                    link.style.borderColor = 'var(--accent-on-dark, #6EB2FA)';
                 }
             }
         });
@@ -402,22 +402,50 @@
         const navLinks = document.getElementById('navLinks');
         
         if (!hamburger || !navLinks) return;
+
+        const setOpen = (open) => {
+            navLinks.classList.toggle('active', open);
+            hamburger.classList.toggle('active', open);
+            document.body.classList.toggle('menu-open', open);
+            hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+            hamburger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        };
         
         hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
+            const open = !navLinks.classList.contains('active');
+            setOpen(open);
+            // move keyboard focus into the menu once it has slid in
+            if (open) setTimeout(() => { const first = navLinks.querySelector('a'); if (first) first.focus({ preventScroll: true }); }, 320);
         });
         
         // Close menu when clicking a link
-        const links = navLinks.querySelectorAll('a');
-        links.forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
-                document.body.classList.remove('menu-open');
-            });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => setOpen(false));
         });
+
+        // Esc closes the menu and returns focus to the button
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                setOpen(false);
+                hamburger.focus();
+            }
+        });
+    }
+
+    // ============================================
+    // SKIP LINK + MAIN CONTENT LANDMARK
+    // ============================================
+
+    function initSkipLink() {
+        let main = document.querySelector('main');
+        if (!main) return;
+        if (!main.id) main.id = 'main';
+        main.setAttribute('tabindex', '-1');
+        const skip = document.createElement('a');
+        skip.className = 'skip-link';
+        skip.href = '#' + main.id;
+        skip.textContent = 'Skip to content';
+        document.body.insertBefore(skip, document.body.firstChild);
     }
     
     // ============================================
@@ -484,6 +512,7 @@
         updateCopyrightYear();
         initServiceScrollLinks();
         initMobileMenu();
+        initSkipLink();
     }
     
     // Wait for DOM to be fully loaded
