@@ -226,7 +226,7 @@
         const style = document.createElement('style');
         style.textContent = `
             .tq-action-bar { display: none; }
-            @media (max-width: 800px) {
+            @media (max-width: 900px) {
                 .tq-action-bar {
                     display: grid;
                     grid-template-columns: 1fr 1fr 1.3fr;
