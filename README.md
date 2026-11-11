@@ -46,22 +46,34 @@ Every push also runs a small GitHub automation (see [What happens automatically]
 
 ## Adding a new article
 
+The template's instructions (at the top of `articles/template.html`) say the same thing in short.
+
 1. **Copy** `articles/template.html` to `articles/your-article-name.html`. Use lowercase with hyphens, e.g. `waterflood-surveillance.html`. The file name becomes the address: `terraquint.com/articles/waterflood-surveillance`.
-2. **Fill in every `[BRACKETED]` value.** The notes inside the template explain each one:
-   - **Title and description.** The description is used by Google, by share previews **and** as the summary on the Insights page. Aim for under 160 characters.
-   - **Category:** one of `CASE STUDY`, `TECHNICAL BRIEF`, `INDUSTRY INSIGHT`, `WHITEPAPER`. These match the filter buttons on the Insights page.
-   - **Publish date** (`YYYY-MM-DD`) and **read time**.
-   - **Region** for the share-card globe: `americas`, `usa`, `north-america`, `gulf-of-mexico`, `middle-east`, `north-sea`, `asia`, `asia-pacific` or `africa`.
-   - **Closing "Get in touch" box:** a question for the reader, one sentence on how TerraQuint helps, and the service to pre-select in the form. Any part left blank or in `[brackets]` automatically becomes *"Have a similar challenge?"* / *"Get in touch for a free initial assessment call."* with the general form. The list of service names is in the template.
-3. **Write the article** inside the `article-content` section.
+2. **Fill in** these (search the file for `[` to find them):
+   - **Description:** one or two sentences, under 160 characters. Used by Google, share previews **and** as the summary on the Insights page.
+   - **Publish date** (`article:published_time`, `YYYY-MM-DD`)
+   - **Region** for the share-card globe (`tq:region`): `americas`, `usa`, `north-america`, `gulf-of-mexico`, `middle-east`, `north-sea`, `asia`, `asia-pacific` or `africa`
+   - **Category:** `CASE STUDY`, `TECHNICAL BRIEF`, `INDUSTRY INSIGHT` or `WHITEPAPER`. These match the Insights filters.
+   - **Title:** the main heading in the article header, ideally under 60 characters
+   - **The article text.** The template shows headings, lists, a quote and a table. Keep the `table-wrap` box around every table so it scrolls sideways on phones.
+   - **Closing "Get in touch" box** (optional): a question, one sentence and a service to pre-select. Blank parts become *"Have a similar challenge?"* / *"Get in touch for a free initial assessment call."* with the general form. The service names are listed in the template.
+3. **Leave everything else in `[brackets]`.** These fill themselves in from the fields above:
+   - page title, share title, description and address
+   - structured data, the canonical address
+   - the date shown under the title
+   - the read time (about 130 words a minute)
+   
+   If you type your own value into any of them, e.g. a shorter browser title, it's kept.
 4. **Push.** Within about a minute or two of the push, GitHub automatically:
-   - creates the article's own share card and points the article's share image at it
+   - creates the article's own share card
+   - fills everything from step 3
    - adds the article to the **Insights** page (newest first)
    - picks the **Related articles** links on every article (same category first, then newest)
    - adds it to `sitemap.xml`
-   - fills any blank parts of the closing box
 
-   GitHub saves these as a commit named **"Auto: …"**. **Pull or re-sync the PC folder afterwards** so it matches GitHub again.
+   GitHub saves these as a commit named **"Auto: …"**. **Pull or re-sync the PC folder afterwards** so it matches GitHub again. Until then the page itself already shows the right date, read time and closing box.
+
+**Drafts:** an article whose title is still `[Article Title]` is treated as a draft. It isn't listed on Insights, in related links or in the sitemap.
 
 There's no need to edit `insights.html`, other articles, or `sitemap.xml` by hand.
 

@@ -5,16 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <!-- SEO:START (titles, descriptions, share cards, structured data) -->
   <!-- ============================================================
-       HOW TO USE THIS TEMPLATE FOR A NEW ARTICLE
-       1. Copy this file to articles/your-article-slug.html (lowercase, hyphens).
-       2. Replace every [BRACKETED] value below and in the article header.
-          The description is also used as the summary on the Insights page.
-       3. Pick a region for the share card from:
-          americas, usa, north-america, gulf-of-mexico, middle-east,
-          north-sea, asia, asia-pacific, africa
-       4. Push. GitHub automatically creates the article's own share card
-          (title + region globe) within ~2 minutes and switches og:image to it.
-          Until then the regional card below is used, so shares are never blank.
+       NEW ARTICLE: HOW TO USE THIS TEMPLATE
+       ------------------------------------------------------------
+       1. Copy this file to articles/your-article-name.html
+          (lowercase, hyphens). The file name becomes the address:
+          terraquint.com/articles/your-article-name
+
+       2. FILL IN (search for "[" to find them):
+          - Description (meta "description" near the top): one or two sentences,
+            under 160 characters.
+            Used by Google, share previews AND as the summary on the Insights page.
+          - article:published_time      the publish date, YYYY-MM-DD
+          - tq:region                   globe on the share card: americas, usa,
+            north-america, gulf-of-mexico, middle-east, north-sea, asia,
+            asia-pacific, africa
+          - Category (in the header)    CASE STUDY, TECHNICAL BRIEF,
+            INDUSTRY INSIGHT or WHITEPAPER (these match the Insights filters)
+          - Title: the main heading in the article header, under 60 characters
+          - The article text (the "article-content" section below)
+          - The closing "Get in touch" box (optional, see the note there)
+
+       3. LEAVE AS [BRACKETS]. These fill themselves in automatically:
+          page title, share title/description/address, structured data,
+          canonical address, the date shown under the title, read time.
+          (Type your own value in any of them only if you want it different,
+          e.g. a shorter browser title.)
+
+       4. Push. Within a minute or two GitHub automatically:
+          - creates the article's share card (title + region globe)
+          - fills everything listed in step 3
+          - adds the article to the Insights page (newest first)
+          - picks the "Related articles" links on every article
+          - adds it to sitemap.xml
+          It saves these as an "Auto: ..." commit: re-sync the PC folder after.
+          An article whose title is still [bracketed] is treated as a draft:
+          it is not listed anywhere.
        ============================================================ -->
   <title>[Article Title] | TerraQuint</title>
   <meta name="description" content="[One or two sentences, under 160 characters, describing the article.]">
@@ -35,8 +60,7 @@
   <meta property="article:author" content="Afaq Aslam">
   <!-- Region used for the automatic share card (americas, usa, north-america, gulf-of-mexico, middle-east, north-sea, asia, asia-pacific, africa) -->
   <meta name="tq:region" content="usa">
-  <!-- Structured data for Google (article + breadcrumb). Replace the [BRACKETED] values;
-       "image" is switched to the article's own card automatically. -->
+  <!-- Structured data for Google (article + breadcrumb): filled in automatically. -->
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -93,7 +117,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   
   <!-- Global Styles -->
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="/styles.css">
   <!-- Article styles (shared by all articles) -->
   <link rel="stylesheet" href="/assets/css/article.css">
 </head>
@@ -125,7 +149,7 @@
     </div>
   </div>
 
-  <!-- Article Content - EDIT THIS SECTION -->
+  <!-- Article text: WRITE YOUR ARTICLE HERE -->
   <div class="article-content">
     
     <h2>Introduction</h2>
@@ -148,6 +172,24 @@
     
     <h2>Results & Discussion</h2>
     <p>Present the outcomes, data, and key findings. Use tables or charts if helpful.</p>
+
+    <!-- Tables: keep the table-wrap box around every table so it scrolls sideways on phones -->
+    <div class="table-wrap" tabindex="0" role="region" aria-label="Table 1 (scroll sideways on small screens)">
+    <table>
+      <thead>
+        <tr><th>Metric</th><th>Before</th><th>After</th><th>Change</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Example metric</td><td>100</td><td>125</td><td><strong>+25%</strong></td></tr>
+        <tr><td>Another metric</td><td>40</td><td>32</td><td><strong>-20%</strong></td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <!-- Optional extras (delete if unused):
+         Link:   <a href="/services">our services</a>  (or another article: /articles/name)
+         Image:  <img src="/assets/articles/your-image.webp" alt="Describe the image" loading="lazy" width="1200" height="675">
+         Divider: <hr> -->
     
     <blockquote>
       A notable quote or key takeaway from the work can be highlighted here.
@@ -215,10 +257,10 @@
       </div>
     </div>
 
-    <!-- Author Bio Section - EDIT THIS -->
+    <!-- Author bio (standard text; edit only if it changes) -->
     <div class="author-bio">
       <div class="author-avatar">
-        <img src="../afaq-avatar.webp" alt="Afaq Aslam, Founder of TerraQuint" width="60" height="60" loading="lazy" decoding="async">
+        <img src="/afaq-avatar.webp" alt="Afaq Aslam, Founder of TerraQuint" width="60" height="60" loading="lazy" decoding="async">
       </div>
       <div class="author-info">
         <h4>Afaq Aslam &middot; Founder &amp; Principal Petroleum Engineer</h4>
@@ -226,13 +268,12 @@
       </div>
     </div>
 
-    <!-- Related Articles - EDIT THESE LINKS -->
+    <!-- Related articles: picked automatically on every push, no need to edit -->
     <div class="related-articles">
       <h4>Related Articles</h4>
       <div class="related-links">
         <!-- RELATED:START (generated automatically) -->
-        <a href="/articles/esp-optimization">← Optimizing ESP Performance</a>
-        <a href="/articles/decline-curve-analysis">Modern Decline Curve Analysis →</a>
+        <a href="/insights">← All insights</a>
         <!-- RELATED:END -->
       </div>
     </div>
@@ -251,7 +292,7 @@
 <script src="/assets/js/article.js"></script>
 
 <!-- Components.js - Centralized navbar and back-to-top button -->
-<script src="../components.js"></script>
+<script src="/components.js"></script>
 
   <!-- Cloudflare Web Analytics (cookie-free visitor stats) -->
   <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "de756296e9a44ee38c4028963cfb8bbe"}'></script>

@@ -9,6 +9,10 @@
  *      tools/og/card.html using the article's title, category, read time and
  *      <meta name="tq:region">.
  *   2. Point the article's og:image (and structured-data image) at that card.
+ *   0. Fill the repeated fields from one source each (only where still blank or [bracketed]):
+ *      <h1> -> page title, share title, image alt, structured data headline/breadcrumb;
+ *      description -> share + structured-data description; file name -> addresses;
+ *      publish date -> shown date + structured-data dates; article length -> read time.
  *   3. Fill any blank parts of the closing "Get in touch" box.
  *   4. Rebuild the article's "Related articles" links (same category first, then newest).
  * Then rebuild the Insights page article list (newest first) and sitemap.xml.
@@ -29,11 +33,14 @@ function readArticle(slug) {
   const file = join(ROOT, 'articles', slug + '.html');
   const html = readFileSync(file, 'utf8');
   // values still in [brackets] (template placeholders) are treated as empty
-  const pick = (re) => { const m = html.match(re); const v = m ? decode(m[1]) : ''; return /\[.*\]/.test(v) ? '' : v; };
+  const clean = html.replace(/<!--[\s\S]*?-->/g, '');   // ignore notes/comments
+  const pick = (re) => { const m = clean.match(re); const v = m ? decode(m[1]) : ''; return /\[.*\]/.test(v) ? '' : v; };
   const title = pick(/<h1[^>]*>([\s\S]*?)<\/h1>/);
   const cat = pick(/class="article-category"[^>]*>([\s\S]*?)<\/span>/);
   // read time sits after the clock icon (was an emoji before Phase 6)
-  const read = pick(/#clock"><\/use><\/svg>\s*([^<]+)</) || pick(/⏱️\s*([^<]+)</);
+  const bodyText = ((clean.match(/<div class="article-content">([\s\S]*?)<div class="article-cta">/) || [])[1] || '').replace(/<[^>]+>/g, ' ');
+  const autoRead = `${Math.max(1, Math.round(bodyText.split(/\s+/).filter(Boolean).length / 130))} min read`;
+  const read = pick(/#clock"><\/use><\/svg>\s*([^<]+)</) || pick(/⏱️\s*([^<]+)</) || autoRead;
   const desc = pick(/<meta name="description" content="([^"]*)"/);
   const date = pick(/<meta property="article:published_time" content="([^"]*)"/);
   let region = pick(/<meta name="tq:region" content="([^"]+)"/) || 'americas';
@@ -75,6 +82,45 @@ for (const a of articles) {
 console.log(`Share cards: ${jobs.length} to create`);
 await renderCards(jobs);
 
+
+// ---------- one source for repeated fields ----------
+const isBlank = (v) => !String(v).replace(/<[^>]+>/g, '').trim() || /\[[^\]]*\]/.test(v);
+const escAttr = (t) => String(t).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const jsonStr = (t) => JSON.stringify(String(t)).slice(1, -1);
+const longDate = (d) => { const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(d || ''); return m ? `${MONTHS[+m[2] - 1]} ${+m[3]}, ${m[1]}` : ''; };
+function fillDerived(html, a) {
+  const url = `${SITE}/articles/${a.slug}`;
+  const t = a.title, d = a.desc, date = a.date;
+  // replace the value captured by the middle group only if it is still blank / [bracketed]
+  const set = (re, val) => { if (!val) return; html = html.replace(re, (m, pre, v, post) => isBlank(v) ? pre + val + post : m); };
+  if (t) {
+    set(/(<title>)([\s\S]*?)(<\/title>)/, `${escAttr(t)} | TerraQuint`);
+    set(/(<meta property="og:title" content=")([^"]*)(")/, `${escAttr(t)} | TerraQuint`);
+    set(/(<meta property="og:image:alt" content=")([^"]*)(")/, escAttr(t));
+    set(/("headline":\s*")([^"]*)(")/, jsonStr(t));
+    set(/("position": 3, "name":\s*")([^"]*)(")/, jsonStr(t));
+  }
+  if (d) {
+    set(/(<meta property="og:description" content=")([^"]*)(")/, escAttr(d));
+    set(/("description":\s*")([^"]*)(")/, jsonStr(d));
+  }
+  set(/(<link rel="canonical" href=")([^"]*)(")/, url);
+  set(/(<meta property="og:url" content=")([^"]*)(")/, url);
+  set(/("url":\s*")([^"]*\[[^"]*)(")/, url);
+  set(/("mainEntityOfPage":\s*")([^"]*)(")/, url);
+  set(/("position": 3, "name":\s*"[^"]*", "item":\s*")([^"]*)(")/, url);
+  if (/^\d{4}-\d{2}-\d{2}$/.test(date || '')) {
+    set(/("datePublished":\s*")([^"]*)(")/, date);
+    set(/("dateModified":\s*")([^"]*)(")/, date);
+    set(/(#calendar"><\/use><\/svg>\s*)([^<]*)(<)/, longDate(date));
+  }
+  // read time: about 130 words a minute (technical text with tables)
+  const body = (html.replace(/<!--[\s\S]*?-->/g, '').match(/<div class="article-content">([\s\S]*?)<div class="article-cta">/) || [])[1] || '';
+  const words = body.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
+  set(/(#clock"><\/use><\/svg>\s*)([^<]*)(<)/, `${Math.max(1, Math.round(words / 130))} min read`);
+  return html;
+}
+
 // Articles that are ready to list (title filled in), newest first
 const esc = (t) => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -109,7 +155,7 @@ function fillCta(html) {
 
 // point og:image + JSON-LD image at the article's own card (once it exists), fill the CTA box
 for (const a of articles) {
-  let html = a.html;
+  let html = fillDerived(a.html, a);
   if (existsSync(join(ROOT, 'og', 'articles', a.slug + '.jpg'))) {
     const own = `${SITE}/og/articles/${a.slug}.jpg`;
     html = html
@@ -153,7 +199,7 @@ const lastmod = (rel) => {
 const pages = [['index.html', '/'], ['services.html', '/services'], ['methodology.html', '/methodology'], ['about.html', '/about'],
   ['insights.html', '/insights'], ['videos.html', '/videos'], ['contact.html', '/contact']];
 const urls = [...pages.filter(([f]) => existsSync(join(ROOT, f))).map(([f, p]) => [p, lastmod(f)]),
-  ...slugs.map((s) => [`/articles/${s}`, lastmod(`articles/${s}.html`)])];
+  ...published.map((a) => [`/articles/${a.slug}`, lastmod(`articles/${a.slug}.html`)])];
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated by tools/og/generate.mjs — do not edit by hand -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

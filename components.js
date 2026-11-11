@@ -275,6 +275,28 @@
         }
     }
 
+    // Same idea for a new article's header and browser title, until GitHub fills them in
+    function fillArticleMeta() {
+        const header = document.querySelector('.article-header');
+        if (!header) return;
+        const unfilled = (t) => !t || !t.trim() || /\[[^\]]*\]/.test(t);
+        const h1 = header.querySelector('h1');
+        if (h1 && !unfilled(h1.textContent) && unfilled(document.title)) document.title = h1.textContent.trim() + ' | TerraQuint';
+        const dateEl = header.querySelector('.article-meta span:nth-child(2)');
+        const pub = (document.querySelector('meta[property="article:published_time"]') || {}).content || '';
+        const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(pub);
+        if (dateEl && m && unfilled(dateEl.textContent)) {
+            const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+            dateEl.lastChild.textContent = ' ' + months[+m[2] - 1] + ' ' + (+m[3]) + ', ' + m[1];
+        }
+        const readEl = header.querySelector('.article-meta span:nth-child(3)');
+        const body = document.querySelector('.article-content');
+        if (readEl && body && unfilled(readEl.textContent)) {
+            const words = body.textContent.split(/\s+/).filter(Boolean).length;
+            readEl.lastChild.textContent = ' ' + Math.max(1, Math.round(words / 130)) + ' min read';
+        }
+    }
+
     // ============================================
     // ACTIVE PAGE HIGHLIGHTING
     // ============================================
@@ -508,6 +530,7 @@
         // Initialize all features
         initBackToTop();
         fillArticleCta();
+        fillArticleMeta();
         highlightActivePage();
         updateCopyrightYear();
         initServiceScrollLinks();
